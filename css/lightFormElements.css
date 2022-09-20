@@ -1,0 +1,30 @@
+/**
+CSS rules to colorize elements in light schemes
+*/
+/*Light scheme theme*/
+@media screen and (prefers-color-scheme: light) {
+  html {
+    color-scheme: light;
+  }
+  input[type=checkbox]::before, input[type=checkbox]::after {
+    border-color: #878787;
+  }
+  input[type=checkbox]::after {
+    background-color: #136bae;
+  }
+  input[type=checkbox]::before {
+    background-color: #161619;
+  }
+  input[type=checkbox]:checked:after {
+    background-color: #136bae;
+  }
+  input[type=checkbox]:checked::before {
+    background-color: #d6cece;
+  }
+  input[type=checkbox]:checked:hover::before {
+    background-color: #d6cece;
+  }
+  input[type=checkbox]:hover::before {
+    background-color: #293141;
+  }
+}/*# sourceMappingURL=lightFormElements.css.map */

@@ -1,0 +1,123 @@
+@use "_normalize.scss";
+/**
+This is main style for this page, refer to "darkFormElements" or "lightFormElements" files to wath/use the code
+*/
+
+//////////////////// 
+//////////////////// Dark Colors
+//////////////////// 
+//background colors
+$main-dark-background-color: #1e1e1e;
+$box-dark-background-color: #ccc;
+
+//Font colors
+$main-dark-font-color: #ccc;
+$link-dark-font-color: #26b8ff;
+$link-dark-active-color: #85ec76;
+
+
+//////////////////// 
+//////////////////// Ligth colors
+//////////////////// 
+//background colors
+$main-light-background-color: #ccc;
+$box-light-background-color: #a8a8a8;
+
+//Font colors
+$main-light-font-color: #1e1e1e;
+$link-light-font-color: #314bc8;
+$link-light-active-color: #06970e;
+
+/* Sizes and formats*/
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: Sans-Serif;
+	font-size: 60.5%;
+}
+
+body {
+	font-size: 1.6rem;
+	padding: 0;
+}
+
+h1 {
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+//////////////////// 
+//////////////////// logos Styles
+//////////////////// 
+
+.logo {
+	padding: 0.25em;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.logo--text {
+	padding: 0;
+	display: inline-block;
+	height: 1em;
+	width: auto;
+	vertical-align: bottom;
+	border: none;
+}
+
+
+@media screen and (prefers-color-scheme: dark) {
+
+	html {
+		background-color: $main-dark-background-color ;
+		color: $main-dark-font-color;
+	}
+
+	.logo-externalUtil {
+		background-color: $box-dark-background-color;
+	}
+
+	a {
+		color: $link-dark-font-color;
+
+		&:visited {
+			color: $link-dark-font-color;
+		}
+
+		&:active {
+			color: $link-dark-active-color;
+		}
+	}
+}
+
+@media screen and (prefers-color-scheme: light) {
+	html {
+		background-color: $main-light-background-color ;
+		color: $main-light-font-color;
+	}
+
+	.logo-externalUtil {
+		background-color: $box-light-background-color;
+	}
+
+	a {
+		color: $link-light-font-color;
+
+		&:visited {
+			color: $link-light-font-color;
+		}
+
+		&:active {
+			color: $link-light-active-color;
+		}
+	}
+}

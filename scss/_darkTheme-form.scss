@@ -1,0 +1,134 @@
+/** 
+CSS rules to colorize form elements in dark schemes
+*/
+$white: #fff;
+
+//Backgrounds colors
+$main-background-color: #161619;
+$focus-background: #293141;
+$input-backgorund-color :#000;
+
+//Fonts colors
+$main-font-color: #d6cece;
+
+//Border colors
+$border-color: #878787;
+$highlight-border-color: #136bae;
+$highlight-border-color-opaque: #1b5c8d;
+
+/*Dark scheme theme*/
+@media screen and (prefers-color-scheme: dark) {
+	html {
+		background-color: $main-background-color;
+		color: $main-font-color;
+		color-scheme: dark;
+	}
+
+	body {
+		color: $main-font-color;
+	}
+
+	button,
+	select,
+	input,
+	textarea {
+		background-color: $main-background-color;
+		border-color: $border-color;
+		color: $main-font-color;
+
+		&:focus,
+		&:focus-within,
+		&:focus-visible {
+			background-color: $focus-background;
+			border-color: $highlight-border-color;
+		}
+
+		&:not(:disabled) {
+			&:hover:not(:focus) {
+				border-color: $highlight-border-color;
+
+				&::placeholder {
+					color: $highlight-border-color-opaque;
+				}
+			}
+		}
+	}
+
+	button,
+	input[type="button"],
+	input[type="reset"],
+	input[type="file"],
+	input[type="image"],
+	input[type="submit"] {
+		&:hover {
+			background-color: $focus-background;
+		}
+
+		&:active {
+			background-color: $highlight-border-color;
+			border-color: $main-font-color;
+			color: $white;
+		}
+	}
+
+	input[type="checkbox"] {
+
+		&::before,
+		&::after {
+			border-color: $border-color;
+		}
+
+		&::after {
+			background-color: $highlight-border-color;
+		}
+
+		&::before {
+			background-color: $main-background-color;
+		}
+
+		&:checked {
+			&:after {
+				background-color: $highlight-border-color;
+			}
+
+			&::before {
+				background-color: $main-font-color;
+			}
+
+			&:hover {
+				&::before {
+					background-color: $main-font-color;
+				}
+			}
+		}
+
+		&:hover {
+			&::before {
+				background-color: $focus-background;
+			}
+		}
+	}
+
+	fieldset {
+		border-color: $border-color;
+	}
+
+	select {
+		&:-moz-focusring {
+			text-shadow: 0 0 0 var($white);
+		}
+
+		option {
+			background-color: $focus-background;
+			color: $main-font-color;
+
+			&:current {
+				background-color: $border-color;
+			}
+		}
+
+		optgroup {
+			background-color: $main-background-color;
+		}
+	}
+}

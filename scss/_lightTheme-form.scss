@@ -1,0 +1,61 @@
+/**
+CSS rules to colorize elements in light schemes
+*/
+
+//Backgrounds colors
+$main-background-color: #161619;
+$focus-background: #293141;
+$input-backgorund-color :#000;
+
+//Fonts colors
+$main-font-color: #d6cece;
+
+//Border colors
+$border-color: #878787;
+$highlight-border-color: #136bae;
+$highlight-border-color-opaque: #1b5c8d;
+
+/*Light scheme theme*/
+@media screen and (prefers-color-scheme: light) {
+	html {
+		color-scheme: light;
+	}
+
+	input[type="checkbox"] {
+
+		&::before,
+		&::after {
+			border-color: $border-color;
+		}
+
+		&::after {
+			background-color: $highlight-border-color;
+		}
+
+		&::before {
+			background-color: $main-background-color;
+		}
+
+		&:checked {
+			&:after {
+				background-color: $highlight-border-color;
+			}
+
+			&::before {
+				background-color: $main-font-color;
+			}
+
+			&:hover {
+				&::before {
+					background-color: $main-font-color;
+				}
+			}
+		}
+
+		&:hover {
+			&::before {
+				background-color: $focus-background;
+			}
+		}
+	}
+}
