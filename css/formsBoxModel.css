@@ -4,7 +4,8 @@ CSS rules for resizing and setting form elements. No properties or values relate
 button,
 select,
 input,
-textarea {
+textarea,
+output {
   border-radius: 0.25em;
   border-style: solid;
   border-width: 0.125em;
@@ -34,11 +35,33 @@ input[type=button] {
   padding: 0.75em 1.75em;
 }
 
-select:-ms-expand {
-  display: none;
+select,
+textarea {
+  /* width */
 }
-select:-moz-focusring {
-  color: transparent !important;
+select::-webkit-scrollbar,
+textarea::-webkit-scrollbar {
+  width: 1em;
+  height: 1em;
+}
+select::-webkit-scrollbar-track-piece,
+textarea::-webkit-scrollbar-track-piece {
+  background-clip: content-box;
+  border-radius: 1em;
+}
+select::-webkit-scrollbar-button:vertical:start:decrement, select::-webkit-scrollbar-button:vertical:end:decrement, select::-webkit-scrollbar-button:vertical:end:increment, select::-webkit-scrollbar-button:horizontal:start:decrement, select::-webkit-scrollbar-button:horizontal:end:decrement, select::-webkit-scrollbar-button:horizontal:end:increment, select::-webkit-scrollbar-corner, select::-webkit-resizer,
+textarea::-webkit-scrollbar-button:vertical:start:decrement,
+textarea::-webkit-scrollbar-button:vertical:end:decrement,
+textarea::-webkit-scrollbar-button:vertical:end:increment,
+textarea::-webkit-scrollbar-button:horizontal:start:decrement,
+textarea::-webkit-scrollbar-button:horizontal:end:decrement,
+textarea::-webkit-scrollbar-button:horizontal:end:increment,
+textarea::-webkit-scrollbar-corner,
+textarea::-webkit-resizer {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  position: relative;
 }
 
 input:focus, input:focus-within, input:focus-visible,
@@ -129,6 +152,18 @@ input[type=color]:not(:disabled):hover:not(:focus) {
   border: none;
 }
 
+fieldset {
+  border-radius: 0.5em;
+  border-style: solid;
+  border-width: 0.125em;
+  padding: 0 0.5em 1em 0.5em;
+}
+fieldset legend {
+  font-weight: bold;
+  margin: 0 0.5em 0.5em;
+  padding: 0 0.75em;
+}
+
 input[type=radio] {
   height: 1.125em;
   vertical-align: bottom;
@@ -143,18 +178,40 @@ input[type=range] {
   padding: 0;
 }
 
-fieldset {
-  border-radius: 0.5em;
-  border-style: solid;
-  border-width: 0.125em;
-  padding: 0 0.5em 1em 0.5em;
+label {
+  margin: 1em 0 0.5em;
 }
-fieldset legend {
-  font-weight: bold;
-  margin: 0 0.5em 0.5em;
-  padding: 0 0.75em;
+
+select {
+  cursor: pointer;
+  padding: 0.25em 0.75em;
+}
+select:-ms-expand {
+  display: none;
+}
+select:-moz-focusring {
+  color: transparent !important;
+}
+select[size] {
+  padding: 0;
+}
+select optgroup::before {
+  padding: 0 0.25em;
+}
+select option {
+  margin: 0;
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+}
+select option::before {
+  display: inline-block;
+  width: 0.125em;
 }
 
 textarea {
   vertical-align: top;
+}
+
+output {
+  padding: 0.25em;
 }/*# sourceMappingURL=formsBoxModel.css.map */

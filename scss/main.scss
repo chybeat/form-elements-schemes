@@ -1,7 +1,14 @@
 @use "_normalize.scss";
+@use "_prism-complement.scss";
 /**
 This is main style for this page, refer to "darkFormElements" or "lightFormElements" files to wath/use the code
 */
+
+//////////////////// 
+//////////////////// Global colors
+//////////////////// 
+$table-lines-color: #858585;
+
 
 //////////////////// 
 //////////////////// Dark Colors
@@ -11,10 +18,13 @@ $main-dark-background-color: #1e1e1e;
 $box-dark-background-color: #ccc;
 
 //Font colors
-$main-dark-font-color: #ccc;
+$main-dark-font-color: #a0a0a0;
 $link-dark-font-color: #26b8ff;
-$link-dark-active-color: #85ec76;
+$link-dark-font-active-color: #85ec76;
+$strong-dark-font-color: #e0e0e0;
 
+//borders
+$border-lines-dark-color: #4d3c3c;
 
 //////////////////// 
 //////////////////// Ligth colors
@@ -26,7 +36,10 @@ $box-light-background-color: #a8a8a8;
 //Font colors
 $main-light-font-color: #1e1e1e;
 $link-light-font-color: #314bc8;
-$link-light-active-color: #06970e;
+$link-light-font-active-color: #06970e;
+
+//borders
+$border-lines-light-color: #b26d1a;
 
 /* Sizes and formats*/
 * {
@@ -36,6 +49,7 @@ $link-light-active-color: #06970e;
 html {
 	font-family: Sans-Serif;
 	font-size: 60.5%;
+	scroll-behavior: smooth;
 }
 
 body {
@@ -43,8 +57,18 @@ body {
 	padding: 0;
 }
 
-h1 {
-	text-align: center;
+article,
+body>header {
+	position: relative;
+	max-width: 75em;
+	margin: 1em auto
+}
+
+p,
+ul,
+table {
+	max-width: 48em;
+	margin: 1em auto;
 }
 
 a {
@@ -52,6 +76,35 @@ a {
 
 	&:hover {
 		text-decoration: underline;
+	}
+}
+
+h1 {
+	text-align: center;
+}
+
+//////////////////// 
+//////////////////// Table Styles
+//////////////////// 
+
+table {
+	border: 0.125em solid $table-lines-color;
+	border-collapse: collapse;
+
+	td,
+	th {
+		border-color: $table-lines-color;
+		border-style: dotted;
+		border-bottom-style: solid;
+		border-width: 1px;
+		padding: 0.5em;
+	}
+
+	th {
+		color: $main-light-font-color;
+		background-color: $main-light-background-color;
+		border-left: none;
+		height: 2em;
 	}
 }
 
@@ -74,6 +127,66 @@ a {
 	border: none;
 }
 
+#list-of-elements {
+	article {
+		padding-bottom: 2em;
+		border-bottom-width: 0.125em;
+		border-bottom-style: dotted;
+
+		&:first-child {
+			padding-bottom: 0;
+			border: none;
+		}
+	}
+
+	.goToListElements {
+		bottom: 0.25em;
+		display: block;
+		position: absolute;
+		right: 0.5em;
+	}
+}
+
+.tableContainer {
+	overflow-x: auto;
+	width: 100%;
+}
+
+.comparition {
+	max-width: fit-content;
+	margin: 0 auto;
+	overflow-x: auto;
+
+	.elementDescription {
+		max-width: 25em;
+	}
+
+	.elementSourceCode {
+		pre {
+			font-size: 0.85em;
+			display: block;
+			width: 100% !important;
+		}
+	}
+
+	td {
+		label {
+			display: block;
+		}
+
+		&:nth-child(1) {
+			min-width: 12em;
+			max-width: 16em;
+		}
+
+		&:nth-child(2),
+		&:nth-child(3),
+		&:nth-child(4) {
+			min-width: fit-content;
+		}
+	}
+}
+
 
 @media screen and (prefers-color-scheme: dark) {
 
@@ -94,7 +207,35 @@ a {
 		}
 
 		&:active {
-			color: $link-dark-active-color;
+			color: $link-dark-font-active-color;
+		}
+	}
+
+	#list-of-elements {
+		article {
+			border-bottom-color: $border-lines-dark-color
+		}
+	}
+
+	b,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	th,
+	strong {
+		color: $strong-dark-font-color;
+	}
+
+	table {
+		tbody {
+			tr {
+				&:hover {
+					background-color: #353535;
+				}
+			}
 		}
 	}
 }
@@ -117,7 +258,42 @@ a {
 		}
 
 		&:active {
-			color: $link-light-active-color;
+			color: $link-light-font-active-color;
 		}
 	}
+
+	#list-of-elements {
+		article {
+			border-bottom-color: $border-lines-light-color
+		}
+	}
+
+	table {
+		tbody {
+			tr {
+				&:hover {
+					background-color: #b8b8b8;
+				}
+			}
+		}
+	}
+
+
 }
+
+/*CSS rules to 360px max-width screens (mobile) */
+//When screen is bigger than 360px, below rules does not apply
+/*@media screen and (max-width:360px) {
+	html {
+		// background-color: #F00;
+	}
+}
+
+/*CSS rules to 640px max-width screens (tablet) */
+//When screen is bigger than 640px, below rules does not apply
+/*@media screen and (max-width:360px) {
+	html {
+		// background-color: #F00;
+	}
+}
+*/

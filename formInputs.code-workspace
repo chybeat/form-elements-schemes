@@ -5,6 +5,7 @@
 		}
 	],
 	"settings": {
+		"editor.formatOnPaste": false,
 		"liveSassCompile.settings.formats": [
 			{
 				"format": "compressed",

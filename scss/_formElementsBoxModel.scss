@@ -5,7 +5,8 @@ CSS rules for resizing and setting form elements. No properties or values relate
 button,
 select,
 input,
-textarea {
+textarea,
+output {
 	border-radius: 0.25em;
 	border-style: solid;
 	border-width: 0.125em;
@@ -35,15 +36,49 @@ input[type="button"] {
 	padding: 0.75em 1.75em;
 }
 
-select {
-	&:-ms-expand {
-		display: none;
+//scrollable inputs
+select,
+textarea {
+
+	/* width */
+	// Firefox (omited)
+	//scrollbar-width: thin;
+
+	// Chrome (omited)
+
+	&::-webkit-scrollbar {
+		width: 1em;
+		height: 1em;
 	}
 
-	&:-moz-focusring {
-		color: transparent !important;
+	///test
+
+	//	&::-webkit-scrollbar:corner-present {
+	//		display: block;
+	//		background-color: #FD0;
+	//	}
+
+	&::-webkit-scrollbar-track-piece {
+		background-clip: content-box;
+		border-radius: 1em;
+	}
+
+	&::-webkit-scrollbar-button:vertical:start:decrement,
+	&::-webkit-scrollbar-button:vertical:end:decrement,
+	&::-webkit-scrollbar-button:vertical:end:increment,
+	&::-webkit-scrollbar-button:horizontal:start:decrement,
+	&::-webkit-scrollbar-button:horizontal:end:decrement,
+	&::-webkit-scrollbar-button:horizontal:end:increment,
+	&::-webkit-scrollbar-corner,
+	&::-webkit-resizer {
+		background-position: center;
+		background-repeat: no-repeat;
+		background-color: transparent;
+		position: relative;
+
 	}
 }
+
 
 input,
 textarea {
@@ -139,6 +174,19 @@ input[type='color'] {
 	}
 }
 
+fieldset {
+	border-radius: 0.5em;
+	border-style: solid;
+	border-width: 0.125em;
+	padding: 0 0.5em 1em 0.5em;
+
+	legend {
+		font-weight: bold;
+		margin: 0 0.5em 0.5em;
+		padding: 0 0.75em;
+	}
+}
+
 input[type='radio'] {
 	height: 1.125em;
 	vertical-align: bottom;
@@ -153,19 +201,49 @@ input[type='range'] {
 	padding: 0;
 }
 
-fieldset {
-	border-radius: 0.5em;
-	border-style: solid;
-	border-width: 0.125em;
-	padding: 0 0.5em 1em 0.5em;
+label {
+	margin: 1em 0 0.5em;
+}
 
-	legend {
-		font-weight: bold;
-		margin: 0 0.5em 0.5em;
-		padding: 0 0.75em;
+select {
+	cursor: pointer;
+	padding: 0.25em 0.75em;
+
+	&:-ms-expand {
+		display: none;
+	}
+
+	&:-moz-focusring {
+		color: transparent !important;
+	}
+
+	&[size] {
+		padding: 0;
+	}
+
+	optgroup {
+		&::before {
+			padding: 0 0.25em;
+
+		}
+	}
+
+	option {
+		margin: 0;
+		padding: 0.25em 0.5em;
+		cursor: pointer;
+
+		&::before {
+			display: inline-block;
+			width: 0.125em;
+		}
 	}
 }
 
 textarea {
 	vertical-align: top;
+}
+
+output {
+	padding: 0.25em;
 }

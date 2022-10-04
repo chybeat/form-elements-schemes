@@ -1,61 +1,312 @@
 /**
 CSS rules to colorize elements in light schemes
 */
-
-//Backgrounds colors
-$main-background-color: #161619;
-$focus-background: #293141;
-$input-backgorund-color :#000;
-
-//Fonts colors
-$main-font-color: #d6cece;
-
-//Border colors
-$border-color: #878787;
-$highlight-border-color: #136bae;
-$highlight-border-color-opaque: #1b5c8d;
+////
+//// Dark schema input colors colors
+////
+@use "_colorVars.scss" as color;
+@use "_icons.scss" as ico;
 
 /*Light scheme theme*/
 @media screen and (prefers-color-scheme: light) {
+	:root {
+		//Global pure colors
+		--white: #{color.$white};
+		--black: #{color.$black};
+
+		//Backgrounds colors
+		--main-light-background-color: #{color.$main-light-background-color};
+		--focus-light-background-color: #{color.$focus-light-background-color};
+
+		//Border colors
+		--border-light-color: #{color.$border-light-color};
+		--highlight-light-border-color: #{color.$highlight-light-border-color};
+		--highlight-light-border-color-opaque: #{color.$highlight-light-border-color-opaque};
+
+		//Fonts colors
+		--main-light-font-color: #{color.$main-light-font-color};
+		--highlight-light-font-color: #{color.$highlight-light-font-color};
+
+		//scroll arrows icons
+		--scroll-arrowUp: #{ico.svg(arrowUp, color.$main-light-font-color)};
+		--scroll-arrowDown: #{ico.svg(arrowDown, color.$main-light-font-color)};
+		--scroll-arrowLeft: #{ico.svg(arrowLeft, color.$main-light-font-color)};
+		--scroll-arrowRight: #{ico.svg(arrowRight, color.$main-light-font-color)};
+		--scroll-corner: #{ico.svg(cornerBottomRight, color.$main-light-font-color)};
+	}
+
+	.dark-scheme {
+		//Global pure colors
+		--white: #{color.$black};
+		--black: #{color.$white};
+
+		//Backgrounds colors
+		--main-light-background-color: #{color.$main-dark-background-color};
+		--focus-light-background-color: #{color.$focus-dark-background-color};
+
+		//Border colors
+		--border-light-color: #{color.$border-dark-color};
+		--highlight-light-border-color: #{color.$highlight-dark-border-color};
+		--highlight-light-border-color-opaque: #{color.$highlight-dark-border-color-opaque};
+
+		//Fonts colors
+		--main-light-font-color: #{color.$main-dark-font-color};
+		--highlight-light-font-color: #{color.$highlight-dark-font-color};
+
+		//scroll arrows icons
+		--scroll-arrowUp: #{ico.svg(arrowUp, color.$highlight-dark-border-color)};
+		--scroll-arrowDown: #{ico.svg(arrowDown, color.$highlight-dark-border-color)};
+		--scroll-arrowLeft: #{ico.svg(arrowLeft, color.$highlight-dark-border-color)};
+		--scroll-arrowRight: #{ico.svg(arrowRight, color.$highlight-dark-border-color)};
+		--scroll-corner: #{ico.svg(cornerBottomRight, color.$highlight-dark-border-color)};
+	}
+
 	html {
 		color-scheme: light;
 	}
 
+	//General border and backgorund colors
+	button,
+	select,
+	input,
+	textarea {
+		background-color: var(--main-light-background-color);
+		border-color: var(--border-light-color);
+		color: var(--main-light-font-color);
+
+		&:focus,
+		&:focus-within,
+		&:focus-visible {
+			color: var(--main-light-font-color) !important;
+			background-color: var(--focus-light-background-color);
+			border-color: var(--highlight-light-border-color);
+		}
+
+		&:not(:disabled) {
+			&:hover:not(:focus) {
+				border-color: var(--highlight-light-border-color);
+
+				&::placeholder {
+					color: var(--highlight-light-border-color-opaque);
+				}
+			}
+		}
+	}
+
+	//scrollable elements
+	select,
+	textarea {
+		// scroll bar color for Firefox
+		scrollbar-color: var(--highlight-light-border-color-opaque) var(--main-light-background-color); //1st thumb, 2nd track
+
+		/* Track */
+		&::-webkit-scrollbar-track {
+			background-color: var(--focus-light-background-color);
+		}
+
+		/* Handle */
+		&::-webkit-scrollbar-thumb {
+			background-color: var(--highlight-light-border-color-opaque);
+		}
+
+		/* Handle on hover */
+		&::-webkit-scrollbar-thumb:hover {
+			background-color: var(--highlight-light-border-color);
+		}
+
+		&::-webkit-scrollbar-button:vertical:start:decrement,
+		&::-webkit-scrollbar-button:vertical:end:increment,
+		&::-webkit-scrollbar-button:horizontal:start:decrement,
+		&::-webkit-scrollbar-button:horizontal:end:increment {
+			&:active {
+				background-color: var(--border-light-color);
+			}
+		}
+
+		//arrow up for vertical scroll button
+		&::-webkit-scrollbar-button:vertical:start:decrement {
+			background-image: var(--scroll-arrowUp)
+		}
+
+		//arrow down for vertical scroll button
+		&::-webkit-scrollbar-button:vertical:end:increment {
+			background-image: var(--scroll-arrowDown);
+		}
+
+		//arrow left for horizontal scroll button
+		&::-webkit-scrollbar-button:horizontal:start:decrement {
+			background-image: var(--scroll-arrowLeft);
+		}
+
+		//arrow right for horizontal scroll button
+		&::-webkit-scrollbar-button:horizontal:end:increment {
+			background-image: var(--scroll-arrowRight)
+		}
+
+		//corner resizer
+		&::-webkit-resizer {
+			background-image: var(--scroll-corner);
+			background-color: transparent;
+		}
+
+		//track witouth buttons
+		::-webkit-scrollbar-track-piece:no-button {
+			background-color: var(--main-light-background-color);
+		}
+	}
+
+	select {
+		background-color: var(--main-light-background-color);
+
+		&:-moz-focusring {
+			text-shadow: 0 0 0 var(--black);
+		}
+
+		optgroup {
+			color: var(--black);
+			background-color: var(--focus-light-background-color);
+		}
+
+		option {
+			background-color: var(--focus-light-background-color);
+			color: var(--main-light-font-color);
+
+			&:checked {
+
+				&:not(:focus),
+				&:not(:focus-within),
+				&:not(:focus-visible) {
+					background-color: var(--highlight-light-border-color-opaque);
+					color: var(--highlight-light-font-color);
+				}
+
+				&:focus,
+				&:focus-within,
+				&:focus-visible {
+					background-color: var(--focus-light-background-color);
+					color: var(--main-light-font-color);
+				}
+			}
+		}
+	}
+
+	/////////////OK/////////////
+
+}
+
+/*
 	input[type="checkbox"] {
 
 		&::before,
 		&::after {
-			border-color: $border-color;
+			border-color: var(--border-light-color);
 		}
 
 		&::after {
-			background-color: $highlight-border-color;
+			background-color: var(--highlight-light-border-color);
 		}
 
 		&::before {
-			background-color: $main-background-color;
+			background-color: var(--main-light-background-color)
 		}
 
 		&:checked {
 			&:after {
-				background-color: $highlight-border-color;
+				background-color: var(--highlight-light-border-color);
 			}
 
 			&::before {
-				background-color: $main-font-color;
+				background-color: var(--main-light-font-color)
 			}
 
 			&:hover {
 				&::before {
-					background-color: $main-font-color;
+					background-color: var(--main-light-font-color)
 				}
 			}
 		}
 
 		&:hover {
 			&::before {
-				background-color: $focus-background;
+				background-color: var(--focus-light-background-color);
 			}
 		}
 	}
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	input[type="checkbox"] {
+
+		&::before,
+		&::after {
+			border-color: var(--border-dark-color);
+		}
+
+		&::after {
+			background-color: var(--highlight-dark-border-color);
+			;
+		}
+
+		&::before {
+			background-color: var(--main-dark-background-color);
+		}
+
+		&:checked {
+			&:after {
+				background-color: var(--highlight-dark-border-color);
+				;
+			}
+
+			&::before {
+				background-color: var(--main-dark-font-color);
+				;
+			}
+
+			&:hover {
+				&::before {
+					background-color: var(--main-dark-font-color);
+					;
+				}
+			}
+		}
+
+		&:hover {
+			&::before {
+				background-color: var(--focus-dark-background-color);
+				;
+			}
+		}
+	}
+
+	fieldset {
+		border-color: var(--border-dark-color);
+	}
+
+	output {
+		background-color: var(--main-dark-background-color);
+		border-color: var(--border-dark-color);
+		color: var(--main-dark-font-color);
+	}
+
+*/

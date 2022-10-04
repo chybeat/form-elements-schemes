@@ -1,0 +1,40 @@
+//
+//global pure colors
+//
+$white: #fff;
+$black: #000;
+//
+//Dark Scheme Colors
+//
+
+//Backgrounds colors
+$main-dark-background-color: #161619;
+$focus-dark-background-color: #293141;
+
+//Fonts colors
+$main-dark-font-color: #d6cece;
+$highlight-dark-font-color: $main-dark-font-color;
+
+
+//Border colors
+$border-dark-color: #878787;
+$highlight-dark-border-color: #136bae;
+$highlight-dark-border-color-opaque: #1b5c8d;
+
+
+//
+//Light Scheme Colors
+//
+
+//Backgrounds colors
+$main-light-background-color: #d7d7d7;
+$focus-light-background-color: #f1f4ff;
+
+//Fonts colors
+$main-light-font-color: #292929;
+$highlight-light-font-color: $main-light-background-color;
+
+//Border colors
+$border-light-color: #878787;
+$highlight-light-border-color: #1d90ff;
+$highlight-light-border-color-opaque: #2574b0;

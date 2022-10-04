@@ -1,0 +1,30 @@
+@use "_colorVars" as c;
+
+@function _buildSvg($icon) {
+	$icon: "%3Csvg%20viewBox%3D%220%200%20180%20180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E#{$icon}%3C%2Fsvg%3E";
+	@return $icon;
+}
+
+@function _buildPath($path, $color) {
+	$icon: '%3Cpath%20fill%3D%22#{$color}%22%20d%3D%22#{$path}%22%20%2F%3E';
+	@return $icon;
+}
+
+@function svg($icon-name,
+	$color) {
+
+	$color: rgb(red($color), green($color), blue($color));
+
+	$icons: (arrowUp: _buildPath('m90 39.795-77.781 77.783 22.627 22.627 55.155-55.156 55.154 55.156 22.627-22.627z', $color),
+
+		arrowDown:_buildPath('m90 140.21 77.781-77.783-22.627-22.627-55.155 55.156-55.154-55.156-22.627 22.627z', $color),
+
+		arrowLeft: _buildPath('m39.795 90 77.783 77.781 22.627-22.627-55.156-55.155 55.156-55.154-22.627-22.627z', $color),
+
+		arrowRight: _buildPath('m140.21 90-77.783-77.781-22.627 22.627 55.156 55.155-55.156 55.154 22.627 22.627z', $color),
+
+		cornerBottomRight: _buildPath('m180 83.997-96 96.003h14.768l81.232-81.23zm-1e-5 29.541-66.461 66.461h14.768l51.693-51.693zm1e-5 29.539-36.923 36.923h14.768l22.155-22.155zm0 29.539-7.384 7.384h7.384z', $color));
+
+	$icon: _buildSvg(map-get($icons, $icon-name));
+	@return url("data:image/svg+xml;charset=utf8,#{$icon}");
+}
