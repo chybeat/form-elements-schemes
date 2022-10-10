@@ -162,9 +162,26 @@ CSS rules to colorize elements in light schemes
 			text-shadow: 0 0 0 var(--black);
 		}
 
+		&:focus,
+		&:focus-within,
+		&:focus-visible {
+			background-color: var(--focus-light-background-color);
+
+			optgroup {
+				background-color: var(--main-light-background-color);
+
+				option {
+					background-color: var(--focus-light-background-color);
+				}
+			}
+		}
+
 		optgroup {
 			color: var(--black);
-			background-color: var(--focus-light-background-color);
+
+			option {
+				background-color: var(--main-light-background-color);
+			}
 		}
 
 		option {
@@ -189,10 +206,10 @@ CSS rules to colorize elements in light schemes
 			}
 		}
 	}
-
-	/////////////OK/////////////
-
 }
+
+/////////////OK/////////////
+
 
 /*
 	input[type="checkbox"] {
@@ -232,28 +249,6 @@ CSS rules to colorize elements in light schemes
 			}
 		}
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	input[type="checkbox"] {

@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", (event) => {
 	//submit prevent default
-	preventSubmit();
 	takeSourceCode();
 	writeCode();
+	copyCode();
+	preventSubmit();
 });
 
 function preventSubmit(e) {
@@ -22,16 +23,14 @@ function takeSourceCode() {
 	for (const dest of dests) {
 		const row = dest.parentElement;
 		origin = row.querySelector(".darkSchemeElements");
-
 		//Copying to light scheme Column
 		lightTheme = row.querySelector(".ligthSchemeElements");
 		lightTheme.innerHTML = changeForIdLabel(origin.innerHTML);
-
 		//Copying to source code column
 		preTag = document.createElement("pre");
 		preTag.classList = "language-html";
 
-		codeTag = document.createElement("code");
+		const codeTag = document.createElement("code");
 		let code = cleanSourceCode(origin.innerHTML);
 		code = document.createTextNode(code);
 		codeTag.appendChild(code);
@@ -44,12 +43,9 @@ function takeSourceCode() {
 function cleanSourceCode(code) {
 	let txt = "";
 	let start = code.indexOf("<") - 1;
-	if (code.indexOf("<form>") != -1) {
-		start++;
-	}
 	lines = code.split("\n");
 	for (let l of lines) {
-		if (l == "" || l.trim() == "<form>" || l.trim() == "</form>") continue;
+		if (l.trim() == "") continue;
 		l = l.replace('=""', "");
 		txt += l.substring(start) + "\n";
 	}
@@ -58,28 +54,50 @@ function cleanSourceCode(code) {
 
 function changeForIdLabel(nodes) {
 	const regex = /for="(.*?)"/gm;
-	const labelFor = regex.exec(nodes)[1];
-	nodes = nodes.replace('for="' + labelFor + '"', 'for="' + labelFor + '_light"');
-	nodes = nodes.replace('id="' + labelFor + '"', 'id="' + labelFor + '_light"');
+	nodesList = regex.exec(nodes);
+	if (nodesList !== null) {
+		const labelFor = nodesList[1];
+		nodes = nodes.replace('for="' + labelFor + '"', 'for="' + labelFor + '_light"');
+		nodes = nodes.replace('id="' + labelFor + '"', 'id="' + labelFor + '_light"');
+	}
 	return nodes;
 }
 
 function writeCode() {
 	const request = document.querySelectorAll("[data-code]");
 	for (pre of request) {
-		let regex = /\\n|\\t|</gm;
-		let code = pre.dataset.code.replace(regex, (symbol) => {
-			if (symbol == "\\n") {
-				return "\u000A";
-			} else if (symbol == "\\t") {
-				return "\u0009";
-			} else {
-				return "&lt;";
-			}
-		});
+		let code = cleanReturn(pre.dataset.code);
 		const codeTag = document.createElement("code");
 		codeTag.innerHTML = code;
 		pre.classList = "language-" + pre.dataset.language;
 		pre.append(codeTag);
+	}
+}
+
+function cleanReturn(code) {
+	let regex = /\\n|\\t|</gm;
+	code = code.replace(regex, (symbol) => {
+		if (symbol == "\\n") {
+			return "\u000A";
+		} else if (symbol == "\\t") {
+			return "\u0009";
+		} else {
+			return "&lt;";
+		}
+	});
+	return code;
+}
+
+function copyCode() {
+	const request = document.querySelectorAll("[data-take-code-from]");
+	for (pre of request) {
+		const source = document.querySelector(pre.dataset.takeCodeFrom);
+
+		codeTag = document.createElement("code");
+		let code = cleanSourceCode(source.innerHTML);
+		code = document.createTextNode(code);
+		codeTag.appendChild(code);
+		pre.appendChild(codeTag);
+		pre.classList = "language-html";
 	}
 }

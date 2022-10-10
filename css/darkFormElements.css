@@ -17,7 +17,7 @@ CSS rules to colorize form elements in dark schemes
     --scroll-arrowDown: url("data:image/svg+xml;charset=utf8,%3Csvg%20viewBox%3D%220%200%20180%20180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill%3D%22rgb(19, 107, 174)%22%20d%3D%22m90 140.21 77.781-77.783-22.627-22.627-55.155 55.156-55.154-55.156-22.627 22.627z%22%20%2F%3E%3C%2Fsvg%3E");
     --scroll-arrowLeft: url("data:image/svg+xml;charset=utf8,%3Csvg%20viewBox%3D%220%200%20180%20180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill%3D%22rgb(19, 107, 174)%22%20d%3D%22m39.795 90 77.783 77.781 22.627-22.627-55.156-55.155 55.156-55.154-22.627-22.627z%22%20%2F%3E%3C%2Fsvg%3E");
     --scroll-arrowRight: url("data:image/svg+xml;charset=utf8,%3Csvg%20viewBox%3D%220%200%20180%20180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill%3D%22rgb(19, 107, 174)%22%20d%3D%22m140.21 90-77.783-77.781-22.627 22.627 55.156 55.155-55.156 55.154 22.627 22.627z%22%20%2F%3E%3C%2Fsvg%3E");
-    --scroll-corner: url("data:image/svg+xml;charset=utf8,%3Csvg%20viewBox%3D%220%200%20180%20180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill%3D%22rgb(19, 107, 174)%22%20d%3D%22m180 83.997-96 96.003h14.768l81.232-81.23zm-1e-5 29.541-66.461 66.461h14.768l51.693-51.693zm1e-5 29.539-36.923 36.923h14.768l22.155-22.155zm0 29.539-7.384 7.384h7.384z%22%20%2F%3E%3C%2Fsvg%3E");
+    --scroll-corner: url("data:image/svg+xml;charset=utf8,%3Csvg%20viewBox%3D%220%200%20180%20180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill%3D%22rgb(214, 206, 206)%22%20d%3D%22m180 83.997-96 96.003h14.768l81.232-81.23zm-1e-5 29.541-66.461 66.461h14.768l51.693-51.693zm1e-5 29.539-36.923 36.923h14.768l22.155-22.155zm0 29.539-7.384 7.384h7.384z%22%20%2F%3E%3C%2Fsvg%3E");
   }
   .light-scheme {
     --white: #000;
@@ -123,7 +123,7 @@ textarea::-webkit-scrollbar-button:horizontal:end:increment {
   select::-webkit-resizer,
 textarea::-webkit-resizer {
     background-image: var(--scroll-corner);
-    background-color: var(--main-dark-background-color);
+    background-color: transparent;
   }
   select ::-webkit-scrollbar-track-piece:no-button,
 textarea ::-webkit-scrollbar-track-piece:no-button {
@@ -135,9 +135,20 @@ textarea ::-webkit-scrollbar-track-piece:no-button {
   select:-moz-focusring {
     text-shadow: 0 0 0 var(--white);
   }
+  select:focus, select:focus-within, select:focus-visible {
+    background-color: var(--focus-dark-background-color);
+  }
+  select:focus optgroup, select:focus-within optgroup, select:focus-visible optgroup {
+    background-color: var(--main-dark-background-color);
+  }
+  select:focus optgroup option, select:focus-within optgroup option, select:focus-visible optgroup option {
+    background-color: var(--focus-dark-background-color);
+  }
   select optgroup {
     color: var(--white);
-    background-color: var(--focus-dark-background-color);
+  }
+  select optgroup option {
+    background-color: var(--main-dark-background-color);
   }
   select option {
     background-color: var(--focus-dark-background-color);

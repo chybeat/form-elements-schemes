@@ -7,7 +7,7 @@ This is main style for this page, refer to "darkFormElements" or "lightFormEleme
 //////////////////// 
 //////////////////// Global colors
 //////////////////// 
-$table-lines-color: #858585;
+$table-lines-color: #3d3d3d;
 
 
 //////////////////// 
@@ -41,7 +41,7 @@ $link-light-font-active-color: #06970e;
 //borders
 $border-lines-light-color: #b26d1a;
 
-/* Sizes and formats*/
+/* html and body tags*/
 * {
 	box-sizing: border-box;
 }
@@ -57,18 +57,30 @@ body {
 	padding: 0;
 }
 
+//Elements into body tag
+
 article,
 body>header {
 	position: relative;
-	max-width: 75em;
+	max-width: 96em;
 	margin: 1em auto
 }
 
+details,
+h3,
+h4,
+h5,
+h6,
 p,
-ul,
-table {
+table,
+ul {
 	max-width: 48em;
 	margin: 1em auto;
+}
+
+header,
+main {
+	padding: 0.5em 1em;
 }
 
 a {
@@ -77,6 +89,23 @@ a {
 	&:hover {
 		text-decoration: underline;
 	}
+}
+
+details {
+
+	summary {
+		cursor: pointer;
+		color: var(--white);
+		font-size: 1.17em;
+	}
+}
+
+code[class*=language-],
+pre[class*=language-],
+pre {
+	font-size: 0.9em;
+	width: 95%;
+	max-width: fit-content;
 }
 
 h1 {
@@ -137,6 +166,10 @@ table {
 			padding-bottom: 0;
 			border: none;
 		}
+
+		h3 {
+			text-align: center;
+		}
 	}
 
 	.goToListElements {
@@ -147,27 +180,37 @@ table {
 	}
 }
 
+//////////////////// 
+//////////////////// class elements
+//////////////////// 
+.sample-use-container {
+	margin: 1em 0;
+
+	display: flex;
+	align-content: space-evenly;
+	align-items: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 1em;
+	justify-content: center;
+
+	form {
+		max-width: 25em;
+	}
+
+	pre {
+		margin: 0;
+	}
+}
+
 .tableContainer {
 	overflow-x: auto;
 	width: 100%;
 }
 
 .comparition {
-	max-width: fit-content;
 	margin: 0 auto;
 	overflow-x: auto;
-
-	.elementDescription {
-		max-width: 25em;
-	}
-
-	.elementSourceCode {
-		pre {
-			font-size: 0.85em;
-			display: block;
-			width: 100% !important;
-		}
-	}
 
 	td {
 		label {
@@ -176,13 +219,56 @@ table {
 
 		&:nth-child(1) {
 			min-width: 12em;
-			max-width: 16em;
+			max-width: 18em;
 		}
 
 		&:nth-child(2),
 		&:nth-child(3),
 		&:nth-child(4) {
 			min-width: fit-content;
+		}
+	}
+
+	.elementDescription {
+		max-width: 25em;
+	}
+
+
+	pre {
+		font-size: 0.85em;
+		display: block;
+		width: 100% !important;
+	}
+
+	.darkSchemeElements,
+	.ligthSchemeElements {
+		text-align: center;
+
+		button,
+		select,
+		input,
+		textarea,
+		output {
+			margin-top: 0
+		}
+
+		button,
+		input[type="button"],
+		input[type="reset"],
+		input[type="submit"] {
+			display: block;
+			margin: 0 auto;
+		}
+
+		label {
+			display: block;
+			text-align: left;
+			margin-bottom: 0;
+			padding-bottom: 0.5em;
+		}
+
+		legend {
+			text-align: left;
 		}
 	}
 }
@@ -228,16 +314,6 @@ table {
 	strong {
 		color: $strong-dark-font-color;
 	}
-
-	table {
-		tbody {
-			tr {
-				&:hover {
-					background-color: #353535;
-				}
-			}
-		}
-	}
 }
 
 @media screen and (prefers-color-scheme: light) {
@@ -267,18 +343,6 @@ table {
 			border-bottom-color: $border-lines-light-color
 		}
 	}
-
-	table {
-		tbody {
-			tr {
-				&:hover {
-					background-color: #b8b8b8;
-				}
-			}
-		}
-	}
-
-
 }
 
 /*CSS rules to 360px max-width screens (mobile) */

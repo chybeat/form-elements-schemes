@@ -32,7 +32,7 @@ CSS rules to colorize form elements in dark schemes
 		--scroll-arrowDown: #{ico.svg(arrowDown, color.$highlight-dark-border-color)};
 		--scroll-arrowLeft: #{ico.svg(arrowLeft, color.$highlight-dark-border-color)};
 		--scroll-arrowRight: #{ico.svg(arrowRight, color.$highlight-dark-border-color)};
-		--scroll-corner: #{ico.svg(cornerBottomRight, color.$highlight-dark-border-color)};
+		--scroll-corner: #{ico.svg(cornerBottomRight, color.$main-dark-font-color)};
 	}
 
 	.light-scheme {
@@ -121,7 +121,6 @@ CSS rules to colorize form elements in dark schemes
 			&:active {
 				background-color: var(--border-dark-color);
 			}
-
 		}
 
 		//arrow up for vertical scroll button
@@ -147,7 +146,7 @@ CSS rules to colorize form elements in dark schemes
 		//corner resizer
 		&::-webkit-resizer {
 			background-image: var(--scroll-corner);
-			background-color: var(--main-dark-background-color);
+			background-color: transparent;
 		}
 
 		//track witouth buttons
@@ -163,9 +162,26 @@ CSS rules to colorize form elements in dark schemes
 			text-shadow: 0 0 0 var(--white);
 		}
 
+		&:focus,
+		&:focus-within,
+		&:focus-visible {
+			background-color: var(--focus-dark-background-color);
+
+			optgroup {
+				background-color: var(--main-dark-background-color);
+
+				option {
+					background-color: var(--focus-dark-background-color);
+				}
+			}
+		}
+
 		optgroup {
 			color: var(--white);
-			background-color: var(--focus-dark-background-color);
+
+			option {
+				background-color: var(--main-dark-background-color);
+			}
 		}
 
 		option {
@@ -190,10 +206,9 @@ CSS rules to colorize form elements in dark schemes
 			}
 		}
 	}
-
-	/////////////OK/////////////
 }
 
+/////////////OK/////////////
 /*
 	button,
 	input[type="button"],

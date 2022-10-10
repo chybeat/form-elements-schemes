@@ -135,9 +135,20 @@ textarea ::-webkit-scrollbar-track-piece:no-button {
   select:-moz-focusring {
     text-shadow: 0 0 0 var(--black);
   }
+  select:focus, select:focus-within, select:focus-visible {
+    background-color: var(--focus-light-background-color);
+  }
+  select:focus optgroup, select:focus-within optgroup, select:focus-visible optgroup {
+    background-color: var(--main-light-background-color);
+  }
+  select:focus optgroup option, select:focus-within optgroup option, select:focus-visible optgroup option {
+    background-color: var(--focus-light-background-color);
+  }
   select optgroup {
     color: var(--black);
-    background-color: var(--focus-light-background-color);
+  }
+  select optgroup option {
+    background-color: var(--main-light-background-color);
   }
   select option {
     background-color: var(--focus-light-background-color);
@@ -190,28 +201,6 @@ textarea ::-webkit-scrollbar-track-piece:no-button {
 			}
 		}
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	input[type="checkbox"] {
