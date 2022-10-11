@@ -36,6 +36,8 @@ CSS rules to colorize form elements in dark schemes
 	}
 
 	.light-scheme {
+		color-scheme: light;
+
 		//Global pure colors
 		--white: #{color.$black};
 		--black: #{color.$white};
@@ -205,6 +207,10 @@ CSS rules to colorize form elements in dark schemes
 				}
 			}
 		}
+	}
+
+	fieldset {
+		border-color: var(--border-dark-color);
 	}
 }
 

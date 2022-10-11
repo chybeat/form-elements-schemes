@@ -8,7 +8,7 @@ CSS rules to colorize elements in light schemes
     --black: #000;
     --main-light-background-color: #d7d7d7;
     --focus-light-background-color: #f1f4ff;
-    --border-light-color: #878787;
+    --border-light-color: #757575;
     --highlight-light-border-color: #1d90ff;
     --highlight-light-border-color-opaque: #2574b0;
     --main-light-font-color: #292929;
@@ -20,6 +20,7 @@ CSS rules to colorize elements in light schemes
     --scroll-corner: url("data:image/svg+xml;charset=utf8,%3Csvg%20viewBox%3D%220%200%20180%20180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill%3D%22rgb(41, 41, 41)%22%20d%3D%22m180 83.997-96 96.003h14.768l81.232-81.23zm-1e-5 29.541-66.461 66.461h14.768l51.693-51.693zm1e-5 29.539-36.923 36.923h14.768l22.155-22.155zm0 29.539-7.384 7.384h7.384z%22%20%2F%3E%3C%2Fsvg%3E");
   }
   .dark-scheme {
+    color-scheme: dark;
     --white: #000;
     --black: #fff;
     --main-light-background-color: #161619;
@@ -162,6 +163,9 @@ textarea ::-webkit-scrollbar-track-piece:no-button {
     background-color: var(--focus-light-background-color);
     color: var(--main-light-font-color);
   }
+  fieldset {
+    border-color: var(--border-light-color);
+  }
 }
 /*
 	input[type="checkbox"] {
@@ -244,10 +248,6 @@ textarea ::-webkit-scrollbar-track-piece:no-button {
 				;
 			}
 		}
-	}
-
-	fieldset {
-		border-color: var(--border-dark-color);
 	}
 
 	output {

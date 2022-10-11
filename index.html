@@ -40,10 +40,10 @@
 
 
 	<!-- Form elements sizes and changes !Required for both light and dark schmes-->
-	<link rel="stylesheet" type="text/css" href="./css/formsBoxModel.css">
+	<link rel="stylesheet" type="text/css" href="./css/formsBoxModel.min.css">
 
 	<!-- This page styles including normalize CSS rules-->
-	<link rel="stylesheet" type="text/css" href="./css/main.css">
+	<link rel="stylesheet" type="text/css" href="./css/main.min.css">
 </head>
 
 <body>
@@ -54,7 +54,7 @@
 		<li>Remove *.png from .gitignore file before upload latest version to github</li>
 		<li>Fix the \n when fill the source code column</li>
 		<li>Remove maps in css/scss files</li>
-		<li></li>
+		<li>Input type color se puede cambiar de color?, no se ve nadita!</li>
 		<li></li>
 		<li></li>
 	</ul>
@@ -91,14 +91,13 @@
 				<pre data-language="html"
 					data-code='<!DOCTYPE html>\n<html lang="en">\n\t<head>\n\t\t<link rel="stylesheet" type="text/css" href="/path/to/normalize.css">\n\t\t<link rel="stylesheet" type="text/css" href="/path/to/forms-aio.min.css">\n\t\t<link rel="stylesheet" type="text/css" href="/path/to/your-main-style.css">\n\t</head>'></pre>
 				<h3>CSS clases</h3>
-
 				<h4>.dark-scheme and .light-scheme</h4>
 				<p>The CSS detect via media query the dark or light scheme based on browser/OS current scheme to colorize
 					the elements, but you can force a scheme using <strong>dark-scheme</strong> or
 					<strong>light-scheme</strong> in parent container or element
 				</p>
 				<details>
-					<summary>View classes applied in examples</summary>
+					<summary>Clickme for examples</summary>
 					<div class="sample-use-container">
 						<div id="ls-fs">
 							<form class="light-scheme">
@@ -161,6 +160,9 @@
 						</p>
 					</div>
 				</details>
+				<h4 id="class-no-arrows">.no-arrows</h4>
+				<p>This class only works in input type number tag to remove the arrows or spinners, watch a live preview and
+					get more info <a href="#input-elements">here</a>.</p>
 			</article>
 			<article>
 				<h2>Other files</h2>
@@ -207,6 +209,7 @@
 				<p>Next list shows elements changed in css files. Click on them to read about changes and see a sample of
 					final look</p>
 				<ul>
+					<li><a href="#input-elements">Input elements (text, tel, password, etc)</a></li>
 					<li><a href="#select-elements">Select element</a></li>
 					<li><a href="#textarea-element">Textarea element</a></li>
 					<li><a href="#button-element">Button tag and input tag with types button, reset or submit</a></li>
@@ -215,8 +218,121 @@
 					<li><a href="#">ElementName</a></li>
 					<li><a href="#">ElementName</a></li>
 					<li><a href="#">ElementName</a></li>
-					<li><a href="#">ElementName</a></li>
 				</ul>
+			</article>
+
+			<article id="input-elements">
+				<h3>Input elements for text and numbers</h3>
+				<div class="tableContainer">
+					<table class="comparition">
+						<thead>
+							<tr>
+								<th>Description</th>
+								<th>Dark Scheme</th>
+								<th>Light Scheme</th>
+								<th>Source Code</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="elementDescription">Input type text</td>
+								<td class="darkSchemeElements dark-scheme">
+									<form>
+										<label for="it-txt">Words to laugh</label>
+										<input id="it-txt" type="text" placeholder="Write a short joke">
+									</form>
+								<td class="ligthSchemeElements light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+							<tr>
+								<td class="elementDescription">Input type number</td>
+								<td class="darkSchemeElements dark-scheme">
+									<form>
+										<label for="it-num">Your age in months</label>
+										<input id="it-num" type="number">
+									</form>
+								<td class="ligthSchemeElements light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+							<tr>
+								<td class="elementDescription">Input type number <a href="#class-no-arrows">without
+										arrows</a><br><strong>Bug:</strong>
+									Firefox
+									allows to type any character, adding class
+									<code>no-arrows</code> people can get confused.
+								</td>
+								<td class="darkSchemeElements dark-scheme">
+									<form>
+										<label for="it-num-na">Your favorite non 69 number</label>
+										<input id="it-num-na" class="no-arrows" type="number">
+									</form>
+								<td class="ligthSchemeElements light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+							<tr>
+								<td class="elementDescription">Input type password</td>
+								<td class="darkSchemeElements dark-scheme">
+									<form autocomplete="off">
+										<input type="text" autocomplete="username" style="display:none">
+										<label for="it-pss">Tell me your bullets</label>
+										<input id="it-pss" placeholder="Your bullets" type="password" autocomplete="x">
+										<input type="submit" value="send" style="display:none">
+									</form>
+								<td class="ligthSchemeElements light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+							<tr>
+								<td class="elementDescription">Input type search</td>
+								<td class="darkSchemeElements dark-scheme">
+									<form>
+										<label for="it-sh">Learn something</label>
+										<input id="it-sh" type="search">
+									</form>
+								<td class="ligthSchemeElements light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+							<tr>
+								<td class="elementDescription">Input type tel</td>
+								<td class="darkSchemeElements dark-scheme">
+									<form>
+										<label for="inputType_tel">Some phone number</label>
+										<input id="inputType_tel" type="tel">
+									</form>
+								<td class="ligthSchemeElements light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+							<tr>
+								<td class="elementDescription">Input type url</td>
+								<td class="darkSchemeElements dark-scheme">
+									<form>
+										<label for="inputType_url">Favorite URL</label>
+										<input id="inputType_url" type="url">
+									</form>
+								<td class="ligthSchemeElements light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+							<tr>
+								<td class="elementDescription">Input type email</td>
+								<td class="darkSchemeElements dark-scheme">
+									<form>
+										<label for="inputType_email">An email</label>
+										<input id="inputType_email" type="email">
+									</form>
+								<td class="ligthSchemeElements light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<a href="#list-of-elements" class="goToListElements">Go to list</a>
 			</article>
 			<article id="select-elements">
 				<h3>Select element</h3>
@@ -475,8 +591,6 @@
 										adds 0.5em in top, right and left margins:</p>
 									<pre data-language="css"
 										data-code="legend {\n\tfont-weight: bold;\n\tmargin: 0.5em 0.5em 0;\n}"></pre>
-
-
 								</td>
 								<td class="darkSchemeElements dark-scheme">
 									<form>
@@ -606,37 +720,8 @@
 				<label for="inputType_datetime">Type datetime</label>
 				<input id="inputType_datetime" type="datetime-local">
 				<br>
-				<label for="inputType_email">Type email</label>
-				<input id="inputType_email" type="email">
-				<br>
 				<label for="inputType_file">Type file</label>
 				<input id="inputType_file" type="file">
-				<br>
-				<label for="inputType_image">Type image</label>
-				<input id="inputType_image" type="image">
-				<br>
-				<label for="inputType_number">Type number</label>
-				<input id="inputType_number" type="number">
-				<br>
-				<form action="" autocomplete="off">
-					<input type="text" autocomplete="username" placeholder="User name" name="username" style="display:none">
-					<label for="inputType_password">Type password</label>
-					<input id="inputType_password" placeholder="Password" name="password" type="password"
-						autocomplete="current-password">
-					<input type="submit" value="send" style="display:none">
-				</form>
-				<br>
-				<label for="inputType_search">Type search</label>
-				<input id="inputType_search" type="search">
-				<br>
-				<label for="inputType_tel">Type tel</label>
-				<input id="inputType_tel" type="tel">
-				<br>
-				<label for="inputType_text">Type text</label>
-				<input id="inputType_text" type="text">
-				<br>
-				<label for="inputType_url">Type url</label>
-				<input id="inputType_url" type="url">
 				<br>
 			</fieldset>
 		</form>

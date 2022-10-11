@@ -1,6 +1,7 @@
 @use "_colorVars" as c;
 
 @function _buildSvg($icon) {
+	//icons viewbox is 0 0 180 180 or image width 180 x 180
 	$icon: "%3Csvg%20viewBox%3D%220%200%20180%20180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E#{$icon}%3C%2Fsvg%3E";
 	@return $icon;
 }

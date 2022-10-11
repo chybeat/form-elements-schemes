@@ -36,6 +36,8 @@ CSS rules to colorize elements in light schemes
 	}
 
 	.dark-scheme {
+		color-scheme: dark;
+
 		//Global pure colors
 		--white: #{color.$black};
 		--black: #{color.$white};
@@ -206,6 +208,10 @@ CSS rules to colorize elements in light schemes
 			}
 		}
 	}
+
+	fieldset {
+		border-color: var(--border-light-color);
+	}
 }
 
 /////////////OK/////////////
@@ -292,10 +298,6 @@ CSS rules to colorize elements in light schemes
 				;
 			}
 		}
-	}
-
-	fieldset {
-		border-color: var(--border-dark-color);
 	}
 
 	output {

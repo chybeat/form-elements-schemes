@@ -7,7 +7,7 @@ This is main style for this page, refer to "darkFormElements" or "lightFormEleme
 //////////////////// 
 //////////////////// Global colors
 //////////////////// 
-$table-lines-color: #3d3d3d;
+$table-lines-color: #6868689e;
 
 
 //////////////////// 
@@ -58,11 +58,9 @@ body {
 }
 
 //Elements into body tag
-
 article,
 body>header {
 	position: relative;
-	max-width: 96em;
 	margin: 1em auto
 }
 
@@ -76,6 +74,11 @@ table,
 ul {
 	max-width: 48em;
 	margin: 1em auto;
+}
+
+h1,
+h2 {
+	text-align: center;
 }
 
 header,
@@ -92,11 +95,8 @@ a {
 }
 
 details {
-
 	summary {
 		cursor: pointer;
-		color: var(--white);
-		font-size: 1.17em;
 	}
 }
 
@@ -158,7 +158,6 @@ table {
 
 #list-of-elements {
 	article {
-		padding-bottom: 2em;
 		border-bottom-width: 0.125em;
 		border-bottom-style: dotted;
 
@@ -166,17 +165,14 @@ table {
 			padding-bottom: 0;
 			border: none;
 		}
-
-		h3 {
-			text-align: center;
-		}
 	}
 
 	.goToListElements {
-		bottom: 0.25em;
 		display: block;
-		position: absolute;
-		right: 0.5em;
+		margin: 0 auto;
+		padding: 1em 0 0.5em;
+		text-align: right;
+		width: 48em;
 	}
 }
 
@@ -285,6 +281,18 @@ table {
 		background-color: $box-dark-background-color;
 	}
 
+	b,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	th,
+	strong {
+		color: $strong-dark-font-color;
+	}
+
 	a {
 		color: $link-dark-font-color;
 
@@ -297,22 +305,20 @@ table {
 		}
 	}
 
+	details {
+		summary {
+			color: $link-dark-font-color;
+
+			&:active {
+				color: $link-dark-font-active-color
+			}
+		}
+	}
+
 	#list-of-elements {
 		article {
 			border-bottom-color: $border-lines-dark-color
 		}
-	}
-
-	b,
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6,
-	th,
-	strong {
-		color: $strong-dark-font-color;
 	}
 }
 
@@ -320,6 +326,12 @@ table {
 	html {
 		background-color: $main-light-background-color ;
 		color: $main-light-font-color;
+	}
+
+	#list-of-elements {
+		article {
+			border-bottom-color: $border-lines-light-color
+		}
 	}
 
 	.logo-externalUtil {
@@ -338,9 +350,13 @@ table {
 		}
 	}
 
-	#list-of-elements {
-		article {
-			border-bottom-color: $border-lines-light-color
+	details {
+		summary {
+			color: $link-light-font-color;
+
+			&:active {
+				color: $link-dark-font-active-color
+			}
 		}
 	}
 }

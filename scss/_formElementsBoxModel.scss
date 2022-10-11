@@ -2,51 +2,12 @@
 CSS rules for resizing and setting form elements. No properties or values related to color were written below.
 */
 
-button,
-select,
-input,
-textarea,
-output {
-	border-radius: 0.25em;
-	border-style: solid;
-	border-width: 0.2em;
-	font-size: 1em;
-	outline: none;
-	margin: 0.5em 0;
-	padding: 0.5em 0.75em;
-	vertical-align: middle;
-
-	&:disabled {
-		cursor: not-allowed !important;
-	}
-}
-
-
-button,
-input[type="button"],
-input[type='color'],
-input[type='file'],
-input[type='image'],
-input[type='color'],
-input[type='radio'],
-input[type='reset'],
-input[type='submit'] {
-	cursor: pointer;
-}
-
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-	border-radius: 0.5em;
-	padding: 0.5em 1.5em;
-}
 
 //scrollable inputs
 select,
 textarea {
 
-	/* width */
+	//scollbar width
 	// Firefox (omited)
 	//scrollbar-width: thin;
 
@@ -56,13 +17,6 @@ textarea {
 		width: 1em;
 		height: 1em;
 	}
-
-	///test
-
-	//	&::-webkit-scrollbar:corner-present {
-	//		display: block;
-	//		background-color: #FD0;
-	//	}
 
 	&::-webkit-scrollbar-track-piece {
 		background-clip: content-box;
@@ -85,6 +39,51 @@ textarea {
 	}
 }
 
+input:-internal-autofill-selected {
+	appearance: initial !important;
+	background-image: initial !important;
+	background-color: initial !important;
+	color: initial !important;
+}
+
+button,
+input[type="button"],
+input[type='color'],
+input[type='file'],
+input[type='image'],
+input[type='color'],
+input[type='radio'],
+input[type='reset'],
+input[type='submit'] {
+	cursor: pointer;
+}
+
+button,
+input,
+output,
+select,
+textarea {
+	border-radius: 0.25em;
+	border-style: solid;
+	border-width: 0.2em;
+	font-size: 1em;
+	outline: none;
+	margin: 0.5em 0;
+	padding: 0.5em 0.75em;
+	vertical-align: middle;
+
+	&:disabled {
+		cursor: not-allowed !important;
+	}
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	border-radius: 0.5em;
+	padding: 0.5em 1.5em;
+}
 
 input,
 textarea {
@@ -108,6 +107,19 @@ textarea {
 				opacity: 1;
 			}
 		}
+	}
+}
+
+fieldset {
+	border-radius: 0.5em;
+	border-style: solid;
+	border-width: 0.125em;
+	padding: 0 0.5em 1em 0.5em;
+	border-collapse: initial;
+
+	legend {
+		padding: 0 0.75em;
+		margin: 0 0.5em 0.5em;
 	}
 }
 
@@ -160,6 +172,8 @@ input[type="checkbox"] {
 }
 
 input[type='color'] {
+	-webkit-appearance: none;
+
 	border: none;
 	height: 2em;
 	padding: 0;
@@ -175,12 +189,19 @@ input[type='color'] {
 	&:not(:disabled) {
 		&:hover:not(:focus) {
 			border: none;
-
 		}
 	}
 
 	&[list] {
 		width: 4em;
+	}
+
+	&::-webkit-color-swatch-wrapper {
+		padding: 0;
+	}
+
+	&::-webkit-color-swatch {
+		border-width: 1em solid #FD0;
 	}
 }
 
@@ -194,7 +215,6 @@ input[type="image"] {
 		&:hover {
 			border: none;
 		}
-
 	}
 
 	&:hover {
@@ -203,23 +223,21 @@ input[type="image"] {
 
 }
 
-legend {
-	font-weight: bold;
-	margin: 0.5em 0.5em 0;
-}
+input[type="number"] {
+	&.no-arrows {
 
-fieldset {
-	border-radius: 0.5em;
-	border-style: solid;
-	border-width: 0.125em;
-	padding: 0 0.5em 1em 0.5em;
-	border-collapse: initial;
+		//Chrome, Safari, Edge, Opera
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
 
-	legend {
-		padding: 0 0.75em;
-		margin: 0 0.5em 0.5em;
+		//Firefox
+		&[type=number] {
+			-moz-appearance: textfield;
+		}
 	}
-
 }
 
 input[type='radio'] {
@@ -240,6 +258,11 @@ label {
 	margin: 1em 0 0.5em;
 }
 
+legend {
+	font-weight: bold;
+	margin: 0.5em 0.5em 0;
+}
+
 select {
 	cursor: pointer;
 	padding: 0.25em 0.75em;
@@ -256,15 +279,6 @@ select {
 		padding: 0;
 	}
 
-	optgroup {
-		cursor: default;
-
-		&::before {
-			padding: 0 0.25em;
-
-		}
-	}
-
 	option {
 		margin: 0;
 		padding: 0.25em 0.5em;
@@ -273,6 +287,15 @@ select {
 		&::before {
 			display: inline-block;
 			width: 0.125em;
+		}
+	}
+
+	optgroup {
+		cursor: default;
+
+		&::before {
+			padding: 0 0.25em;
+
 		}
 	}
 }

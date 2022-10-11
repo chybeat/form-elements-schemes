@@ -393,7 +393,6 @@ body {
 article,
 body > header {
   position: relative;
-  max-width: 96em;
   margin: 1em auto;
 }
 
@@ -407,6 +406,11 @@ table,
 ul {
   max-width: 48em;
   margin: 1em auto;
+}
+
+h1,
+h2 {
+  text-align: center;
 }
 
 header,
@@ -423,8 +427,6 @@ a:hover {
 
 details summary {
   cursor: pointer;
-  color: var(--white);
-  font-size: 1.17em;
 }
 
 code[class*=language-],
@@ -442,12 +444,12 @@ h1 {
 }
 
 table {
-  border: 0.125em solid #3d3d3d;
+  border: 0.125em solid rgba(104, 104, 104, 0.6196078431);
   border-collapse: collapse;
 }
 table td,
 table th {
-  border-color: #3d3d3d;
+  border-color: rgba(104, 104, 104, 0.6196078431);
   border-style: dotted;
   border-bottom-style: solid;
   border-width: 1px;
@@ -476,7 +478,6 @@ table th {
 }
 
 #list-of-elements article {
-  padding-bottom: 2em;
   border-bottom-width: 0.125em;
   border-bottom-style: dotted;
 }
@@ -484,14 +485,12 @@ table th {
   padding-bottom: 0;
   border: none;
 }
-#list-of-elements article h3 {
-  text-align: center;
-}
 #list-of-elements .goToListElements {
-  bottom: 0.25em;
   display: block;
-  position: absolute;
-  right: 0.5em;
+  margin: 0 auto;
+  padding: 1em 0 0.5em;
+  text-align: right;
+  width: 48em;
 }
 
 .sample-use-container {
@@ -587,18 +586,6 @@ table th {
   .logo-externalUtil {
     background-color: #ccc;
   }
-  a {
-    color: #26b8ff;
-  }
-  a:visited {
-    color: #26b8ff;
-  }
-  a:active {
-    color: #85ec76;
-  }
-  #list-of-elements article {
-    border-bottom-color: #4d3c3c;
-  }
   b,
 h1,
 h2,
@@ -610,11 +597,32 @@ th,
 strong {
     color: #e0e0e0;
   }
+  a {
+    color: #26b8ff;
+  }
+  a:visited {
+    color: #26b8ff;
+  }
+  a:active {
+    color: #85ec76;
+  }
+  details summary {
+    color: #26b8ff;
+  }
+  details summary:active {
+    color: #85ec76;
+  }
+  #list-of-elements article {
+    border-bottom-color: #4d3c3c;
+  }
 }
 @media screen and (prefers-color-scheme: light) {
   html {
     background-color: #ccc;
     color: #1e1e1e;
+  }
+  #list-of-elements article {
+    border-bottom-color: #b26d1a;
   }
   .logo-externalUtil {
     background-color: #a8a8a8;
@@ -628,8 +636,11 @@ strong {
   a:active {
     color: #06970e;
   }
-  #list-of-elements article {
-    border-bottom-color: #b26d1a;
+  details summary {
+    color: #314bc8;
+  }
+  details summary:active {
+    color: #85ec76;
   }
 }
 /*CSS rules to 360px max-width screens (mobile) */

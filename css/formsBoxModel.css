@@ -1,52 +1,6 @@
 /** 
 CSS rules for resizing and setting form elements. No properties or values related to color were written below.
 */
-button,
-select,
-input,
-textarea,
-output {
-  border-radius: 0.25em;
-  border-style: solid;
-  border-width: 0.2em;
-  font-size: 1em;
-  outline: none;
-  margin: 0.5em 0;
-  padding: 0.5em 0.75em;
-  vertical-align: middle;
-}
-button:disabled,
-select:disabled,
-input:disabled,
-textarea:disabled,
-output:disabled {
-  cursor: not-allowed !important;
-}
-
-button,
-input[type=button],
-input[type=color],
-input[type=file],
-input[type=image],
-input[type=color],
-input[type=radio],
-input[type=reset],
-input[type=submit] {
-  cursor: pointer;
-}
-
-button,
-input[type=button],
-input[type=reset],
-input[type=submit] {
-  border-radius: 0.5em;
-  padding: 0.5em 1.5em;
-}
-
-select,
-textarea {
-  /* width */
-}
 select::-webkit-scrollbar,
 textarea::-webkit-scrollbar {
   width: 1em;
@@ -70,6 +24,57 @@ textarea::-webkit-resizer {
   background-repeat: no-repeat;
   background-color: transparent;
   position: relative;
+}
+
+input:-internal-autofill-selected {
+  -webkit-appearance: initial !important;
+     -moz-appearance: initial !important;
+          appearance: initial !important;
+  background-image: initial !important;
+  background-color: initial !important;
+  color: initial !important;
+}
+
+button,
+input[type=button],
+input[type=color],
+input[type=file],
+input[type=image],
+input[type=color],
+input[type=radio],
+input[type=reset],
+input[type=submit] {
+  cursor: pointer;
+}
+
+button,
+input,
+output,
+select,
+textarea {
+  border-radius: 0.25em;
+  border-style: solid;
+  border-width: 0.2em;
+  font-size: 1em;
+  outline: none;
+  margin: 0.5em 0;
+  padding: 0.5em 0.75em;
+  vertical-align: middle;
+}
+button:disabled,
+input:disabled,
+output:disabled,
+select:disabled,
+textarea:disabled {
+  cursor: not-allowed !important;
+}
+
+button,
+input[type=button],
+input[type=reset],
+input[type=submit] {
+  border-radius: 0.5em;
+  padding: 0.5em 1.5em;
 }
 
 input:focus, input:focus-within, input:focus-visible,
@@ -104,6 +109,18 @@ input:not(:disabled):hover:not(:focus):-ms-input-placeholder, textarea:not(:disa
 input:not(:disabled):hover:not(:focus)::placeholder,
 textarea:not(:disabled):hover:not(:focus)::placeholder {
   opacity: 1;
+}
+
+fieldset {
+  border-radius: 0.5em;
+  border-style: solid;
+  border-width: 0.125em;
+  padding: 0 0.5em 1em 0.5em;
+  border-collapse: initial;
+}
+fieldset legend {
+  padding: 0 0.75em;
+  margin: 0 0.5em 0.5em;
 }
 
 input[type=checkbox] {
@@ -148,6 +165,7 @@ input[type=checkbox]:not(:disabled):hover:not(:focus) {
 }
 
 input[type=color] {
+  -webkit-appearance: none;
   border: none;
   height: 2em;
   padding: 0;
@@ -161,6 +179,12 @@ input[type=color]:not(:disabled):hover:not(:focus) {
 }
 input[type=color][list] {
   width: 4em;
+}
+input[type=color]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+input[type=color]::-webkit-color-swatch {
+  border-width: 1em solid #FD0;
 }
 
 input[type=image] {
@@ -176,21 +200,12 @@ input[type=image]:hover {
   border: none;
 }
 
-legend {
-  font-weight: bold;
-  margin: 0.5em 0.5em 0;
+input[type=number].no-arrows::-webkit-outer-spin-button, input[type=number].no-arrows::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
-
-fieldset {
-  border-radius: 0.5em;
-  border-style: solid;
-  border-width: 0.125em;
-  padding: 0 0.5em 1em 0.5em;
-  border-collapse: initial;
-}
-fieldset legend {
-  padding: 0 0.75em;
-  margin: 0 0.5em 0.5em;
+input[type=number].no-arrows[type=number] {
+  -moz-appearance: textfield;
 }
 
 input[type=radio] {
@@ -211,6 +226,11 @@ label {
   margin: 1em 0 0.5em;
 }
 
+legend {
+  font-weight: bold;
+  margin: 0.5em 0.5em 0;
+}
+
 select {
   cursor: pointer;
   padding: 0.25em 0.75em;
@@ -224,12 +244,6 @@ select:-moz-focusring {
 select[size] {
   padding: 0;
 }
-select optgroup {
-  cursor: default;
-}
-select optgroup::before {
-  padding: 0 0.25em;
-}
 select option {
   margin: 0;
   padding: 0.25em 0.5em;
@@ -238,6 +252,12 @@ select option {
 select option::before {
   display: inline-block;
   width: 0.125em;
+}
+select optgroup {
+  cursor: default;
+}
+select optgroup::before {
+  padding: 0 0.25em;
 }
 
 textarea {
