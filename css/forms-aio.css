@@ -130,6 +130,41 @@ textarea::-webkit-resizer {
 textarea ::-webkit-scrollbar-track-piece:no-button {
     background-color: var(--main-dark-background-color);
   }
+  @supports (-moz-appearance: none) {
+    input[type=range] {
+      background-color: transparent;
+    }
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    background-color: var(--main-dark-background-color);
+    outline-color: var(--border-dark-color);
+  }
+  input[type=range]::-webkit-slider-thumb {
+    background-color: var(--highlight-dark-border-color-opaque);
+  }
+  input[type=range]::-moz-range-track {
+    background-color: var(--main-dark-background-color);
+  }
+  input[type=range]::-moz-range-thumb {
+    background-color: var(--highlight-dark-border-color-opaque);
+  }
+  @supports (-moz-appearance: none) {
+    input[type=range]:focus, input[type=range]:active, input[type=range]:hover {
+      background-color: transparent;
+    }
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track, input[type=range]:active::-webkit-slider-runnable-track, input[type=range]:hover::-webkit-slider-runnable-track {
+    background-color: var(--focus-dark-background-color);
+  }
+  input[type=range]:focus::-moz-range-track, input[type=range]:active::-moz-range-track, input[type=range]:hover::-moz-range-track {
+    background-color: var(--focus-dark-background-color);
+  }
+  input[type=range]:focus::-moz-range-thumb, input[type=range]:active::-moz-range-thumb, input[type=range]:hover::-moz-range-thumb {
+    background-color: var(--highlight-dark-border-color);
+  }
+  input[type=range]:focus::-webkit-slider-thumb, input[type=range]:active::-webkit-slider-thumb, input[type=range]:hover::-webkit-slider-thumb {
+    background-color: var(--highlight-dark-border-color);
+  }
   select {
     background-color: var(--main-dark-background-color);
   }
@@ -162,9 +197,6 @@ textarea ::-webkit-scrollbar-track-piece:no-button {
   select option:checked:focus, select option:checked:focus-within, select option:checked:focus-visible {
     background-color: var(--highlight-dark-border-color);
     color: var(--main-dark-font-color);
-  }
-  fieldset {
-    border-color: var(--border-dark-color);
   }
 }
 /*
@@ -358,6 +390,31 @@ textarea::-webkit-resizer {
   select ::-webkit-scrollbar-track-piece:no-button,
 textarea ::-webkit-scrollbar-track-piece:no-button {
     background-color: var(--main-light-background-color);
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    background-color: var(--main-light-background-color);
+    outline-color: var(--border-light-color);
+  }
+  input[type=range]::-webkit-slider-thumb {
+    background-color: var(--highlight-light-border-color-opaque);
+  }
+  input[type=range]::-moz-range-track {
+    background-color: var(--main-light-background-color);
+  }
+  input[type=range]::-moz-range-thumb {
+    background-color: var(--highlight-light-border-color-opaque);
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track, input[type=range]:active::-webkit-slider-runnable-track, input[type=range]:hover::-webkit-slider-runnable-track {
+    background-color: var(--focus-light-background-color);
+  }
+  input[type=range]:focus::-moz-range-track, input[type=range]:active::-moz-range-track, input[type=range]:hover::-moz-range-track {
+    background-color: var(--focus-light-background-color);
+  }
+  input[type=range]:focus::-moz-range-thumb, input[type=range]:active::-moz-range-thumb, input[type=range]:hover::-moz-range-thumb {
+    background-color: var(--highlight-light-border-color);
+  }
+  input[type=range]:focus::-webkit-slider-thumb, input[type=range]:active::-webkit-slider-thumb, input[type=range]:hover::-webkit-slider-thumb {
+    background-color: var(--highlight-light-border-color);
   }
   select {
     background-color: var(--main-light-background-color);
@@ -704,10 +761,54 @@ input[type=radio] {
 }
 
 input[type=range] {
-  border: 0;
-  cursor: e-resize;
-  margin: -1px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  border-radius: 1em;
   padding: 0;
+  position: relative;
+}
+@supports (-moz-appearance: none) {
+  input[type=range] {
+    background-color: transparent;
+  }
+}
+input[type=range]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+          appearance: none;
+  border-radius: 1em;
+  cursor: pointer;
+  height: calc(0.5em + 0.1em);
+  outline-offset: -0.1em;
+  outline-style: solid;
+  outline-width: 0.1em;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+          appearance: none;
+  border-radius: 1em;
+  cursor: ew-resize;
+  height: 1em;
+  transform: translateY(calc(((0.5em / 2) - 0.5px) * -1));
+  width: 1em;
+}
+input[type=range]::-moz-range-progress {
+  visibility: hidden;
+}
+input[type=range]::-moz-range-track {
+  border-radius: 1em;
+  cursor: pointer;
+  height: 0.5em;
+  border-width: 0.1em;
+  border-style: solid;
+}
+input[type=range]::-moz-range-thumb {
+  border: none;
+  cursor: ew-resize;
+}
+input[type=range]:hover {
+  border-width: 0;
 }
 
 label {
@@ -753,7 +854,69 @@ textarea {
 }
 
 output {
-  padding: 0.25em;
+  border: none;
+}
+
+progress {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  border-radius: 1em;
+  overflow: hidden;
+  padding: 0;
+  height: 0.75em;
+  vertical-align: 0;
+  transform: translateY(calc((1em - 0.75em) / 2 * -1));
+}
+@-webkit-keyframes animated-stripes {
+  to {
+    background-position: 100% 100%;
+  }
+}
+@keyframes animated-stripes {
+  to {
+    background-position: 100% 100%;
+  }
+}
+@supports (-moz-appearance: none) {
+  progress {
+    background-color: red;
+    height: 0.75em;
+  }
+}
+progress:indeterminate {
+  background-color: transparent;
+  background-image: repeating-linear-gradient(-45deg, transparent, transparent 1rem, #ccc 1rem, #ccc 2rem);
+  background-size: 200% 200%;
+  border: 1px solid #ccc;
+  -webkit-animation: animated-stripes 3s linear infinite;
+          animation: animated-stripes 3s linear infinite;
+}
+progress:indeterminate::-webkit-progress-bar {
+  background-color: transparent;
+}
+progress:indeterminate::-moz-progress-bar {
+  background-color: transparent;
+}
+progress::-webkit-progress-bar {
+  -webkit-appearance: none;
+          appearance: none;
+  border-radius: 1em;
+  height: 0.75em;
+  background-color: red;
+}
+progress::-webkit-progress-value {
+  border-radius: 1em 0 0 1em;
+  height: 0.75em;
+  background-color: #00F;
+}
+progress::-webkit-progress-inner-element {
+  -webkit-appearance: none;
+          appearance: none;
+}
+progress::-moz-progress-bar {
+  background-color: #00F;
 }
 
 /**

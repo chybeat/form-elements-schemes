@@ -157,6 +157,53 @@ CSS rules to colorize form elements in dark schemes
 		}
 	}
 
+	input[type='range'] {
+		@supports (-moz-appearance:none) {
+			background-color: transparent;
+		}
+
+		&::-webkit-slider-runnable-track {
+			background-color: var(--main-dark-background-color);
+			outline-color: var(--border-dark-color);
+		}
+
+		&::-webkit-slider-thumb {
+			background-color: var(--highlight-dark-border-color-opaque);
+		}
+
+		&::-moz-range-track {
+			background-color: var(--main-dark-background-color);
+		}
+
+		&::-moz-range-thumb {
+			background-color: var(--highlight-dark-border-color-opaque);
+		}
+
+		&:focus,
+		&:active,
+		&:hover {
+			@supports (-moz-appearance:none) {
+				background-color: transparent;
+			}
+
+			&::-webkit-slider-runnable-track {
+				background-color: var(--focus-dark-background-color);
+			}
+
+			&::-moz-range-track {
+				background-color: var(--focus-dark-background-color);
+			}
+
+			&::-moz-range-thumb {
+				background-color: var(--highlight-dark-border-color);
+			}
+
+			&::-webkit-slider-thumb {
+				background-color: var(--highlight-dark-border-color);
+			}
+		}
+	}
+
 	select {
 		background-color: var(--main-dark-background-color);
 
@@ -207,10 +254,6 @@ CSS rules to colorize form elements in dark schemes
 				}
 			}
 		}
-	}
-
-	fieldset {
-		border-color: var(--border-dark-color);
 	}
 }
 

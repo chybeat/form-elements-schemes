@@ -157,6 +157,45 @@ CSS rules to colorize elements in light schemes
 		}
 	}
 
+	input[type='range'] {
+		&::-webkit-slider-runnable-track {
+			background-color: var(--main-light-background-color);
+			outline-color: var(--border-light-color);
+		}
+
+		&::-webkit-slider-thumb {
+			background-color: var(--highlight-light-border-color-opaque);
+		}
+
+		&::-moz-range-track {
+			background-color: var(--main-light-background-color);
+		}
+
+		&::-moz-range-thumb {
+			background-color: var(--highlight-light-border-color-opaque);
+		}
+
+		&:focus,
+		&:active,
+		&:hover {
+			&::-webkit-slider-runnable-track {
+				background-color: var(--focus-light-background-color);
+			}
+
+			&::-moz-range-track {
+				background-color: var(--focus-light-background-color);
+			}
+
+			&::-moz-range-thumb {
+				background-color: var(--highlight-light-border-color);
+			}
+
+			&::-webkit-slider-thumb {
+				background-color: var(--highlight-light-border-color);
+			}
+		}
+	}
+
 	select {
 		background-color: var(--main-light-background-color);
 

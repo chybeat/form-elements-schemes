@@ -24,6 +24,18 @@
 
 
 
+	<script src="./js/formElements.js"></script>
+
+	<!--Prism.js plugin-->
+	<link rel="stylesheet" type="text/css" href="./modules/prismjs/prism.css">
+	<script src="./modules/prismjs/prism.js"></script>
+
+	<!-- Normalize CSS rules-->
+	<link rel="stylesheet" type="text/css" href="./css/main.min.css">
+
+	<!-- Form elements sizes and changes !Required for both light and dark schmes-->
+	<link rel="stylesheet" type="text/css" href="./css/formsBoxModel.min.css">
+
 	<!-- Form elements css rules to dark schemes -->
 	<link rel="stylesheet" type="text/css" href="css/darkFormElements.css"
 		media="screen and (prefers-color-scheme: dark)">
@@ -32,21 +44,16 @@
 	<link rel="stylesheet" type="text/css" href="css/lightFormElements.css"
 		media="screen and (prefers-color-scheme: light)">
 
-	<script src="./js/formElements.js"></script>
-
-	<!--Prism.js plugin-->
-	<link rel="stylesheet" type="text/css" href="./modules/prismjs/prism.css">
-	<script src="./modules/prismjs/prism.js"></script>
-
-
-	<!-- Form elements sizes and changes !Required for both light and dark schmes-->
-	<link rel="stylesheet" type="text/css" href="./css/formsBoxModel.min.css">
-
-	<!-- This page styles including normalize CSS rules-->
+	<!-- This page styles-->
 	<link rel="stylesheet" type="text/css" href="./css/main.min.css">
 </head>
 
 <body>
+	<form id="test" class="light-scheme" style="background-color: #FFF; padding: 1em"><br><br>
+		<progress max="100">10 %</progress><span
+			style="display: inline-block; background-color: #FD0; width: 1em; height: 1em;"></span>epaTa<br><br>
+		<progress value="98" max="100">10 %</progress>
+	</form>
 	<h2>To do:</h2>
 	<ul>
 		<li>Setup links to css files in repo! in how to use and files table</li>
@@ -290,7 +297,7 @@
 								<td class="darkSchemeElements dark-scheme">
 									<form>
 										<label for="it-sh">Learn something</label>
-										<input id="it-sh" type="search">
+										<input id="it-sh" type="search" placeholder="Lear some skills">
 									</form>
 								<td class="ligthSchemeElements light-scheme"></td>
 								<td class="elementSourceCode"></td>
@@ -301,7 +308,7 @@
 								<td class="darkSchemeElements dark-scheme">
 									<form>
 										<label for="inputType_tel">Some phone number</label>
-										<input id="inputType_tel" type="tel">
+										<input id="inputType_tel" type="tel" placeholder="(+1) 555 5 69 69">
 									</form>
 								<td class="ligthSchemeElements light-scheme"></td>
 								<td class="elementSourceCode"></td>
@@ -312,7 +319,7 @@
 								<td class="darkSchemeElements dark-scheme">
 									<form>
 										<label for="inputType_url">Favorite URL</label>
-										<input id="inputType_url" type="url">
+										<input id="inputType_url" type="url" placeholder="https://bit.ly">
 									</form>
 								<td class="ligthSchemeElements light-scheme"></td>
 								<td class="elementSourceCode"></td>
@@ -323,7 +330,7 @@
 								<td class="darkSchemeElements dark-scheme">
 									<form>
 										<label for="inputType_email">An email</label>
-										<input id="inputType_email" type="email">
+										<input id="inputType_email" type="email" placeholder="email@star69.dj">
 									</form>
 								<td class="ligthSchemeElements light-scheme"></td>
 								<td class="elementSourceCode"></td>
@@ -691,10 +698,10 @@
 
 				<progress id="file" max="100" value="70"> 70% </progress>
 				<br>
-				<legend>Some input types </legend>
-				<label for="inputType_color">Type color</label>
-				<input id="inputType_color" type="color">
+				<label for="inputType_range">Type range</label>
+				<input id="inputType_range" type="range">
 				<br>
+				<legend>Some input types </legend>
 				<label for="inputType_checkbox">Type checkbox</label>
 				<input id="inputType_checkbox" type="checkbox">
 				<br>
@@ -702,8 +709,11 @@
 				<label for="inputType_radio-b">B</label><input id="inputType_radio-b" name="radio" type="radio">
 				<br>Radio ver como se arregla como checkbox
 				<br>
-				<label for="inputType_range">Type range</label>
-				<input id="inputType_range" type="range">
+				<label for="inputType_color">Type color</label>
+				<input id="inputType_color" type="color">
+				<br>
+				<label for="inputType_file">Type file</label>
+				<input id="inputType_file" type="file">
 				<br>
 				<label for="inputType_time">Type time</label>
 				<input id="inputType_time" type="time">
@@ -719,9 +729,6 @@
 				<br>
 				<label for="inputType_datetime">Type datetime</label>
 				<input id="inputType_datetime" type="datetime-local">
-				<br>
-				<label for="inputType_file">Type file</label>
-				<input id="inputType_file" type="file">
 				<br>
 			</fieldset>
 		</form>
