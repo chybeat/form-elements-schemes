@@ -31,37 +31,46 @@
 	<script src="./modules/prismjs/prism.js"></script>
 
 	<!-- Normalize CSS rules-->
-	<link rel="stylesheet" type="text/css" href="./css/main.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/normalize.css">
 
-	<!-- Form elements sizes and changes !Required for both light and dark schmes-->
-	<link rel="stylesheet" type="text/css" href="./css/formsBoxModel.min.css">
+	<!-- Form elements sizes and changes !Required for both light and dark schmes
+	<link rel="stylesheet" type="text/css" href="./css/formsBoxModel.min.css">-->
 
-	<!-- Form elements css rules to dark schemes -->
+	<!-- Form elements css rules to dark schemes 
 	<link rel="stylesheet" type="text/css" href="css/darkFormElements.css"
 		media="screen and (prefers-color-scheme: dark)">
-
-	<!-- Form elements css rules to light schemes -->
+-->
+	<!-- Form elements css rules to light schemes
 	<link rel="stylesheet" type="text/css" href="css/lightFormElements.css"
 		media="screen and (prefers-color-scheme: light)">
-
+	-->
+	<!-- aio.min file is the recomended file for production -->
+	<link rel="stylesheet" type="text/css" href="css/forms-aio.min.css">
 	<!-- This page styles-->
 	<link rel="stylesheet" type="text/css" href="./css/main.min.css">
 </head>
 
 <body>
-	<form id="test" class="light-scheme" style="background-color: #FFF; padding: 1em"><br><br>
-		<progress max="100">10 %</progress><span
-			style="display: inline-block; background-color: #FD0; width: 1em; height: 1em;"></span>epaTa<br><br>
-		<progress value="98" max="100">10 %</progress>
+	<form id="test" style=" display:none;background-color: #FFF; padding: 1em">
+		<div class="light-scheme">
+			<progress id="file1" max="100"> 70% </progress>
+			<br>
+			<progress id="file2" max="100" value="70"> 70% </progress>
+		</div>
+		<div class="dark-scheme">
+			<progress id="file1" max="100"> 70% </progress>
+			<br>
+			<progress id="file2" max="100" value="70"> 70% </progress>
+		</div>
+		<br>
 	</form>
 	<h2>To do:</h2>
 	<ul>
 		<li>Setup links to css files in repo! in how to use and files table</li>
 		<li>Change start_url in web manifest after upload files to github</li>
 		<li>Remove *.png from .gitignore file before upload latest version to github</li>
-		<li>Fix the \n when fill the source code column</li>
 		<li>Remove maps in css/scss files</li>
-		<li>Input type color se puede cambiar de color?, no se ve nadita!</li>
+		<li>Input type color has not padding or border color in dark mode!</li>
 		<li></li>
 		<li></li>
 	</ul>
@@ -257,7 +266,7 @@
 								<td class="darkSchemeElements dark-scheme">
 									<form>
 										<label for="it-num">Your age in months</label>
-										<input id="it-num" type="number">
+										<input id="it-num" type="number" placeholder="Age">
 									</form>
 								<td class="ligthSchemeElements light-scheme"></td>
 								<td class="elementSourceCode"></td>
@@ -700,6 +709,9 @@
 				<br>
 				<label for="inputType_range">Type range</label>
 				<input id="inputType_range" type="range">
+				<br>
+				<label for="inputType_checkbox_switch">Type checkbox</label>
+				<input id="inputType_checkbox_switch" type="checkbox" class="switch">
 				<br>
 				<legend>Some input types </legend>
 				<label for="inputType_checkbox">Type checkbox</label>

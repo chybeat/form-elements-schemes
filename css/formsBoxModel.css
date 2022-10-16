@@ -124,48 +124,105 @@ fieldset legend {
 }
 
 input[type=checkbox] {
-  -moz-appearance: none;
   -webkit-appearance: none;
+     -moz-appearance: none;
           appearance: none;
-  border: unset;
+  border: none;
+  position: relative;
+  margin: 0;
+}
+input[type=checkbox]:not(.switch) {
+  background: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   cursor: pointer;
-  font-size: 1.25em;
-  height: 1em;
+  height: 1.15em;
+  padding: 0;
+  width: 1.15em;
+}
+input[type=checkbox]:not(.switch)::before, input[type=checkbox]:not(.switch)::after {
+  border-radius: 0.1em;
+  content: "";
+  position: absolute;
+  width: 1.15em;
+  height: 1.15em;
+}
+input[type=checkbox]:not(.switch)::before {
+  outline-offset: -0.1em;
+  outline-style: solid;
+  outline-width: 0.15em;
+}
+input[type=checkbox]:not(.switch):hover {
+  border: none;
+}
+input[type=checkbox]:not(.switch):checked::after {
+  left: 0.35em;
+  top: 0.1em;
+  width: 0.15em;
+  height: 0.5em;
+  border-style: solid;
+  border-width: 0 0.25em 0.25em 0;
+  transform: rotate(45deg);
+  position: absolute;
+}
+@supports (-moz-appearance: none) {
+  input[type=checkbox]:not(.switch):checked::after {
+    top: 0.16em;
+    left: 0.4em;
+  }
+}
+input[type=checkbox].switch {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1em;
   margin: 0;
   padding: 0;
-  position: relative;
-  vertical-align: middle;
-  width: 0;
+  width: 2.5em;
+  vertical-align: text-top;
 }
-input[type=checkbox]::before, input[type=checkbox]::after {
+input[type=checkbox].switch::before, input[type=checkbox].switch::after {
   border-radius: 5em;
   content: "";
   position: absolute;
   transition: 0.2s;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition-delay: 0s;
+  transition-property: left;
 }
-input[type=checkbox]::after {
-  height: 0.75em;
-  left: 0.15em;
-  top: 0.125em;
-  width: 0.75em;
-}
-input[type=checkbox]::before {
-  border-style: solid;
-  border-width: 0.1em;
+input[type=checkbox].switch::after {
   height: 0.8em;
-  left: 0;
-  top: 0;
-  width: 2em;
+  left: 0.2em;
+  top: 0.17em;
+  width: 0.8em;
 }
-input[type=checkbox]:checked:after {
-  left: 1.25em;
+@supports (-moz-appearance: none) {
+  input[type=checkbox].switch::after {
+    top: 0.17em;
+  }
+}
+input[type=checkbox].switch::before {
+  height: 1.125em;
+  outline-offset: -0.1em;
+  outline-style: solid;
+  outline-width: 0.15em;
+  width: 2.5em;
+}
+input[type=checkbox].switch:checked:after {
+  left: 1.475em;
 }
 input[type=checkbox]:not(:disabled):hover:not(:focus) {
-  border: unset;
+  border: none;
 }
 
 input[type=color] {
   -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   border: none;
   height: 2em;
   padding: 0;
@@ -202,10 +259,13 @@ input[type=image]:hover {
 
 input[type=number].no-arrows::-webkit-outer-spin-button, input[type=number].no-arrows::-webkit-inner-spin-button {
   -webkit-appearance: none;
+          appearance: none;
   margin: 0;
 }
 input[type=number].no-arrows[type=number] {
-  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
 }
 
 input[type=radio] {
@@ -283,7 +343,7 @@ select:-ms-expand {
   display: none;
 }
 select:-moz-focusring {
-  color: transparent !important;
+  color: transparent;
 }
 select[size] {
   padding: 0;
@@ -316,8 +376,8 @@ progress {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  border: none;
   border-radius: 1em;
+  border: none;
   overflow: hidden;
   padding: 0;
   height: 0.75em;
@@ -336,40 +396,44 @@ progress {
 }
 @supports (-moz-appearance: none) {
   progress {
-    background-color: red;
     height: 0.75em;
+    outline-offset: -0.1em;
+    outline-style: solid;
+    outline-width: 0.1em;
   }
 }
-progress:indeterminate {
-  background-color: transparent;
-  background-image: repeating-linear-gradient(-45deg, transparent, transparent 1rem, #ccc 1rem, #ccc 2rem);
-  background-size: 200% 200%;
-  border: 1px solid #ccc;
-  -webkit-animation: animated-stripes 3s linear infinite;
-          animation: animated-stripes 3s linear infinite;
-}
-progress:indeterminate::-webkit-progress-bar {
-  background-color: transparent;
-}
-progress:indeterminate::-moz-progress-bar {
-  background-color: transparent;
-}
 progress::-webkit-progress-bar {
+  outline-offset: -0.1em;
+  outline-style: solid;
+  outline-width: -0.1em;
   -webkit-appearance: none;
           appearance: none;
   border-radius: 1em;
   height: 0.75em;
-  background-color: red;
 }
 progress::-webkit-progress-value {
   border-radius: 1em 0 0 1em;
   height: 0.75em;
-  background-color: #00F;
 }
 progress::-webkit-progress-inner-element {
   -webkit-appearance: none;
           appearance: none;
 }
-progress::-moz-progress-bar {
-  background-color: #00F;
-}/*# sourceMappingURL=formsBoxModel.css.map */
+progress:indeterminate {
+  outline: none;
+  background-color: transparent;
+  background-size: 200% 200%;
+  border-width: 0.1em;
+  border-style: solid;
+  -webkit-animation: animated-stripes 3s linear infinite;
+          animation: animated-stripes 3s linear infinite;
+}
+progress:indeterminate::-webkit-progress-bar {
+  background-color: transparent;
+  outline: none;
+}
+progress:indeterminate::-moz-progress-bar {
+  background-color: transparent;
+}
+
+/** End of CSS rules for resizing and setting*//*# sourceMappingURL=formsBoxModel.css.map */

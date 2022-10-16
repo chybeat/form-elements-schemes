@@ -150,7 +150,7 @@ table th {
   margin: 0 auto;
   padding: 1em 0 0.5em;
   text-align: right;
-  width: 48em;
+  max-width: 48em;
 }
 
 .sample-use-container {

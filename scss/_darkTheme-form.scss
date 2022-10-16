@@ -15,17 +15,16 @@ CSS rules to colorize form elements in dark schemes
 		--black: #{color.$black};
 
 		//Backgrounds colors
-		--focus-dark-background-color: #{color.$focus-dark-background-color};
-		--main-dark-background-color: #{color.$main-dark-background-color};
+		--focus-background-color: #{color.$focus-dark-background-color};
+		--main-background-color: #{color.$main-dark-background-color};
 
 		//Border colors
-		--border-dark-color: #{color.$border-dark-color};
-		--highlight-dark-border-color: #{color.$highlight-dark-border-color};
-		--highlight-dark-border-color-opaque: #{color.$highlight-dark-border-color-opaque};
+		--border-color: #{color.$border-dark-color};
+		--highlight-border-color: #{color.$highlight-dark-border-color};
+		--highlight-border-color-opaque: #{color.$highlight-dark-border-color-opaque};
 
 		//Fonts colors
-		--main-dark-font-color: #{color.$main-dark-font-color};
-		--highlight-dark-font-color: #{color.$highlight-dark-font-color};
+		--main-font-color: #{color.$main-dark-font-color};
 
 		//scroll arrows icons
 		--scroll-arrowUp: #{ico.svg(arrowUp, color.$highlight-dark-border-color)};
@@ -43,17 +42,16 @@ CSS rules to colorize form elements in dark schemes
 		--black: #{color.$white};
 
 		//Backgrounds colors
-		--focus-dark-background-color: #{color.$focus-light-background-color};
-		--main-dark-background-color: #{color.$main-light-background-color};
+		--focus-background-color: #{color.$focus-light-background-color};
+		--main-background-color: #{color.$main-light-background-color};
 
 		//Border colors
-		--border-dark-color: #{color.$border-light-color};
-		--highlight-dark-border-color: #{color.$highlight-light-border-color};
-		--highlight-dark-border-color-opaque: #{color.$highlight-light-border-color-opaque};
+		--border-color: #{color.$border-light-color};
+		--highlight-border-color: #{color.$highlight-light-border-color};
+		--highlight-border-color-opaque: #{color.$highlight-light-border-color-opaque};
 
 		//Fonts colors
-		--main-dark-font-color: #{color.$main-light-font-color};
-		--highlight-dark-font-color: #{color.$highlight-light-font-color};
+		--main-font-color: #{color.$main-light-font-color};
 
 		//scroll arrows icons
 		--scroll-arrowUp: #{ico.svg(arrowUp, color.$main-light-font-color)};
@@ -72,26 +70,43 @@ CSS rules to colorize form elements in dark schemes
 	select,
 	input,
 	textarea {
-		background-color: var(--main-dark-background-color);
-		border-color: var(--border-dark-color);
-		color: var(--main-dark-font-color);
+		background-color: var(--main-background-color);
+		border-color: var(--border-color);
+		color: var(--main-font-color);
 
 		&:focus,
 		&:focus-within,
 		&:focus-visible {
-			color: var(--main-dark-font-color) !important;
-			background-color: var(--focus-dark-background-color);
-			border-color: var(--highlight-dark-border-color);
+			color: var(--main-font-color) !important;
+			background-color: var(--focus-background-color);
+			border-color: var(--highlight-border-color);
 		}
 
 		&:not(:disabled) {
 			&:hover:not(:focus) {
-				border-color: var(--highlight-dark-border-color);
+				border-color: var(--highlight-border-color);
 
 				&::placeholder {
-					color: var(--highlight-dark-border-color-opaque);
+					color: var(--highlight-border-color-opaque);
 				}
 			}
+		}
+	}
+
+	button,
+	input[type="button"],
+	input[type="reset"],
+	input[type="file"],
+	input[type="image"],
+	input[type="submit"] {
+		&:hover {
+			background-color: var(--focus-background-color);
+		}
+
+		&:active {
+			background-color: var(--highlight-border-color);
+			border-color: var(--main-font-color);
+			color: var(--white);
 		}
 	}
 
@@ -99,21 +114,21 @@ CSS rules to colorize form elements in dark schemes
 	select,
 	textarea {
 		// scroll bar color for Firefox
-		scrollbar-color: var(--highlight-dark-border-color-opaque) var(--main-dark-background-color); //1st thumb, 2nd track
+		scrollbar-color: var(--highlight-border-color-opaque) var(--main-background-color); //1st thumb, 2nd track
 
 		/* Track */
 		&::-webkit-scrollbar-track {
-			background-color: var(--main-dark-background-color);
+			background-color: var(--main-background-color);
 		}
 
 		/* Handle */
 		&::-webkit-scrollbar-thumb {
-			background: var(--highlight-dark-border-color-opaque);
+			background: var(--highlight-border-color-opaque);
 		}
 
 		/* Handle on hover */
 		&::-webkit-scrollbar-thumb:hover {
-			background: var(--highlight-dark-border-color);
+			background: var(--highlight-border-color);
 		}
 
 		&::-webkit-scrollbar-button:vertical:start:decrement,
@@ -121,7 +136,7 @@ CSS rules to colorize form elements in dark schemes
 		&::-webkit-scrollbar-button:horizontal:start:decrement,
 		&::-webkit-scrollbar-button:horizontal:end:increment {
 			&:active {
-				background-color: var(--border-dark-color);
+				background-color: var(--border-color);
 			}
 		}
 
@@ -153,8 +168,12 @@ CSS rules to colorize form elements in dark schemes
 
 		//track witouth buttons
 		::-webkit-scrollbar-track-piece:no-button {
-			background-color: var(--main-dark-background-color);
+			background-color: var(--main-background-color);
 		}
+	}
+
+	fieldset {
+		border-color: var(--border-color);
 	}
 
 	input[type='range'] {
@@ -163,20 +182,20 @@ CSS rules to colorize form elements in dark schemes
 		}
 
 		&::-webkit-slider-runnable-track {
-			background-color: var(--main-dark-background-color);
-			outline-color: var(--border-dark-color);
+			background-color: var(--main-background-color);
+			outline-color: var(--border-color);
 		}
 
 		&::-webkit-slider-thumb {
-			background-color: var(--highlight-dark-border-color-opaque);
+			background-color: var(--highlight-border-color-opaque);
 		}
 
 		&::-moz-range-track {
-			background-color: var(--main-dark-background-color);
+			background-color: var(--main-background-color);
 		}
 
 		&::-moz-range-thumb {
-			background-color: var(--highlight-dark-border-color-opaque);
+			background-color: var(--highlight-border-color-opaque);
 		}
 
 		&:focus,
@@ -187,25 +206,110 @@ CSS rules to colorize form elements in dark schemes
 			}
 
 			&::-webkit-slider-runnable-track {
-				background-color: var(--focus-dark-background-color);
+				background-color: var(--focus-background-color);
 			}
 
 			&::-moz-range-track {
-				background-color: var(--focus-dark-background-color);
+				background-color: var(--focus-background-color);
 			}
 
 			&::-moz-range-thumb {
-				background-color: var(--highlight-dark-border-color);
+				background-color: var(--highlight-border-color);
 			}
 
 			&::-webkit-slider-thumb {
-				background-color: var(--highlight-dark-border-color);
+				background-color: var(--highlight-border-color);
 			}
 		}
 	}
 
+	input[type="checkbox"] {
+
+		&:not(.switch) {
+			&::before {
+				background-color: var(--main-background-color);
+				outline-color: var(--border-color);
+			}
+
+			&:hover {
+				&::before {
+					background-color: var(--focus-background-color);
+					outline-color: var(--highlight-border-color);
+				}
+			}
+
+			&:checked {
+				&::after {
+					border-color: var(--main-font-color);
+				}
+
+				&::before {
+					background-color: var(--focus-background-color);
+				}
+			}
+		}
+
+		&.switch {
+			&::after {
+				background-color: var(--border-color);
+			}
+
+			&::before {
+				background-color: var(--main-background-color);
+				outline-color: var(--border-color);
+			}
+
+			&:hover {
+				&::before {
+					background-color: var(--focus-background-color);
+					outline-color: var(--highlight-border-color);
+
+				}
+			}
+
+			&:checked {
+				&::after {
+					background-color: var(--highlight-border-color);
+				}
+
+				&::before {
+					background-color: var(--focus-background-color);
+				}
+			}
+		}
+	}
+
+	progress {
+		@supports (-moz-appearance:none) {
+			background-color: var(--focus-background-color);
+			outline-color: var(--highlight-border-color-opaque);
+		}
+
+		&:indeterminate {
+			background-image: repeating-linear-gradient(-45deg,
+					transparent,
+					transparent 1rem,
+					var(--highlight-border-color-opaque) 1rem,
+					var(--highlight-border-color-opaque) 2rem);
+			border-color: var(--highlight-border-color);
+		}
+
+		&::-webkit-progress-bar {
+			background-color: var(--focus-background-color);
+			outline-color: var(--highlight-border-color-opaque);
+		}
+
+		&::-webkit-progress-value {
+			background-color: var(--highlight-border-color-opaque);
+		}
+
+		&::-moz-progress-bar {
+			background-color: var(--highlight-border-color-opaque);
+		}
+	}
+
 	select {
-		background-color: var(--main-dark-background-color);
+		background-color: var(--main-background-color);
 
 		&:-moz-focusring {
 			text-shadow: 0 0 0 var(--white);
@@ -214,13 +318,13 @@ CSS rules to colorize form elements in dark schemes
 		&:focus,
 		&:focus-within,
 		&:focus-visible {
-			background-color: var(--focus-dark-background-color);
+			background-color: var(--focus-background-color);
 
 			optgroup {
-				background-color: var(--main-dark-background-color);
+				background-color: var(--main-background-color);
 
 				option {
-					background-color: var(--focus-dark-background-color);
+					background-color: var(--focus-background-color);
 				}
 			}
 		}
@@ -229,92 +333,30 @@ CSS rules to colorize form elements in dark schemes
 			color: var(--white);
 
 			option {
-				background-color: var(--main-dark-background-color);
+				background-color: var(--main-background-color);
 			}
 		}
 
 		option {
-			background-color: var(--focus-dark-background-color);
-			color: var(--main-dark-font-color);
+			background-color: var(--focus-background-color);
+			color: var(--main-font-color);
 
 			&:checked {
 
 				&:not(:focus),
 				&:not(:focus-within),
 				&:not(:focus-visible) {
-					background-color: var(--highlight-dark-border-color-opaque);
-					color: var(--highlight-dark-font-color);
+					background-color: var(--highlight-border-color-opaque);
+					color: var(--main-font-color);
 				}
 
 				&:focus,
 				&:focus-within,
 				&:focus-visible {
-					background-color: var(--highlight-dark-border-color);
-					color: var(--main-dark-font-color);
+					background-color: var(--highlight-border-color);
+					color: var(--main-font-color);
 				}
 			}
 		}
 	}
 }
-
-/////////////OK/////////////
-/*
-	button,
-	input[type="button"],
-	input[type="reset"],
-	input[type="file"],
-	input[type="image"],
-	input[type="submit"] {
-		&:hover {
-			background-color: var(--focus-dark-background-color);
-		}
-
-		&:active {
-			background-color: var(--highlight-dark-border-color);
-			border-color: var(--main-dark-font-color);
-			color: var(--white);
-		}
-	}
-
-	input[type="checkbox"] {
-
-		&::before,
-		&::after {
-			border-color: var(--border-dark-color);
-		}
-
-		&::after {
-			background-color: var(--highlight-dark-border-color);
-		}
-
-		&::before {
-			background-color: var(--main-dark-background-color);
-		}
-
-		&:checked {
-			&:after {
-				background-color: var(--highlight-dark-border-color);
-			}
-
-			&::before {
-				background-color: var(--main-dark-font-color);
-			}
-
-			&:hover {
-				&::before {
-					background-color: var(--main-dark-font-color);
-				}
-			}
-		}
-
-		&:hover {
-			&::before {
-				background-color: var(--focus-dark-background-color);
-			}
-		}
-	}
-
-	fieldset {
-		border-color: var(--border-dark-color);
-	}
-*/
