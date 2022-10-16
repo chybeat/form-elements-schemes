@@ -1,0 +1,37 @@
+/* TEAM */
+	Chef:Chybeat (Andres Salazar)
+	Contact: chybeat#9130 (Discord) @chybeat (telegram)
+	github: https://github.com/chybeat
+	From:Bogotá, Colombia
+
+	UI developer: 
+	anySocialNetwork:
+	From:
+
+	Web developer:
+	anySocialNetwork:
+	From:
+
+	Web designer: Abel Sutilo
+	Twitter: @abelsutilo
+	From:Sevilla, Andalucia, Spain
+
+/* THANKS */
+
+	(Primary) EN Translator:
+	anySocialNetwork:
+	From:
+
+	(Secondary) EN Translator:
+	anySocialNetwork:
+	From:
+
+	(GNU/Linux - Mac - Windows ) tested by:
+	anySocialNetwork:
+	From:
+
+/* SITE */
+	Last update:2022/10/16
+	Language: English
+	Doctype:HTML5
+	IDE: Visual Studio Code, InkScape, Google Chrome Dev, Firefox Dev, Opera Developer

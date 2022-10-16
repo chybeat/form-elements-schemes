@@ -50,6 +50,6 @@
 	],
 	"theme_color": "#1e1e1e",
 	"background_color": "#1e1e1e",
-	"start_url": "http://127.0.0.1:5500",
+	"start_url": "https://chybeat.github.io/form-elements-schemes/",
 	"display": "standalone"
 }
