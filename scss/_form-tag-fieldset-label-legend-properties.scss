@@ -1,0 +1,22 @@
+fieldset {
+	border-collapse: initial;
+	border-color: var(--form-border-color);
+	border-radius: 0.5em;
+	border-style: solid;
+	border-width: 0.125em;
+	padding: 0 0.5em 1em 0.5em;
+
+	legend {
+		padding: 0 0.75em;
+		margin: 0 0.5em 0.5em;
+	}
+}
+
+label {
+	margin: 1em 0 0.5em;
+}
+
+legend {
+	font-weight: bold;
+	margin: 0.5em 0.5em 0;
+}

@@ -1,0 +1,56 @@
+footer {
+	background-color: var(--box-background-color);
+	padding: 1em;
+
+	display: flex;
+	align-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 1em;
+	justify-content: center;
+
+	a {
+		display: block;
+	}
+
+	p {
+		margin: 0;
+	}
+
+	#about-us {
+		text-align: center;
+
+		a {
+			span {
+				display: block;
+			}
+		}
+	}
+
+	#license {
+		width: 13em;
+
+		a {
+			span {
+				display: block;
+			}
+		}
+
+		img {
+			margin: 0 auto;
+			display: block;
+		}
+
+	}
+
+	#thanks-to {
+		p {
+			margin: 0 0 1em 0;
+
+			&:last-child {
+				margin: 0
+			}
+		}
+
+	}
+}

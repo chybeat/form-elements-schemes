@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description"
+		content="This project use CSS language to make better dark and light schemes for HTML forms elements">
+	<title>Dark and Light Schemes Form Elements | ChyBeat Portfolio</title>
+	<link rel="author" href="humans.txt" />
+
+	<!-- Favicon metadata -->
+	<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="./android-chrome-192x192.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+	<link rel="manifest" href="./site.webmanifest">
+	<link rel="mask-icon" href="./safari-pinned-tab.svg" color="#136bae">
+	<meta name="apple-mobile-web-app-title" content="Dark and Light Form Elements">
+	<meta name="application-name" content="Dark and Light Form Elements">
+	<meta name="msapplication-TileColor" content="#2d89ef">
+	<meta name="msapplication-TileImage" content="./mstile-144x144.png">
+	<meta name="theme-color" content="#1e1e1e">
+
+	<!--This page JS File-->
+	<script src="./js/formElements.js"></script>
+
+	<!-- Normalize CSS rules-->
+	<link rel="stylesheet" type="text/css" href="./css/normalize.min.css">
+
+	<!-- This project CSS-->
+	<link rel="stylesheet" type="text/css" href="./css/form-schemes.min.css">
+
+	<!-- Prism.js plugin-->
+	<link rel="stylesheet" type="text/css" href="./modules/prismjs/prism.css">
+	<script src="./modules/prismjs/prism.js"></script>
+
+	<!-- This page styles-->
+	<link rel="stylesheet" type="text/css" href="./css/main.min.css">
+</head>
+
+<body>
+	<form id="test" style="padding: 1em">
+		<label for="inputType_color">Type color</label>
+		<input id="inputType_color" type="color">
+		<br>
+
+
+		<label for="dl-iclr">Choose chicken color</label>
+		<input id="dl-iclr" type="color" value="#000000" list="colorsa">
+		<datalist id="colorsa">
+			<option>#ffff00</option>
+			<option>#ffdd00</option>
+			<option>#ff7700</option>
+		</datalist>
+		<br>
+
+
+		<progress id="file" max="100"> 70% </progress><br>
+		<progress id="file" value="70" max="100"> 70% </progress><br>
+		Selecciona A o B para ver que<br>
+		<label for="inputType_radio-a">A</label><input id="inputType_radio-a" name="radio" type="radio">
+		<label for="inputType_radio-b">B</label><input id="inputType_radio-b" name="radio" type="radio">
+		<label for="inputType_radio-c">C</label><input id="inputType_radio-C" disabled name="radio" type="radio">
+		<br>Radio ver como se arregla como checkbox
+		<br>
+		<label for="inputType_checkbox">Type checkbox</label>
+		<input class="switch" id="inputType_checkbox" type="checkbox">
+		<br>
+	</form>
+	<h2>To do:</h2>
+	<ul>
+		<li>Setup links to css files in repo! in how to use and files table</li>
+		<li>Change start_url in web manifest after upload files to github</li>
+		<li>Remove *.png from .gitignore file before upload latest version to github</li>
+		<li>Remove maps in css/scss files</li>
+		<li>Input type color has not padding or border color in dark mode!</li>
+		<li>Analyze and improve the focus work on every element (pre, inputs, etc)</li>
+		<li>Talk about icons</li>
+		<li></li>
+		<li></li>
+	</ul>
+	<h2>To test in all OS/Browsers:</h2>
+	<ul>
+		<li>site.webmanifest work</li>
+		<li>Favicons</li>
+		<li>Console errors</li>
+		<li>Links with no follow</li>
+		<li>Lighthouse</li>
+		<li>"Clickme for examples" workout</li>
+		<li>Hover an action interactivities</li>
+		<li>Check switch ball spaces</li>
+		<li>Check progress with no value animation</li>
+		<li>Check type number spinners and characters allowed</li>
+		<li>Select optgroup colors</li>
+		<li>Disabled elements colors, interactions and cursor</li>
+		<li>Scrollable elements visualization</li>
+		<li>Button animations and "activate" interaction</li>
+		<li>Buggy datalist for input color?</li>
+		<li>Tell the people about outline in some selectors!</li>
+	</ul>
+
+	<header>
+
+	</header>
+	<main>
+		<section id="how-to-use">
+			<article>
+
+			</article>
+			<article>
+				<h2>Other files</h2>
+				<p>On CSS folder in <a href="https://github.com/chybeat/form-elements-schemes/">repository</a> you can find
+					and download these files:</p>
+				<table class="tab-info" id="css-file-list">
+					<thead>
+						<tr>
+							<th>Filename</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><a href="https://github.com/chybeat/form-elements-schemes/blob/main/css/formsBoxModel.css"
+									target="_blank" rel="noopener noreferrer">formsBoxModel.css</a></td>
+							<td>Box model CSS properties for form elements (Required for both schemes)</td>
+						</tr>
+						<tr>
+							<td><a href="https://github.com/chybeat/form-elements-schemes/blob/main/css/darkFormElements.css"
+									target="_blank" rel="noopener noreferrer">darkFormElements.css</a></td>
+							<td>Dark scheme (only colors) for form elements</td>
+						</tr>
+						<tr>
+							<td><a href="https://github.com/chybeat/form-elements-schemes/blob/main/css/lightFormElements.css"
+									target="_blank" rel="noopener noreferrer">lightFormElements.css</a></td>
+							<td>Light scheme (only colors) for form elements</td>
+						</tr>
+						<tr>
+							<td><a href="https://github.com/chybeat/form-elements-schemes/blob/main/css/forms-aio.css"
+									target="_blank" rel="noopener noreferrer">forms-aio.css</a></td>
+							<td>(Recomended) Light and dark schemes along with box model rules for form elements
+								in a single file</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="2">All files includes the minified or compressed version and map to sources located in
+								scss folder
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</article>
+		</section>
+		<section id="list-of-elements">
+			<article>
+				<h2>List of elements</h2>
+				<p>Next list shows elements changed in css files. Click on them to read about changes and see a sample of
+					final look</p>
+				<ul>
+					<li><a href="#input-elements">Input elements (text, tel, password, etc)</a></li>
+					<li><a href="#select-elements">Select element</a></li>
+					<li><a href="#textarea-element">Textarea element</a></li>
+					<li><a href="#button-element">Button tag and input tag with types button, reset or submit</a></li>
+					<li><a href="#fieldset-legend-element">Fieldset and Legend</a></li>
+					<li><a href="#datalist-element">Datalist for input</a></li>
+					<li><a href="#">ElementName</a></li>
+					<li><a href="#">ElementName</a></li>
+					<li><a href="#">ElementName</a></li>
+				</ul>
+			</article>
+
+			<article id="input-elements">
+				<h3>Input elements for text and numbers</h3>
+				<div class="tableContainer">
+					<table class="comparition">
+						<thead>
+							<tr>
+								<th>Description</th>
+								<th>Dark Scheme</th>
+								<th>Light Scheme</th>
+								<th>Source Code</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="elementDescription">Input type text</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form>
+										<label for="it-txt">Words to laugh</label>
+										<input id="it-txt" type="text" placeholder="Write a short joke">
+									</form>
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+							<tr>
+								<td class="elementDescription">Input type number</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form>
+										<label for="it-num">Your age in months</label>
+										<input id="it-num" type="number" placeholder="Age">
+									</form>
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+							<tr>
+								<td class="elementDescription">Input type number <a href="#class-no-arrows">without
+										arrows</a><br><strong>Bug:</strong>
+									Firefox
+									allows to type any character, adding class
+									<code>no-arrows</code> people can get confused.
+								</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form>
+										<label for="it-num-na">Your favorite non 69 number</label>
+										<input id="it-num-na" class="no-arrows" type="number">
+									</form>
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+							<tr>
+								<td class="elementDescription">Input type password</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form autocomplete="off">
+										<input type="text" autocomplete="username" style="display:none">
+										<label for="it-pss">Tell me your bullets</label>
+										<input id="it-pss" placeholder="Your bullets" type="password" autocomplete="x">
+										<input type="submit" value="send" style="display:none">
+									</form>
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+							<tr>
+								<td class="elementDescription">Input type search</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form>
+										<label for="it-sh">Learn something</label>
+										<input id="it-sh" type="search" placeholder="Lear some skills">
+									</form>
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+							<tr>
+								<td class="elementDescription">Input type tel</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form>
+										<label for="inputType_tel">Some phone number</label>
+										<input id="inputType_tel" type="tel" placeholder="(+1) 555 5 69 69">
+									</form>
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+							<tr>
+								<td class="elementDescription">Input type url</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form>
+										<label for="inputType_url">Favorite URL</label>
+										<input id="inputType_url" type="url" placeholder="https://bit.ly">
+									</form>
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+							<tr>
+								<td class="elementDescription">Input type email</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form>
+										<label for="inputType_email">An email</label>
+										<input id="inputType_email" type="email" placeholder="email@star69.dj">
+									</form>
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<a href="#list-of-elements" class="goToListElements">Go to list</a>
+			</article>
+			<article id="select-elements">
+				<h3>Select element</h3>
+				<div class="tableContainer">
+					<table class="comparition">
+						<thead>
+							<tr>
+								<th>Description</th>
+								<th>Dark Scheme</th>
+								<th>Light Scheme</th>
+								<th>Source Code</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="elementDescription">Select with default settings but disabled</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form>
+										<label for="langDefault">Choose a language:</label>
+										<select id="langDefault" name="code" disabled>
+											<option value="js">JavaScript</option>
+											<option value="css">CSS</option>
+											<option selected value="html">HTML</option>
+											<option value="sql">SQL</option>
+										</select>
+									</form>
+								</td>
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+							</tr>
+							<tr>
+								<td class="elementDescription">Select with grouped options</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form>
+										<label for="langGroups">Language:</label>
+										<select id="langGroups" name="lang">
+											<optgroup label="Frontend">
+												<option value="js">JavaScript</option>
+												<option value="css">CSS</option>
+												<option value="html">HTML</option>
+											</optgroup>
+											<optgroup label="Backend">
+												<option value="js_node">JS (Node.js)</option>
+												<option value="php">PHP</option>
+												<option value="sql">SQL</option>
+											</optgroup>
+										</select>
+									</form>
+								</td>
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+							</tr>
+							<tr>
+								<td class="elementDescription">
+									Select with size (3) and multiple selection attributes specified.
+								</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form>
+										<label for="LangMultiple">Languages you like:</label>
+										<select id="LangMultiple" name="cars" multiple size="3">
+											<optgroup label="Backend">
+												<option value="php">PHP</option>
+												<option value="js_node">JS (Node.js)</option>
+												<option value="py">Phyton</option>
+											</optgroup>
+											<optgroup label="Frontend">
+												<option value="html">HTML</option>
+												<option value="css">CSS</option>
+												<option value="js">JavaScript</option>
+											</optgroup>
+										</select>
+									</form>
+								</td>
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<a class="goToListElements" href="#list-of-elements">Go to list</a>
+			</article>
+			<article id="textarea-element">
+				<h3>Textarea element</h3>
+				<div class="tableContainer">
+					<table class="comparition">
+						<thead>
+							<tr>
+								<th>Description</th>
+								<th>Dark Scheme</th>
+								<th>Light Scheme</th>
+								<th>Source Code</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="elementDescription">Empty textarea (to see the placeholder)</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form>
+										<label for="taEmpty">What do you think?</label>
+										<textarea id="taEmpty" placeholder="Your message..."></textarea>
+									</form>
+								</td>
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+							</tr>
+							<tr>
+								<td class="elementDescription">Textarea element with text. (short width and height to force
+									scroll bar view)</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form>
+										<label for="taSamp">Already some text:</label>
+										<textarea style="word-wrap: unset;" cols="5" rows="2" id="taSamp">Not a placeholder text 😊
+										</textarea>
+									</form>
+								</td>
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<a class="goToListElements" href="#list-of-elements">Go to list</a>
+			</article>
+			<article id="button-element">
+				<h3>Button tag and input tag with types button, reset or submit</h3>
+				<div class="tableContainer">
+					<table class="comparition">
+						<thead>
+							<tr>
+								<th>Description</th>
+								<th>Dark Scheme</th>
+								<th>Light Scheme</th>
+								<th>Source Code</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="elementDescription">Button type button</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form>
+										<button type="button">Button type button</button>
+									</form>
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+							<tr>
+								<td class="elementDescription">Button type reset</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form>
+										<button type="Reset">Reset</button>
+									</form>
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+							<tr>
+								<td class="elementDescription">Button type submit</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form>
+										<button type="submit">Submit</button>
+									</form>
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+							<tr>
+								<td class="elementDescription">Input type button</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form>
+										<input type="button" value="Input type button">
+									</form>
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+							<tr>
+								<td class="elementDescription">Input type reset</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form>
+										<input type="reset" value="Input type reset">
+									</form>
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+							<tr>
+								<td class="elementDescription">Input type submit</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form>
+										<input type="submit" value="Input type submit">
+									</form>
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+							<tr>
+								<td class="elementDescription">Input type image (used as submit by default), just outline in
+									focus state
+									change between schemes</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form>
+										<input type="image" src="./img/submit-image.svg" alt="submit">
+									</form>
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+							<tr>
+								<td class="elementDescription">Input type image with disabled attributes</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form>
+										<input type="image" disabled src="./img/submit-image.svg" alt="submit">
+									</form>
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<a href="#list-of-elements" class="goToListElements">Go to list</a>
+			</article>
+			<article id="fieldset-legend-element">
+				<h3>Fieldset and legend</h3>
+				<div class="tableContainer">
+					<table class="comparition">
+						<thead>
+							<tr>
+								<th>Description</th>
+								<th>Dark Scheme</th>
+								<th>Light Scheme</th>
+								<th>Source Code</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="elementDescription">Only fieldset tag</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form>
+										<fieldset>
+											<label for="fitest">Your Name</label>
+											<input id="fitest" placeholder="Your name">
+											<input type="submit" value="Submit" disabled>
+										</fieldset>
+									</form>
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+							<tr style="max-width:20em; overflow:auto">
+								<td class="elementDescription">Fieldset with legend tag</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form>
+										<fieldset>
+											<legend>Write about you</legend>
+											<label for="fs-ta">Write a poem</label>
+											<textarea id="fs-ta" name="you" cols="15" rows="4"></textarea>
+											<input type="submit" value="Submit">
+										</fieldset>
+									</form>
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+							<tr>
+								<td class="elementDescription">
+									<p>Legend tag only. When are not into fieldset tag, the legend tag
+										adds 0.5em in top, right and left margins:</p>
+									<pre data-language="css"
+										data-code="legend {\n\tfont-weight: bold;\n\tmargin: 0.5em 0.5em 0;\n}"></pre>
+								</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form>
+										<legend>Fronted languages</legend>
+										<label for="languageFronted">Language:</label>
+										<select id="languageFronted" name="code">
+											<option value="js">JavaScript</option>
+											<option selected value="css">CSS</option>
+											<option value="html">HTML</option>
+										</select>
+										<input type="submit" value="Choose!">
+									</form>
+
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="4"></td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+				<a href="#list-of-elements" class="goToListElements">Go to list</a>
+			</article>
+			<article id="datalist-element">
+				<h3>Datalist for input</h3>
+				<div class="tableContainer">
+					<table class="comparition">
+						<thead>
+							<tr>
+								<th>Description</th>
+								<th>Dark Scheme</th>
+								<th>Light Scheme</th>
+								<th>Source Code</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="elementDescription">Datalist of web browsers (like suggestions) activated while
+									typing<br>On firefox need double click to show list</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form>
+										<label for="dlb">What's your favorite browser?</label>
+										<input id="dlb" list="wb" placeholder="Select browser">
+										<datalist id="wb">
+											<option value="IE">IE (Obsolete)</option>
+											<option value="Netscape">Netscape (Obsolete)</option>
+											<option value="Firefox"></option>
+											<option value="Chrome"></option>
+											<option value="Opera"></option>
+											<option value="Safari"></option>
+											<option value="Vivaldi"></option>
+										</datalist>
+									</form>
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+							<tr>
+								<td class="elementDescription">Datalist for input type color with some predefined
+									colors<br><strong>Bug:</strong> predefinied color list not working on firefox, and buggy on
+									Chrome
+									Dev
+								</td>
+								<td class="darkSchemeElements form-dark-scheme">
+									<form>
+										<label for="dl-iclr">Choose chicken color</label>
+										<input id="dl-iclr" type="color" value="#000000" list="colors">
+										<datalist id="colors">
+											<option>#ffff00</option>
+											<option>#ffdd00</option>
+											<option>#ff7700</option>
+										</datalist>
+									</form>
+								<td class="ligthSchemeElements form-light-scheme"></td>
+								<td class="elementSourceCode"></td>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<a href="#list-of-elements" class="goToListElements">Go to list</a>
+			</article>
+		</section>
+		<code style="display:block; padding: 1em;background: #FD0; color:black; word-break: break-all;">
+			article#name-element>h3{Título del elemento}+div.tableContainer>table.comparition>thead>tr>th{Description}+th{Dark Scheme}+th{Light Scheme}+th{Source Code}^^tbody>tr*3>td.elementDescription+td.darkSchemeElements.form-dark-scheme>form>label[for=""]^td.ligthSchemeElements.form-light-scheme+td.elementSourceCode^^^tfoot>tr>td[colspan="4"]^^^^a.goToListElements[href="#list-of-elements"]{Go to list}
+		</code>
+		<form>
+			<fieldset>
+				<label for="fuel">Fuel level:</label>
+				<meter id="fuel" min="0" max="100" low="33" high="66" optimum="80" value="50">
+					at 50/100
+				</meter>
+				<br>
+				<label for="file">File progress:</label>
+
+				<progress id="file" max="100" value="70"> 70% </progress>
+				<br>
+				<label for="inputType_range">Type range</label>
+				<input id="inputType_range" type="range">
+				<br>
+				<label for="inputType_checkbox_switch">Type checkbox</label>
+				<input id="inputType_checkbox_switch" type="checkbox" class="switch">
+				<br>
+				<legend>Some input types </legend>
+				<label for="inputType_checkbox">Type checkbox</label>
+				<input id="inputType_checkbox" type="checkbox">
+				<br>
+				<label for="inputType_radio-a">A</label><input id="inputType_radio-a" name="radio" type="radio">
+				<label for="inputType_radio-b">B</label><input id="inputType_radio-b" name="radio" type="radio">
+				<br>Radio ver como se arregla como checkbox
+				<br>
+				<label for="inputType_color">Type color</label>
+				<input id="inputType_color" type="color">
+				<br>
+				<label for="inputType_file">Type file</label>
+				<input id="inputType_file" type="file">
+				<br>
+				<label for="inputType_time">Type time</label>
+				<input id="inputType_time" type="time">
+				<br>
+				<label for="inputType_month">Type month</label>
+				<input id="inputType_month" type="month">
+				<br>
+				<label for="inputType_week">Type week</label>
+				<input id="inputType_week" type="week">
+				<br>
+				<label for="inputType_date">Type date</label>
+				<input id="inputType_date" type="date">
+				<br>
+				<label for="inputType_datetime">Type datetime</label>
+				<input id="inputType_datetime" type="datetime-local">
+				<br>
+			</fieldset>
+		</form>
+		<form>
+			<fieldset oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+				<legend>Output Element</legend>
+				0
+				<input type="range" id="a" name="a" value="50">
+				100 +
+				<input type="number" id="b" name="b" value="50">
+				=
+				<output name="x" for="a b"></output>
+				<br><br>
+			</fieldset>
+		</form>
+	</main>
+
+	<footer>
+	</footer>
+</body>
+
+</html>

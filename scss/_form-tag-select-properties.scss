@@ -1,0 +1,79 @@
+select {
+	background-color: var(--form-main-background-color);
+	cursor: pointer;
+	padding: 0.25em 0.75em;
+
+	&:checked {
+
+		&:not(:focus),
+		&:not(:focus-within),
+		&:not(:focus-visible) {
+			background-color: var(--form-highlight-border-coloropaque);
+			color: var(--form-main-font-color);
+		}
+
+		&:focus,
+		&:focus-within,
+		&:focus-visible {
+			background-color: var(--form-highlight-border-color);
+			color: var(--form-main-font-color);
+		}
+	}
+
+	&:focus,
+	&:focus-within,
+	&:focus-visible,
+	&:hover {
+		background-color: var(--form-focus-background-color);
+
+		optgroup {
+			background-color: var(--form-main-background-color);
+
+			option {
+				background-color: var(--form-focus-background-color);
+			}
+		}
+	}
+
+
+	&:-ms-expand {
+		display: none;
+	}
+
+	&:-moz-focusring {
+		color: transparent;
+	}
+
+	&[size] {
+		padding: 0;
+	}
+
+	option {
+		background-color: var(--form-focus-background-color);
+		color: var(--form-main-font-color);
+		cursor: pointer;
+		margin: 0;
+		padding: 0.25em 0.5em;
+
+
+		&::before {
+			display: inline-block;
+			width: 0.125em;
+		}
+	}
+
+	optgroup {
+		color: var(--form-main-font-color);
+		cursor: default;
+
+		&::before {
+			padding: 0 0.25em;
+
+		}
+
+		option {
+			background-color: var(--form-main-background-color);
+		}
+
+	}
+}

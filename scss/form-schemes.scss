@@ -1,0 +1,14 @@
+@use "_form-colorVars.scss" as color;
+@use "_form-icons.scss" as ico;
+
+//shared/embed poperties for HTML tags
+@use "_form-schemes-colors.scss";
+@use "_form-shared-properties-selectors.scss";
+
+//CSS properties for HTML element
+@use "_form-tag-fieldset-label-legend-properties.scss";
+@use "_form-tag-input-properties.scss";
+@use "_form-tag-meter-properties.scss";
+@use "_form-tag-output-properties.scss";
+@use "_form-tag-progress-properties.scss";
+@use "_form-tag-textarea-properties.scss";

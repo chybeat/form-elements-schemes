@@ -1,0 +1,165 @@
+#summary-wrapper {
+	background-color: var(--box-background-color);
+	padding: 0;
+	position: fixed;
+	height: calc(100vh - var(--header-height));
+	top: var(--header-height);
+	z-index: 3;
+	left: 0;
+	transform: translateX(-100%);
+	border-right: 0.1em solid var(--border-lines-color);
+
+	align-self: flex-start;
+
+
+	&.show {
+		transition: transform 0.2s;
+		transform: translateX(0);
+	}
+
+	&.hide {
+		transition: transform 0.2s;
+		transform: translateX(-100%);
+	}
+
+	a {
+		padding: 0.5em;
+		display: block;
+
+		&:hover {
+			background-color: var(--main-background-color);
+		}
+
+	}
+
+
+	details {
+		summary {
+			color: var(--link-font-color);
+			cursor: pointer;
+			display: block;
+			position: relative;
+
+
+			&::after {
+				content: '\25BC';
+				display: block;
+				padding: 0.5em;
+				position: absolute;
+				right: 0;
+				top: 0;
+				transition: rotate 0.5s;
+				width: 1em;
+			}
+
+			&:hover {
+				background-color: var(--main-background-color);
+			}
+
+
+		}
+
+		&[open] {
+			summary {
+				&::after {
+					rotate: 180deg;
+				}
+			}
+		}
+	}
+
+	h2 {
+		text-align: center;
+	}
+
+	.icon-arrow {
+		background: var(--box-background-color);
+		height: 2em;
+		line-height: 1em;
+		padding: 0.5em;
+		position: absolute;
+		right: -2em;
+		top: 0;
+		width: 2em;
+		border-radius: 0 0 25% 0;
+
+		&::before {
+			display: block;
+			rotate: 90deg;
+
+		}
+
+		&:hover {
+			color: var(--link-font-color);
+			cursor: pointer;
+			background-color: var(--main-background-color);
+		}
+
+		&.summary-element-hover {
+
+			&::before {
+				rotate: 270deg;
+			}
+		}
+	}
+
+	li {
+		ul {
+			margin: 0;
+
+			a {
+				padding-left: 1.25em;
+			}
+		}
+
+	}
+
+	ul {
+		list-style: none;
+	}
+
+	summary {
+		a {
+			display: block;
+			width: calc(100% - 2em);
+		}
+	}
+
+	#index {
+		margin: 0.5em 0 0 0;
+		width: 11em;
+		overflow-y: auto;
+		overflow-x: hidden;
+		height: calc(100vh - (var(--header-height)*1.75));
+
+		//firefox scroll bar theme
+		scrollbar-color: var(--link-font-color) var(--main-background-color); //1st track, 2nd thumb
+		scrollbar-width: thin;
+
+		// Chrome scrollbar
+		&::-webkit-scrollbar {
+			width: 0.5em;
+		}
+
+		// Scrollbar Track
+		&::-webkit-scrollbar-track {
+			background-color: var(--main-background-color);
+		}
+
+		// Scrollbar track piece
+		&::-webkit-scrollbar-track-piece {
+			background-clip: content-box;
+		}
+
+		// Handle
+		&::-webkit-scrollbar-thumb {
+			background: var(--link-font-color);
+			border-radius: 1em;
+		}
+
+
+		details {
+			padding: 0.5em 0;
+		}
+	}
+}

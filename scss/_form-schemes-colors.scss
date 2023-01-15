@@ -1,0 +1,126 @@
+@use "_form-colorVars.scss" as color;
+@use "_form-icons.scss" as ico;
+
+//default scheme is light
+:root {
+	//Global pure colors
+	--form-white: #{color.$white};
+	--form-black: #{color.$black};
+
+	//Backgrounds colors
+	--form-main-background-color: #{color.$main-light-background-color};
+	--form-focus-background-color: #{color.$focus-light-background-color};
+
+	//Border colors
+	--form-border-color: #{color.$border-light-color};
+	--form-highlight-border-color: #{color.$highlight-light-border-color};
+	--form-highlight-border-color-opaque: #{color.$highlight-light-border-color-opaque};
+
+	//Fonts colors
+	--form-main-font-color: #{color.$main-light-font-color};
+
+	//scroll arrows icons
+	--form-scroll-arrowUp: #{ico.svg(arrowUp, color.$main-light-font-color)};
+	--form-scroll-arrowDown: #{ico.svg(arrowDown, color.$main-light-font-color)};
+	--form-scroll-arrowLeft: #{ico.svg(arrowLeft, color.$main-light-font-color)};
+	--form-scroll-arrowRight: #{ico.svg(arrowRight, color.$main-light-font-color)};
+	--form-scroll-corner: #{ico.svg(cornerBottomRight, color.$main-light-font-color)};
+	--form-arrow: #{ico.svg(arrowRight, color.$main-light-font-color)};
+}
+
+@media screen and (prefers-color-scheme: dark) {
+	:root {
+		//Global pure colors
+		--white: #{color.$white};
+		--black: #{color.$black};
+
+		//Backgrounds colors
+		--form-focus-background-color: #{color.$focus-dark-background-color};
+		--form-main-background-color: #{color.$main-dark-background-color};
+
+		//Border colors
+		--form-border-color: #{color.$border-dark-color};
+		--form-highlight-border-color: #{color.$highlight-dark-border-color};
+		--form-highlight-border-color-opaque: #{color.$highlight-dark-border-color-opaque};
+
+		//Fonts colors
+		--form-main-font-color: #{color.$main-dark-font-color};
+
+		//scroll arrows icons
+		--form-scroll-arrowUp: #{ico.svg(arrowUp, color.$highlight-dark-border-color)};
+		--form-scroll-arrowDown: #{ico.svg(arrowDown, color.$highlight-dark-border-color)};
+		--form-scroll-arrowLeft: #{ico.svg(arrowLeft, color.$highlight-dark-border-color)};
+		--form-scroll-arrowRight: #{ico.svg(arrowRight, color.$highlight-dark-border-color)};
+		--form-scroll-corner: #{ico.svg(cornerBottomRight, color.$main-dark-font-color)};
+		--form-dropdown-arrow: #{ico.svg(dropdownArrow, color.$main-dark-font-color)};
+		--form-arrow: #{ico.svg(arrowRight, color.$main-dark-font-color)};
+	}
+
+	html {
+		color-scheme: dark;
+	}
+}
+
+@media screen and (prefers-color-scheme: light) {
+	html {
+		color-scheme: light;
+	}
+}
+
+//dark scheme called by class
+.form-dark-scheme {
+	color-scheme: dark;
+
+	//Global pure colors
+	--form-white: #{color.$black};
+	--form-black: #{color.$white};
+
+	//Backgrounds colors
+	--form-main-background-color: #{color.$main-dark-background-color};
+	--form-focus-background-color: #{color.$focus-dark-background-color};
+
+	//Border colors
+	--form-border-color: #{color.$border-dark-color};
+	--form-highlight-border-color: #{color.$highlight-dark-border-color};
+	--form-highlight-border-color-opaque: #{color.$highlight-dark-border-color-opaque};
+
+	//Fonts colors
+	--form-main-font-color: #{color.$main-dark-font-color};
+
+	//scroll arrows icons
+	--form-scroll-arrowUp: #{ico.svg(arrowUp, color.$highlight-dark-border-color)};
+	--form-scroll-arrowDown: #{ico.svg(arrowDown, color.$highlight-dark-border-color)};
+	--form-scroll-arrowLeft: #{ico.svg(arrowLeft, color.$highlight-dark-border-color)};
+	--form-scroll-arrowRight: #{ico.svg(arrowRight, color.$highlight-dark-border-color)};
+	--form-scroll-corner: #{ico.svg(cornerBottomRight, color.$highlight-dark-border-color)};
+	--form-arrow: #{ico.svg(arrowRight, color.$main-dark-background-color)};
+}
+
+//light scheme called by class
+.form-light-scheme {
+	color-scheme: light;
+
+	//Global pure colors
+	--form-white: #{color.$black};
+	--form-black: #{color.$white};
+
+	//Backgrounds colors
+	--form-focus-background-color: #{color.$focus-light-background-color};
+	--form-main-background-color: #{color.$main-light-background-color};
+
+	//Border colors
+	--form-border-color: #{color.$border-light-color};
+	--form-highlight-border-color: #{color.$highlight-light-border-color};
+	--form-highlight-border-color-opaque: #{color.$highlight-light-border-color-opaque};
+
+	//Fonts colors
+	--form-main-font-color: #{color.$main-light-font-color};
+
+	//scroll arrows icons
+	--form-scroll-arrowUp: #{ico.svg(arrowUp, color.$main-light-font-color)};
+	--form-scroll-arrowDown: #{ico.svg(arrowDown, color.$main-light-font-color)};
+	--form-scroll-arrowLeft: #{ico.svg(arrowLeft, color.$main-light-font-color)};
+	--form-scroll-arrowRight: #{ico.svg(arrowRight, color.$main-light-font-color)};
+	--form-scroll-corner: #{ico.svg(cornerBottomRight, color.$main-light-font-color)};
+	--form-arrow: #{ico.svg(arrowRight, color.$main-dark-font-color)};
+}

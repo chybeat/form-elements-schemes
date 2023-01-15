@@ -1,0 +1,57 @@
+:root {
+	transition-property: background-color, color;
+	transition-duration: 0.5s;
+	--header-height: 3em;
+	--float-shadow: 0 -1.75em 1em 2em var(--border-lines-color)
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	background-color: var(--main-background-color);
+	color: var(--main-font-color);
+	font-family: Sans-Serif;
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+	scroll-padding-top: calc((var(--header-height) + 2em) * 1.6);
+}
+
+body {
+	font-size: 1.6rem;
+	padding: 0;
+}
+
+b,
+h1,
+h2,
+h3,
+strong {
+	color: var(--strong-font-color);
+}
+
+h3,
+p,
+ul {
+	margin: 1em auto;
+}
+
+a {
+	color: var(--link-font-color);
+	text-decoration: none;
+
+	&:active {
+		color: var(--link-font-active-color);
+	}
+
+	&:hover {
+		text-decoration: underline;
+	}
+
+	&:visited {
+		color: var(--link-font-color);
+	}
+}

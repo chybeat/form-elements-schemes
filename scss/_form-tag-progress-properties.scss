@@ -1,0 +1,81 @@
+progress {
+	@keyframes animated-stripes {
+		from {
+			background-position: 0%;
+		}
+
+		to {
+			background-position: 72%;
+		}
+	}
+
+	$elementHeight: 1em;
+	$borderWidth: -0.1em;
+
+	appearance: none;
+	border-radius: 1em;
+	border:none;
+	height: $elementHeight;
+	overflow: hidden;
+	padding: 0;
+	vertical-align:0;
+
+	@supports (-moz-appearance:none) {
+		background-color: var(--form-main-background-color);
+		height: $elementHeight;
+		outline-color: var(--form-highlight-border-color-opaque);
+		outline-offset: $borderWidth;
+		outline-style: solid;
+		outline-width: $borderWidth * -2;
+	}
+
+	&::-moz-progress-bar {
+		background-color: var(--form-highlight-border-color-opaque);
+	}
+
+	&::-webkit-progress-bar {
+		appearance: none;
+		background-color: var(--form-main-background-color);
+		border-radius: 1em;
+		height: $elementHeight;
+		outline-color: var(--form-highlight-border-color-opaque);
+		outline-offset: $borderWidth * 2;
+		outline-style: solid;
+		outline-width: $borderWidth * 2;
+	}
+
+	&::-webkit-progress-value {
+		border-radius: 1em 0 0 1em;
+		height: $elementHeight;
+		background-color: var(--form-highlight-border-color-opaque);
+	}
+
+	&::-webkit-progress-inner-element {
+		appearance: none;
+	}
+
+	&:indeterminate {
+		animation: animated-stripes 3s linear infinite;
+		background-color: transparent;
+		background-image: repeating-linear-gradient(-45deg,
+				transparent,
+				transparent 0.5em,
+				var(--form-highlight-border-color-opaque) 0.5em,
+				var(--form-highlight-border-color-opaque) 1em);
+		background-size: 200% 200%;
+		border-color: var(--form-highlight-border-color-opaque);
+		border-style: solid;
+		border-width: $borderWidth *2;
+		outline: none;
+
+
+		&::-webkit-progress-bar {
+			background-color: transparent;
+			outline: none;
+		}
+
+		&::-moz-progress-bar {
+			background-color: transparent;
+		}
+	}
+}

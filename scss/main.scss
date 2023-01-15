@@ -1,103 +1,36 @@
-@use "_prism-complement.scss";
-/**
-This is main style for this page, refer to "darkFormElements" or "lightFormElements" files to wath/use the code
-*/
+/*icons by icomoon font*/
+@use "icomoon/style";
 
-//////////////////// 
-//////////////////// Global colors
-//////////////////// 
-$table-lines-color: #6868689e;
+/*prism module adjust to project*/
+@use "_project-prism-complement.scss";
+
+/*project web page colors*/
+@use "_project-colors.scss";
+
+/*global elements normalized for global webpage*/
+@use "_project-normalize.scss";
+
+/*specific area: header*/
+@use "_project-header.scss";
+
+/*specific area: footer*/
+@use "_project-footer.scss";
+
+/*specific area: summary*/
+@use "_project-summary.scss";
 
 
-//////////////////// 
-//////////////////// Dark Colors
-//////////////////// 
-//background colors
-$main-dark-background-color: #1e1e1e;
-$box-dark-background-color: #ccc;
 
-//Font colors
-$main-dark-font-color: #a0a0a0;
-$link-dark-font-color: #26b8ff;
-$link-dark-font-active-color: #85ec76;
-$strong-dark-font-color: #e0e0e0;
-
-//borders
-$border-lines-dark-color: #4d3c3c;
-
-//////////////////// 
-//////////////////// Ligth colors
-//////////////////// 
-//background colors
-$main-light-background-color: #ccc;
-$box-light-background-color: #a8a8a8;
-
-//Font colors
-$main-light-font-color: #1e1e1e;
-$link-light-font-color: #314bc8;
-$link-light-font-active-color: #06970e;
-
-//borders
-$border-lines-light-color: #b26d1a;
-
-/* html and body tags*/
-* {
-	box-sizing: border-box;
-}
-
-html {
-	font-family: Sans-Serif;
-	font-size: 60.5%;
-	scroll-behavior: smooth;
-}
-
-body {
-	font-size: 1.6rem;
-	padding: 0;
-}
-
-//Elements into body tag
-article,
-body>header {
-	position: relative;
-	margin: 1em auto
-}
-
-details,
-h3,
-h4,
-h5,
-h6,
-p,
-table,
-ul {
-	max-width: 48em;
-	margin: 1em auto;
-}
-
-h1,
-h2 {
-	text-align: center;
-}
-
-header,
 main {
-	padding: 0.5em 1em;
-}
+	display: flex;
+	gap: 1em;
+	padding-top: 1.5em;
 
-a {
-	text-decoration: none;
-
-	&:hover {
-		text-decoration: underline;
+	section {
+		padding: 0.5em;
 	}
 }
 
-details {
-	summary {
-		cursor: pointer;
-	}
-}
 
 code[class*=language-],
 pre[class*=language-],
@@ -107,21 +40,18 @@ pre {
 	max-width: fit-content;
 }
 
-h1 {
-	text-align: center;
-}
 
 //////////////////// 
 //////////////////// Table Styles
 //////////////////// 
 
 table {
-	border: 0.125em solid $table-lines-color;
+	border: 0.125em solid var(--table-lines-color);
 	border-collapse: collapse;
 
 	td,
 	th {
-		border-color: $table-lines-color;
+		border-color: var(--table-lines-color);
 		border-style: dotted;
 		border-bottom-style: solid;
 		border-width: 1px;
@@ -129,8 +59,8 @@ table {
 	}
 
 	th {
-		color: $main-light-font-color;
-		background-color: $main-light-background-color;
+		color: var(main-font-color);
+		background-color: var(main-background-color);
 		border-left: none;
 		height: 2em;
 	}
@@ -159,6 +89,7 @@ table {
 	article {
 		border-bottom-width: 0.125em;
 		border-bottom-style: dotted;
+		border-bottom-color: var(--border-lines-color);
 
 		&:first-child {
 			padding-bottom: 0;
@@ -178,6 +109,23 @@ table {
 //////////////////// 
 //////////////////// class elements
 //////////////////// 
+
+.text__only-big-screen {
+	visibility: hidden;
+	width: 0;
+	height: 0;
+	display: none;
+}
+
+.text__any-screen {
+	display: inline !important;
+}
+
+.text__capitalize {
+	text-transform: capitalize;
+}
+
+/*take care and snoop next lines*/
 .sample-use-container {
 	margin: 1em 0;
 
@@ -207,6 +155,14 @@ table {
 	margin: 0 auto;
 	overflow-x: auto;
 
+	button,
+	input,
+	output,
+	select,
+	textarea {
+		margin: 0.5em 0;
+	}
+
 	td {
 		label {
 			display: block;
@@ -224,15 +180,14 @@ table {
 		}
 	}
 
-	.elementDescription {
-		max-width: 25em;
-	}
-
-
 	pre {
 		font-size: 0.85em;
 		display: block;
 		width: 100% !important;
+	}
+
+	.elementDescription {
+		max-width: 25em;
 	}
 
 	.darkSchemeElements,
@@ -264,98 +219,6 @@ table {
 
 		legend {
 			text-align: left;
-		}
-	}
-}
-
-
-@media screen and (prefers-color-scheme: dark) {
-
-	html {
-		background-color: $main-dark-background-color ;
-		color: $main-dark-font-color;
-	}
-
-	.logo-externalUtil {
-		background-color: $box-dark-background-color;
-	}
-
-	b,
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6,
-	th,
-	strong {
-		color: $strong-dark-font-color;
-	}
-
-	a {
-		color: $link-dark-font-color;
-
-		&:visited {
-			color: $link-dark-font-color;
-		}
-
-		&:active {
-			color: $link-dark-font-active-color;
-		}
-	}
-
-	details {
-		summary {
-			color: $link-dark-font-color;
-
-			&:active {
-				color: $link-dark-font-active-color
-			}
-		}
-	}
-
-	#list-of-elements {
-		article {
-			border-bottom-color: $border-lines-dark-color
-		}
-	}
-}
-
-@media screen and (prefers-color-scheme: light) {
-	html {
-		background-color: $main-light-background-color ;
-		color: $main-light-font-color;
-	}
-
-	#list-of-elements {
-		article {
-			border-bottom-color: $border-lines-light-color
-		}
-	}
-
-	.logo-externalUtil {
-		background-color: $box-light-background-color;
-	}
-
-	a {
-		color: $link-light-font-color;
-
-		&:visited {
-			color: $link-light-font-color;
-		}
-
-		&:active {
-			color: $link-light-font-active-color;
-		}
-	}
-
-	details {
-		summary {
-			color: $link-light-font-color;
-
-			&:active {
-				color: $link-dark-font-active-color
-			}
 		}
 	}
 }

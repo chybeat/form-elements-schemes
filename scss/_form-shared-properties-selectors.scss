@@ -1,0 +1,179 @@
+button,
+select,
+input,
+textarea {
+	background-color: var(--form-main-background-color);
+	border-color: var(--form-border-color);
+	color: var(--form-main-font-color);
+
+	&:focus,
+	&:focus-within,
+	&:focus-visible {
+		color: var(--form-main-font-color); // !important; omited. ¿really need important?
+		background-color: var(--form-focus-background-color);
+		border-color: var(--form-highlight-border-color);
+	}
+
+	&:not(:disabled) {
+		&:hover:not(:focus) {
+			border-color: var(--form-highlight-border-color);
+
+			&::placeholder {
+				color: var(--form-highlight-border-color-opaque);
+			}
+		}
+	}
+}
+
+button,
+input,
+output,
+select,
+textarea {
+	border-radius: 0.25em;
+	border-style: solid;
+	border-width: 0.2em;
+	font-size: 1em;
+	outline: none;
+	padding: 0.5em 0.75em;
+	vertical-align: middle;
+
+	&:disabled {
+		cursor: not-allowed !important;
+	}
+}
+
+button,
+input[type="button"],
+input[type='color'],
+input[type='file'],
+input[type='image'],
+input[type='color'],
+input[type='radio'],
+input[type='reset'],
+input[type='submit'] {
+	cursor: pointer;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	border-radius: 0.5em;
+	padding: 0.5em 1.5em;
+
+	&:hover {
+		background-color: var(--form-focus-background-color);
+	}
+
+	&:active {
+		background-color: var(--form-highlight-border-color);
+		border-color: var(--form-main-font-color);
+	}
+}
+
+input,
+textarea {
+
+	&:focus,
+	&:focus-within,
+	&:focus-visible {
+		border-style: solid;
+	}
+
+	&::placeholder {
+		color: inherit;
+		opacity: 0.4;
+	}
+
+	&:not(:disabled) {
+		&:hover:not(:focus) {
+			border-style: solid;
+
+			&::placeholder {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+//scrollable inputs
+select,
+textarea {
+	// scroll bar color for Firefox
+	scrollbar-color: var(--form-highlight-border-color-opaque) var(--form-main-background-color); //1st thumb, 2nd track
+
+	// Chrome scrollbar
+	&::-webkit-scrollbar {
+		width: 1em;
+		height: 1em;
+	}
+
+	// Scrollbar Track
+	&::-webkit-scrollbar-track {
+		background-color: var(--form-main-background-color);
+	}
+
+	// Scrollbar track piece
+	&::-webkit-scrollbar-track-piece {
+		background-clip: content-box;
+		border-radius: 1em;
+	}
+
+	// Handle
+	&::-webkit-scrollbar-thumb {
+		background: var(--form-highlight-border-color-opaque);
+
+		&:hover {
+			background: var(--form-highlight-border-color);
+		}
+	}
+
+	//Handle on hover
+	&::-webkit-scrollbar-button:vertical:start:decrement,
+	&::-webkit-scrollbar-button:vertical:end:increment,
+	&::-webkit-scrollbar-button:horizontal:end:decrement,
+	&::-webkit-scrollbar-button:horizontal:end:increment,
+	&::-webkit-scrollbar-corner,
+	&::-webkit-resizer {
+		background-position: center;
+		background-repeat: no-repeat;
+		background-color: transparent;
+		position: relative;
+
+		&:active {
+			background-color: var(--form-border-color);
+		}
+	}
+
+	//arrow up for vertical scroll button
+	&::-webkit-scrollbar-button:vertical:start:decrement {
+		background-image: var(--form-scroll-arrowUp)
+	}
+
+	//arrow down for vertical scroll button
+	&::-webkit-scrollbar-button:vertical:end:increment {
+		background-image: var(--form-scroll-arrowDown);
+	}
+
+	//arrow left for horizontal scroll button
+	&::-webkit-scrollbar-button:horizontal:start:decrement {
+		background-image: var(--form-scroll-arrowLeft);
+	}
+
+	//arrow right for horizontal scroll button
+	&::-webkit-scrollbar-button:horizontal:end:increment {
+		background-image: var(--form-scroll-arrowRight)
+	}
+
+	//corner resizer
+	&::-webkit-resizer {
+		background-image: var(--form-scroll-corner);
+		background-color: transparent;
+	}
+
+	//track without buttons
+	::-webkit-scrollbar-track-piece:no-button {
+		background-color: var(--form-main-background-color);
+	}
+}

@@ -27,3 +27,11 @@ A lot of .css, .css.min, and .map files of project are located in [css folder](h
 ## Watch live
 
 [This page](https://chybeat.github.io/form-elements-schemes) shows more detailed information and live samples in dark and light schemes. Enjoy! 😊
+
+| normal | mi pantalla (1.25 DRP)         | en celu (3.0 DRP)    |
+| ------ | ------------------------------ | -------------------- |
+| 1px    | 1px (int(1.25 X 1px) 1.25px)   | (int(3 X 1px) 3px)   |
+| 2px    | 1px (int(1.25 X 2px) 2.5px)    | (int(3 X 2px) 6px)   |
+| 3px    | 3px (int(1.25 X 3px) 2.75px)   | (int(3 X 3px) 9px)   |
+| 10px   | 12px (int(1.25 X 10px) 12.5px) | (int(3 X 10px) 30px) |
+| 20px   | 25px (int(1.25 X 20px) 25px)   | (int(3 X 20px) 60px) |

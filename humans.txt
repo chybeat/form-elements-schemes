@@ -4,17 +4,10 @@
 	github: https://github.com/chybeat
 	From:Bogotá, Colombia
 
-	UI developer: 
-	anySocialNetwork:
+	UI developer: ChyBeat
 	From:
 
-	Web developer:
-	anySocialNetwork:
-	From:
-
-	Web designer: Abel Sutilo
-	Twitter: @abelsutilo
-	From:Sevilla, Andalucia, Spain
+	Web developer: ChyBeat
 
 /* THANKS */
 
@@ -26,12 +19,12 @@
 	anySocialNetwork:
 	From:
 
-	(GNU/Linux - Mac - Windows ) tested by:
-	anySocialNetwork:
-	From:
+	(GNU/Linux) Firefox and Chrome tested by: Spyridon Mihalopoulos
+	Contact: https://rootspyro.com/
+	From: Venezuela
 
 /* SITE */
-	Last update:2022/10/16
+	Last update:2023/01/02
 	Language: English
 	Doctype:HTML5
 	IDE: Visual Studio Code, InkScape, Google Chrome Dev, Firefox Dev, Opera Developer

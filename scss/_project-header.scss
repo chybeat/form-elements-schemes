@@ -1,0 +1,195 @@
+#main-header {
+	background-color: var(--box-background-color);
+	height: var(--header-height);
+	padding: 0.5em;
+	position: sticky;
+	top: 0;
+	z-index: 3;
+	box-shadow: var(--float-shadow);
+
+
+	display: flex;
+	gap: 1em;
+	justify-content: space-between;
+
+	&>a {
+		height: 2em;
+
+		align-items: center;
+		display: flex;
+		justify-content: flex-start;
+		align-self: center;
+	}
+
+	img {
+		height: 2em;
+		width: 2em;
+		margin-right: 0.5em
+	}
+
+	h1 {
+		display: inline;
+		font-size: 1.25em;
+		margin: 0;
+		vertical-align: middle;
+	}
+
+	.menu-element,
+	#menu-icon {
+		color: var(--main-font-color);
+
+		&:hover {
+			color: var(--link-font-color);
+		}
+	}
+
+	.header-menu {
+		list-style: none;
+		margin: 0;
+		text-align: center;
+		align-self: center;
+
+		display: flex;
+		align-items: center;
+		gap: 0.5em;
+
+		li {
+			min-width: 2em;
+			height: 2em;
+
+			&:hover {
+				background-color: var(--main-background-color);
+			}
+		}
+
+		.menu-element-hover {
+			background-color: var(--main-background-color);
+			color: var(--link-font-color) !important;
+		}
+
+		i {
+			display: block;
+		}
+	}
+
+	.menu-element {
+		display: none;
+	}
+
+	#menu-icon {
+		cursor: pointer;
+		width: 2em;
+
+		i {
+			line-height: 2em;
+		}
+
+		span {
+			display: none;
+		}
+	}
+
+	#switch-scheme {
+		font-size: 1.55em;
+		position: relative;
+		height: 1.05em;
+		width: 2.65em;
+
+		&:hover {
+			background-color: transparent;
+		}
+
+		.icon-moon,
+		.icon-sun {
+			position: absolute;
+			top: 0.75em;
+			z-index: -1;
+			font-size: 0.75em;
+			color: transparent;
+		}
+
+		.icon-sun {
+			left: 0.2em;
+		}
+
+		.icon-moon {
+			right: 0.4em;
+		}
+
+		.switch {
+
+			&::after {
+				content: "\e907"; //icon-sun character from icons
+				font-family: "dlsf-ico";
+				font-size: 0.75em;
+				height: 1.5em;
+				line-height: 1.5em;
+				text-indent: 0.25em;
+				width: 1.5em;
+				color: var(--box-background-color);
+			}
+
+			&:checked {
+				&::after {
+					content: "\e906"; //icon-moon character from icons
+					left: 2em;
+				}
+			}
+		}
+	}
+
+	#mobile-menu {
+		background-color: var(--box-background-color);
+		height: calc(100vh - var(--header-height));
+		margin: 0;
+		position: absolute;
+		bottom: var(--header-height);
+		z-index: -1;
+		right: 0;
+
+		border: 0.1em solid var(--border-lines-color);
+		border-right: none;
+		border-bottom: none;
+
+		a {
+			display: block;
+			line-height: 2em;
+			padding: 0.75em;
+
+			&:hover {
+				text-decoration: none;
+				background-color: var(--main-background-color);
+			}
+		}
+
+		i,
+		span {
+			display: inline-block;
+		}
+
+		i {
+			font-size: 2em;
+			margin-right: 0.5em;
+			vertical-align: middle;
+		}
+
+		.menu-element {
+			display: block;
+		}
+
+
+		&.open,
+		&.close {
+			transition: transform 0.2s;
+			transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+		}
+
+		&.open {
+			transform: translateY(calc(100% + var(--header-height)));
+		}
+
+		&.close {
+			transform: translateY(calc(0% - var(--header-height)));
+		}
+	}
+}
