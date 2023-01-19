@@ -225,10 +225,7 @@ function goSummary() {
 	};
 	expandIcon.addEventListener("click", function (e) {
 		openMenu(summaryToggleMenu.name);
-		//si se hace click fuera de summary menu o en un enlace se debe cerrar el menu
-		setTimeout(() => {
-			html.addEventListener("click", summaryListener, false);
-		}, 50);
+		html.addEventListener("click", summaryListener, false);
 	});
 	html.menuToggle.push(summaryToggleMenu);
 }
@@ -242,29 +239,22 @@ function summaryListener(evt) {
 			break;
 		}
 	}
-	console.dir(evt.srcElement.offsetParent);
-	console.dir(clickedElement);
-	console.dir(summaryMenuData);
 
-	//if is in icon-menu needs to close
-	console.log(clickedElement.nodeName == "I");
-	console.log(clickedElement.classList);
-	if (clickedElement.nodeName == "I" && clickedElement.classList.contains("icon-arrow")) {
-		console.dir("click on I");
+	//if is in link (anchor) needs to close but the offset parent is summary
+	if (clickedElement.nodeName == "A" && clickedElement.closest("section").id == "summary-wrapper") {
 		closeSummary = true;
 	}
-	//if is in link (anchor) needs to close but the offset parent is summary
+
 	//if is outside summary needs to close
+	if (clickedElement.closest("header") || clickedElement.closest("footer") || clickedElement.closest("section").id != summaryMenuData.menuNode.id) {
+		closeSummary = true;
+	}
 
 	if (closeSummary) {
-		setTimeout(() => {
-			//closeMenu();
-			html.removeEventListener("click", summaryListener, false);
-		}, 100);
-		console.log(">>cerrando");
+		closeMenu();
+		html.removeEventListener("click", summaryListener, false);
 	}
 	return;
-	//next needs to remove the listener to avoid repeated clicks, may be needs some ms waiting to process
 }
 
 const html = document.querySelector("html");

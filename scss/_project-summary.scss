@@ -9,6 +9,7 @@
 	transform: translateX(-100%);
 	border-right: 0.1em solid var(--border-lines-color);
 
+
 	align-self: flex-start;
 
 
@@ -34,9 +35,9 @@
 
 
 	details {
+		margin: 0;
+
 		summary {
-			color: var(--link-font-color);
-			cursor: pointer;
 			display: block;
 			position: relative;
 
@@ -96,7 +97,6 @@
 		}
 
 		&.summary-element-hover {
-
 			&::before {
 				rotate: 270deg;
 			}

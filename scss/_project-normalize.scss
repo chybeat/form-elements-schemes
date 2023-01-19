@@ -55,3 +55,12 @@ a {
 		color: var(--link-font-color);
 	}
 }
+
+details {
+	margin: 1em 0;
+
+	summary {
+		color: var(--link-font-color);
+		cursor: pointer;
+	}
+}

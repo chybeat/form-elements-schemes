@@ -123,15 +123,14 @@
 						title="Go to normalize page on github.io">normalize</a> or another CSS
 					code to uniform rendered elements across browsers on all your projects.</i>
 				</p>
-				<p>The goal is colorize and make better default form elements (input, select, textarea, etc). The file <a
-						href="./css/form-schemes.min.css" download="form-schemes.min.css">form-schemes.min.css</a>
-					contains only a
-					box model format for elements and colors, is not configured with position areas or accomodates on parent
-					elements
-					like flex, grid or position rules. Just use before your own CSS or styles you want.</p>
+				<p>The goal is colorize and make better default-project form elements (input, select, textarea, etc). The
+					file <a href="./css/form-schemes.min.css" download="form-schemes.min.css">form-schemes.min.css</a> which
+					stylize the form elements contains only a box model format for these specific elements and colors, is not
+					configured with position areas or accomodates on parent elements with flex, grid or position rules. Just
+					use before your own CSS or styles you want.</p>
 				<p>May is needed to clarify this project has some positioned elements, but is only for your undestanding, if
 					you
-					want to modify, watch de unminified/unzipped version of files you can find in<a
+					want to modify watch de unminified/unzipped version of files you can find in <a
 						href="https://github.com/chybeat/form-elements-schemes/tree/main/css" target="_blank"
 						rel="noopener noreferrer">github folder</a> to
 					understand what changed in default box model, light scheme color or dark scheme color.</p>
@@ -140,55 +139,63 @@
 			<article id="how-to-use">
 				<h2>How to use</h2>
 				<h3>Download, then add to project</h3>
-				<p>Download the file <a
-						href="https://chybeat.github.io/form-elements-schemes/css/forms-aio.min.css">forms-aio.min.css</a>,
-					then in <code>head</code> tag write a <code>link</code> tag like below:
+				<p>Download the file <a href="./css/form-schemes.min.css"
+						download="form-schemes.min.css">form-schemes.min.css</a>,
+					then in <code>head</code> tag write a <code>&lt;link&gt;</code> tag like below:
 				</p>
 				<pre data-language="html"
-					data-code='<!DOCTYPE html>\n<html lang="en">\n\t<head>\n\t\t<link rel="stylesheet" type="text/css" href="/path/to/normalize.css">\n\t\t<link rel="stylesheet" type="text/css" href="/path/to/forms-aio.min.css">\n\t\t<link rel="stylesheet" type="text/css" href="/path/to/your-main-style.css">\n\t</head>'></pre>
-				<h3>CSS clases</h3>
-				<h4>.form-dark-scheme and .form-light-scheme</h4>
-				<p>The CSS detect via media query the dark or light scheme based on browser/OS current scheme to colorize
-					the elements, but you can force a scheme using <strong>form-dark-scheme</strong> or
+					data-code='<!DOCTYPE html>\n<html lang="en">\n\t<head>\n\t\t<link rel="stylesheet" type="text/css" href="/path/to/normalize.css">\n\t\t<link rel="stylesheet" type="text/css" href="/path/to/form-schemes.min.css">\n\t\t<link rel="stylesheet" type="text/css" href="/path/to/your-main-style.css">\n\t</head>'></pre>
+				<h3 id="css-clases">CSS clases</h3>
+				<h4>Class <code>form-dark-scheme</code> and class<code>.form-light-scheme</code></h4>
+				<p>The CSS file detect via media query the dark or light scheme based on current browser/OS dark or light
+					scheme to colorize the form elements, but you can force a scheme using <strong>form-dark-scheme</strong>
+					or
 					<strong>form-light-scheme</strong> classes in containers or elements
 				</p>
-				<details>
+				<details open>
 					<summary>Clickme for examples</summary>
 					<div class="sample-use-container">
-						<div id="ls-fs">
-							<form class="form-light-scheme">
-								<fieldset>
-									<legend>Forced light scheme form</legend>
-									<label for="ls-intxt">Test:</label>
-									<input type="text" id="ls-intxt"><br>
-									<br><label for="ls-s">Choose a language:</label>
-									<select id="ls-s">
-										<option value="css">CSS</option>
-										<option selected value="html">HTML</option>
-									</select><br>
-									<input type="button" value="Submit">
-								</fieldset>
-							</form>
+						<h3>Forced light scheme</h3>
+						<p>Notice background color remains with the page color, while the form elements change to light
+							scheme</p>
+						<div class="sample-use-container_code">
+							<div id="ls-fs">
+								<form class="form-light-scheme">
+									<fieldset>
+										<legend>Scheme Test</legend>
+										<label for="ls-intxt">Test:</label>
+										<input type="text" id="ls-intxt"><br><br>
+										<label for="ls-s">Choose a language:</label>
+										<select id="ls-s">
+											<option value="css">CSS</option>
+											<option selected value="html">HTML</option>
+										</select><br><br>
+										<input type="button" value="Submit">
+									</fieldset>
+								</form>
+							</div>
+							<pre data-language="html" data-take-code-from='#ls-fs'></pre>
 						</div>
-						<pre data-language="html" data-take-code-from='#ls-fs'></pre>
 					</div>
 					<div class="sample-use-container">
-						<div id="ds-fs">
-							<form class="form-dark-scheme">
-								<fieldset>
-									<legend>Forced dark scheme form</legend>
-									<label for="ds-intxt">Test:</label>
-									<input type="text" id="ds-intxt"><br>
-									<br><label for="ds-s">Choose a language:</label>
-									<select id="ds-s">
-										<option value="css">CSS</option>
-										<option selected value="html">HTML</option>
-									</select><br>
-									<input type="button" value="Submit">
-								</fieldset>
-							</form>
+						<div class="sample-use-container_code">
+							<div id="ds-fs">
+								<form class="form-dark-scheme">
+									<fieldset>
+										<legend>Forced dark scheme form</legend>
+										<label for="ds-intxt">Test:</label>
+										<input type="text" id="ds-intxt"><br>
+										<br><label for="ds-s">Choose a language:</label>
+										<select id="ds-s">
+											<option value="css">CSS</option>
+											<option selected value="html">HTML</option>
+										</select><br>
+										<input type="button" value="Submit">
+									</fieldset>
+								</form>
+							</div>
+							<pre data-language="html" data-take-code-from='#ds-fs'></pre>
 						</div>
-						<pre data-language="html" data-take-code-from='#ds-fs'></pre>
 					</div>
 					<div class="sample-use-container">
 						<div id="comb-fs">

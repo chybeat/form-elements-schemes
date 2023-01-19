@@ -129,13 +129,15 @@ table {
 .sample-use-container {
 	margin: 1em 0;
 
-	display: flex;
-	align-content: space-evenly;
-	align-items: center;
-	flex-direction: row;
-	flex-wrap: wrap;
-	gap: 1em;
-	justify-content: center;
+	&_code {
+		display: flex;
+		align-content: space-evenly;
+		align-items: center;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 1em;
+		justify-content: center;
+	}
 
 	form {
 		max-width: 25em;
@@ -144,6 +146,7 @@ table {
 	pre {
 		margin: 0;
 	}
+
 }
 
 .tableContainer {

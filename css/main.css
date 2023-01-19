@@ -195,6 +195,14 @@ a:visited {
   color: var(--link-font-color);
 }
 
+details {
+  margin: 1em 0;
+}
+details summary {
+  color: var(--link-font-color);
+  cursor: pointer;
+}
+
 #main-header {
   background-color: var(--box-background-color);
   height: var(--header-height);
@@ -417,9 +425,10 @@ footer #thanks-to p:last-child {
 #summary-wrapper a:hover {
   background-color: var(--main-background-color);
 }
+#summary-wrapper details {
+  margin: 0;
+}
 #summary-wrapper details summary {
-  color: var(--link-font-color);
-  cursor: pointer;
   display: block;
   position: relative;
 }
@@ -599,6 +608,8 @@ table th {
 /*take care and snoop next lines*/
 .sample-use-container {
   margin: 1em 0;
+}
+.sample-use-container_code {
   display: flex;
   align-content: space-evenly;
   align-items: center;
