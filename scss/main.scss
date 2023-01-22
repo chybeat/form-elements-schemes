@@ -19,8 +19,6 @@
 /*specific area: summary*/
 @use "_project-summary.scss";
 
-
-
 main {
 	display: flex;
 	gap: 1em;
@@ -28,16 +26,18 @@ main {
 
 	section {
 		padding: 0.5em;
+
+		&:not(#summary-wrapper) {
+			width: 100%;
+		}
 	}
 }
-
 
 code[class*=language-],
 pre[class*=language-],
 pre {
 	font-size: 0.9em;
-	width: 95%;
-	max-width: fit-content;
+	width: calc(100vw - (1.6rem * 2.1));
 }
 
 
@@ -110,6 +110,18 @@ table {
 //////////////////// class elements
 //////////////////// 
 
+.inline-code-text {
+	//font-style: italic;
+	background-color: var(--box-background-color);
+	border-radius: 0.5rem;
+	border: 0.1rem solid var(--main-background-color);
+	font-family: monospace;
+	font-size: 0.9em;
+	//line-height: 1.25em;
+	//padding: 0.25rem;
+	vertical-align: baseline;
+}
+
 .text__only-big-screen {
 	visibility: hidden;
 	width: 0;
@@ -124,6 +136,9 @@ table {
 .text__capitalize {
 	text-transform: capitalize;
 }
+
+
+
 
 /*take care and snoop next lines*/
 .sample-use-container {
@@ -166,14 +181,9 @@ table {
 		margin: 0.5em 0;
 	}
 
-	td {
+	form {
 		label {
 			display: block;
-		}
-
-		&:nth-child(1) {
-			min-width: 12em;
-			max-width: 18em;
 		}
 
 		&:nth-child(2),

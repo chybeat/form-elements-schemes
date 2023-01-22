@@ -49,12 +49,12 @@
 		</a>
 		<ul class="header-menu">
 			<li id="switch-scheme"><input class="switch" type="checkbox" title="Choose dark or light scheme"></i></li>
-			<li class="menu-element"><a href="https://github.com/chybeat/form-elements-schemes/" target="_blank"
-					rel="noopener noreferrer"><i class="icon-github"></i><span>Repository</span></a></li>
 			<li class="menu-element"><a href="#how-to-use"><i class="icon-howToUse"></i><span>How to use</span></a></li>
-			<li class="menu-element"><a href="#form-elements"><i class="icon-formElements"></i><span>Elements</span></a>
+			<li class="menu-element"><a href="#list-of-elements"><i class="icon-formElements"></i><span>Elements</span></a>
 			</li>
 			<li class="menu-element"><a href="#bugs-and-glitchs"><i class="icon-bugs"></i><span>Bugs</span></a></li>
+			<li class="menu-element"><a href="https://github.com/chybeat/form-elements-schemes/" target="_blank"
+					rel="noopener noreferrer"><i class="icon-github"></i><span>Repository</span></a></li>
 			<li id="menu-icon"><i class="icon-menu"></i><span>Menu</span></li>
 		</ul>
 	</header>
@@ -77,10 +77,10 @@
 				</li>
 				<li>
 					<details open>
-						<summary title="View more"><a href="#form-elements" title="Form Elements">Form
+						<summary title="View more"><a href="#list-of-elements" title="Form Elements">Form
 								Elements</a></summary>
 						<ul>
-							<li><a href="#form-input-element">Input</a></li>
+							<li><a href="#form-input-elements">Input</a></li>
 							<li><a href="#form-select-element">Select</a></li>
 							<li><a href="#form-buttons-element">Buttons</a></li>
 							<li><a href="#form-textarea-element">Textarea</a></li>
@@ -90,7 +90,6 @@
 									inputs</a></li>
 							<li><a href="#form-meter-progress-element">Meter and
 									range</a></li>
-							<li><a href="#form-range-element">Range</a></li>
 							<li><a href="#form-checkbox-radio-element">Checkbox
 									and radio</a></li>
 							<li><a href="#form-color-file-element">Color and
@@ -146,13 +145,14 @@
 				<pre data-language="html"
 					data-code='<!DOCTYPE html>\n<html lang="en">\n\t<head>\n\t\t<link rel="stylesheet" type="text/css" href="/path/to/normalize.css">\n\t\t<link rel="stylesheet" type="text/css" href="/path/to/form-schemes.min.css">\n\t\t<link rel="stylesheet" type="text/css" href="/path/to/your-main-style.css">\n\t</head>'></pre>
 				<h3 id="css-clases">CSS clases</h3>
-				<h4>Class <code>form-dark-scheme</code> and class<code>.form-light-scheme</code></h4>
+				<h4>Class <code class="inline-code-text">form-dark-scheme</code> and class <code
+						class="inline-code-text">form-light-scheme</code></h4>
 				<p>The CSS file detect via media query the dark or light scheme based on current browser/OS dark or light
 					scheme to colorize the form elements, but you can force a scheme using <strong>form-dark-scheme</strong>
 					or
 					<strong>form-light-scheme</strong> classes in containers or elements
 				</p>
-				<details open>
+				<details>
 					<summary>Clickme for examples</summary>
 					<div class="sample-use-container">
 						<h3>Forced light scheme</h3>
@@ -178,11 +178,12 @@
 						</div>
 					</div>
 					<div class="sample-use-container">
+						<h3>Forced dark scheme</h3>
 						<div class="sample-use-container_code">
 							<div id="ds-fs">
 								<form class="form-dark-scheme">
 									<fieldset>
-										<legend>Forced dark scheme form</legend>
+										<legend>A form in the dark</legend>
 										<label for="ds-intxt">Test:</label>
 										<input type="text" id="ds-intxt"><br>
 										<br><label for="ds-s">Choose a language:</label>
@@ -198,39 +199,82 @@
 						</div>
 					</div>
 					<div class="sample-use-container">
-						<div id="comb-fs">
-							<form>
-								<fieldset>
-									<legend>Combined schemes form</legend>
-									<label for="comb-intxt">Test:</label>
-									<input class="form-light-scheme" id="comb-intxt"><br>
-									<br><label for="comb-s">Choose a language:</label>
-									<select class="form-dark-scheme" id="comb-s">
-										<option value="css">CSS</option>
-										<option selected value="html">HTML</option>
-									</select><br>
-									<input type="button" value="Submit">
-
-								</fieldset>
-							</form>
-						</div>
-						<pre data-language="html" data-take-code-from='#comb-fs'></pre>
+						<h3>Forced dark scheme</h3>
 						<p><strong>Notice</strong> the first input class is
 							<strong>form-light-scheme</strong>, the
 							select class is
-							<strong>form-dark-scheme</strong> and the button has <strong>your current</strong> browser/OS
-							color
-							scheme.
+							<strong>form-dark-scheme</strong> and the button has <strong>your current</strong> browser/OS color
+							scheme, not work if you change scheme with switch in header and is on porpuse.
 						</p>
+						<div class="sample-use-container_code">
+							<div id="comb-fs">
+								<form>
+									<fieldset>
+										<legend>Combined schemes form</legend>
+										<label for="comb-intxt">Test:</label>
+										<input class="form-light-scheme" id="comb-intxt"><br>
+										<br><label for="comb-s">Choose a language:</label>
+										<select class="form-dark-scheme" id="comb-s">
+											<option value="css">CSS</option>
+											<option selected value="html">HTML</option>
+										</select><br>
+										<input type="button" value="Submit">
+									</fieldset>
+								</form>
+							</div>
+							<pre data-language="html" data-take-code-from='#comb-fs'></pre>
+						</div>
 					</div>
 				</details>
-				<h4 id="class-no-arrows">.no-arrows</h4>
-				<p>This class only works in input type number tag to remove the arrows or spinners, watch a live preview and
+				<h4 id="class-no-arrows">Class <code class="inline-code-text">no-arrows</code></h4>
+				<p>This class only works for input type number tags and removee the arrows or spinners, watch a live preview
+					and
 					get more info <a href="#input-elements">here</a>.</p>
 			</article>
-			<article id="form-elements"></article>
-			<article id="bugs-and-glitchs"></article>
+			<article id="list-of-elements">
+				<h2>List of elements</h2>
+				<p>Next list shows elements changed in css files. Click on them to read about changes and see a sample of
+					final look</p>
+				<ul>
+					<li><a href="#form-input-elements">Input elements (text, tel, password, etc)</a></li>
+					<li><a href="#form-select-elements">Select element</a></li>
+					<li><a href="#form-buttons-element">Button tag and input tag with button, reset and submit types </a>
+					</li>
+					<li><a href="#form-textarea-element">Textarea element</a></li>
+					<li><a href="#form-fieldset-legend-element">Fieldset and Legend</a></li>
+					<li><a href="#form-datalist-element">Datalist for input</a></li>
+					<li><a href="#form-meter-progress-element">Meter and
+							range elements</a></li>
+					<li><a href="#form-checkbox-radio-element">Checkbox
+							and radio elements</a></li>
+					<li><a href="#form-color-file-element">Color and
+							file elements</a></li>
+					<li><a href="#form-time-date-element">Time and
+							date elements</a></li>
+					<li><a href="#form-output-element">Output element</a></li>
+				</ul>
+			</article>
+			<article id="form-input-elements">
+				<div class="comparition">
+					<h3>Input elements</h3>
+					<h4 class="elementTagName">Input type text</h4>
+					<p class="elementDescription">Simple input text</p>
+					<div class="ligthSchemeElements form-light-scheme main-light-scheme">
+					</div>
+					<div class="darkSchemeElements form-dark-scheme main-dark-schemek">
+						<h5>Dark Scheme</h5>
+						<form>
+							<label for="it-txt">Words to laugh</label>
+							<input id="it-txt" type="text" placeholder="Write a short joke">
+						</form>
+					</div>
+					<div class="elementSourceCode">
+						<h5>Source code</h5>
+					</div>
+				</div>
+			</article>
 		</section>
+		<article id="bugs-and-glitchs"></article>
 	</main>
 	<footer>
 		<section id="thanks-to">

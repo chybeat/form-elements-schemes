@@ -14,6 +14,7 @@
 
 	&>a {
 		height: 2em;
+		text-decoration: none;
 
 		align-items: center;
 		display: flex;
@@ -57,8 +58,11 @@
 			min-width: 2em;
 			height: 2em;
 
-			&:hover {
-				background-color: var(--main-background-color);
+			a {
+				&:hover {
+					background-color: var(--main-background-color);
+				}
+
 			}
 		}
 
@@ -69,6 +73,12 @@
 
 		i {
 			display: block;
+			position: relative;
+		}
+
+		a {
+			display: block;
+			text-decoration: none;
 		}
 	}
 
@@ -192,4 +202,39 @@
 			transform: translateY(calc(0% - var(--header-height)));
 		}
 	}
+}
+
+@media screen and (min-width: 42em) {
+	:root {
+		--header-height: 5em;
+	}
+
+	#main-header {
+		justify-content: space-evenly;
+
+		#mobile-menu,
+		#menu-icon {
+			display: none;
+		}
+
+		.menu-element {
+			display: inline-block;
+		}
+
+		#switch-scheme {
+			margin-right: 0.5em;
+		}
+
+		.header-menu {
+			li {
+				height: 3em;
+			}
+
+			a {
+				padding: 0.5em;
+			}
+		}
+	}
+
+
 }

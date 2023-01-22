@@ -29,8 +29,14 @@ b,
 h1,
 h2,
 h3,
+h4,
 strong {
 	color: var(--strong-font-color);
+}
+
+h2 {
+	text-align: center;
+	text-transform: uppercase;
 }
 
 h3,

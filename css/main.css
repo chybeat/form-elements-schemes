@@ -73,6 +73,9 @@ pre[class*=language-]:before {
   padding: 0 1em;
   font-weight: bold;
 }
+pre[class*=language-] code {
+  padding: 1em 0 0 0;
+}
 
 pre[class*=language-git]:before {
   content: "Git";
@@ -171,8 +174,14 @@ b,
 h1,
 h2,
 h3,
+h4,
 strong {
   color: var(--strong-font-color);
+}
+
+h2 {
+  text-align: center;
+  text-transform: uppercase;
 }
 
 h3,
@@ -218,6 +227,7 @@ details summary {
 }
 #main-header > a {
   height: 2em;
+  text-decoration: none;
   align-items: center;
   display: flex;
   justify-content: flex-start;
@@ -255,7 +265,7 @@ details summary {
   min-width: 2em;
   height: 2em;
 }
-#main-header .header-menu li:hover {
+#main-header .header-menu li a:hover {
   background-color: var(--main-background-color);
 }
 #main-header .header-menu .menu-element-hover {
@@ -264,6 +274,11 @@ details summary {
 }
 #main-header .header-menu i {
   display: block;
+  position: relative;
+}
+#main-header .header-menu a {
+  display: block;
+  text-decoration: none;
 }
 #main-header .menu-element {
   display: none;
@@ -359,6 +374,30 @@ details summary {
   transform: translateY(calc(0% - var(--header-height)));
 }
 
+@media screen and (min-width: 42em) {
+  :root {
+    --header-height: 5em;
+  }
+  #main-header {
+    justify-content: space-evenly;
+  }
+  #main-header #mobile-menu,
+#main-header #menu-icon {
+    display: none;
+  }
+  #main-header .menu-element {
+    display: inline-block;
+  }
+  #main-header #switch-scheme {
+    margin-right: 0.5em;
+  }
+  #main-header .header-menu li {
+    height: 3em;
+  }
+  #main-header .header-menu a {
+    padding: 0.5em;
+  }
+}
 footer {
   background-color: var(--box-background-color);
   padding: 1em;
@@ -528,15 +567,15 @@ main {
 main section {
   padding: 0.5em;
 }
+main section:not(#summary-wrapper) {
+  width: 100%;
+}
 
 code[class*=language-],
 pre[class*=language-],
 pre {
   font-size: 0.9em;
-  width: 95%;
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
+  width: calc(100vw - 3.36rem);
 }
 
 table {
@@ -590,6 +629,15 @@ table th {
   max-width: 48em;
 }
 
+.inline-code-text {
+  background-color: var(--box-background-color);
+  border-radius: 0.5rem;
+  border: 0.1rem solid var(--main-background-color);
+  font-family: monospace;
+  font-size: 0.9em;
+  vertical-align: baseline;
+}
+
 .text__only-big-screen {
   visibility: hidden;
   width: 0;
@@ -641,14 +689,10 @@ table th {
 .comparition textarea {
   margin: 0.5em 0;
 }
-.comparition td label {
+.comparition form label {
   display: block;
 }
-.comparition td:nth-child(1) {
-  min-width: 12em;
-  max-width: 18em;
-}
-.comparition td:nth-child(2), .comparition td:nth-child(3), .comparition td:nth-child(4) {
+.comparition form:nth-child(2), .comparition form:nth-child(3), .comparition form:nth-child(4) {
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;

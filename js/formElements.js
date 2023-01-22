@@ -59,6 +59,7 @@ function takeSourceCode() {
 		//Copying to light scheme Column
 		lightTheme = row.querySelector(".ligthSchemeElements");
 		lightTheme.innerHTML = changeForIdLabel(origin.innerHTML);
+		lightTheme.innerHTML = lightTheme.innerHTML.replace("<h5>Dark Scheme</h5>", "<h5>Light Scheme</h5>");
 		//Copying to source code column
 		preTag = document.createElement("pre");
 		preTag.classList = "language-html";
