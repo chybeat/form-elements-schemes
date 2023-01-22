@@ -7,7 +7,7 @@ footer {
 	align-items: center;
 	flex-wrap: wrap;
 	gap: 1em;
-	justify-content: center;
+	justify-content: space-evenly;
 
 	a {
 		display: block;
@@ -18,7 +18,9 @@ footer {
 	}
 
 	#about-us {
+		order: 3;
 		text-align: center;
+		width: 100%;
 
 		a {
 			span {
@@ -28,7 +30,9 @@ footer {
 	}
 
 	#license {
-		width: 13em;
+		order: 2;
+		text-align: center;
+		width: 15em;
 
 		a {
 			span {
@@ -44,13 +48,51 @@ footer {
 	}
 
 	#thanks-to {
+		order: 1;
+		text-align: center;
+		width: 15em;
+
 		p {
 			margin: 0 0 1em 0;
+
 
 			&:last-child {
 				margin: 0
 			}
 		}
 
+		strong {
+			display: block;
+			margin-bottom: 0.5em;
+		}
+
+		a {
+			display: block;
+			margin-bottom: 0.25em;
+		}
+	}
+}
+
+@media screen and (min-width: 48em) {
+	footer {
+
+		#about-us,
+		#thanks-to,
+		#license {
+			width: 14em;
+			;
+		}
+
+		#about-us {
+			order: 2;
+		}
+
+		#license {
+			order: 3;
+		}
+
+		#thanks-to {
+			order: 1;
+		}
 	}
 }

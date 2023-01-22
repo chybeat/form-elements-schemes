@@ -147,7 +147,7 @@ pre[class*=language-scss]:before {
   transition-property: background-color, color;
   transition-duration: 0.5s;
   --header-height: 3em;
-  --float-shadow: 0 -1.75em 1em 2em var(--border-lines-color) ;
+  --float-shadow: 0 -1.75em 1em 2em var(--box-background-color) ;
 }
 
 * {
@@ -398,6 +398,12 @@ details summary {
     padding: 0.5em;
   }
 }
+@media screen and (min-width: 52em) {
+  #main-header .text__only-big-screen {
+    display: inline;
+    visibility: visible;
+  }
+}
 footer {
   background-color: var(--box-background-color);
   padding: 1em;
@@ -406,7 +412,7 @@ footer {
   align-items: center;
   flex-wrap: wrap;
   gap: 1em;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 footer a {
   display: block;
@@ -415,13 +421,17 @@ footer p {
   margin: 0;
 }
 footer #about-us {
+  order: 3;
   text-align: center;
+  width: 100%;
 }
 footer #about-us a span {
   display: block;
 }
 footer #license {
-  width: 13em;
+  order: 2;
+  text-align: center;
+  width: 15em;
 }
 footer #license a span {
   display: block;
@@ -430,13 +440,42 @@ footer #license img {
   margin: 0 auto;
   display: block;
 }
+footer #thanks-to {
+  order: 1;
+  text-align: center;
+  width: 15em;
+}
 footer #thanks-to p {
   margin: 0 0 1em 0;
 }
 footer #thanks-to p:last-child {
   margin: 0;
 }
+footer #thanks-to strong {
+  display: block;
+  margin-bottom: 0.5em;
+}
+footer #thanks-to a {
+  display: block;
+  margin-bottom: 0.25em;
+}
 
+@media screen and (min-width: 48em) {
+  footer #about-us,
+footer #thanks-to,
+footer #license {
+    width: 14em;
+  }
+  footer #about-us {
+    order: 2;
+  }
+  footer #license {
+    order: 3;
+  }
+  footer #thanks-to {
+    order: 1;
+  }
+}
 #summary-wrapper {
   background-color: var(--box-background-color);
   padding: 0;

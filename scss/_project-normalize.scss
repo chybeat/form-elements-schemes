@@ -2,7 +2,7 @@
 	transition-property: background-color, color;
 	transition-duration: 0.5s;
 	--header-height: 3em;
-	--float-shadow: 0 -1.75em 1em 2em var(--border-lines-color)
+	--float-shadow: 0 -1.75em 1em 2em var(--box-background-color)
 }
 
 * {
