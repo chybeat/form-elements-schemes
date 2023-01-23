@@ -1,14 +1,16 @@
 #summary-wrapper {
+	--border-summary-width: 0.1em;
 	background-color: var(--box-background-color);
+	border: var(--border-summary-width) solid var(--border-lines-color);
+	border-left: none;
+	border-bottom: none;
+	height: calc(100vh - var(--header-height));
+	left: 0;
 	padding: 0;
 	position: fixed;
-	height: calc(100vh - var(--header-height));
 	top: var(--header-height);
-	z-index: 3;
-	left: 0;
 	transform: translateX(-100%);
-	border-right: 0.1em solid var(--border-lines-color);
-
+	z-index: 3;
 
 	align-self: flex-start;
 
@@ -30,9 +32,7 @@
 		&:hover {
 			background-color: var(--main-background-color);
 		}
-
 	}
-
 
 	details {
 		margin: 0;
@@ -56,8 +56,6 @@
 			&:hover {
 				background-color: var(--main-background-color);
 			}
-
-
 		}
 
 		&[open] {
@@ -75,18 +73,22 @@
 
 	.icon-arrow {
 		background: var(--box-background-color);
+		border-radius: 0 0 25% 0;
+		border: 0.1em solid var(--border-lines-color);
+		border-left: none;
 		height: 2em;
-		line-height: 1em;
-		padding: 0.5em;
+		line-height: 0.8em;
+		padding: 0.5em 0.4em;
 		position: absolute;
 		right: -2em;
-		top: 0;
+		top: calc(0em - var(--border-summary-width));
 		width: 2em;
-		border-radius: 0 0 25% 0;
+
 
 		&::before {
 			display: block;
 			rotate: 90deg;
+			width: 1em;
 
 		}
 
@@ -97,6 +99,8 @@
 		}
 
 		&.summary-element-hover {
+			padding: 0.5em 0.35em;
+
 			&::before {
 				rotate: 270deg;
 			}
@@ -126,14 +130,13 @@
 	}
 
 	#index {
-		margin: 0.5em 0 0 0;
-		width: 11em;
+		margin: 0;
 		overflow-y: auto;
 		overflow-x: hidden;
-		height: calc(100vh - (var(--header-height)*1.75));
+		height: calc(100vh - (var(--header-height) + 2em - var(--border-summary-width)));
 
 		//firefox scroll bar theme
-		scrollbar-color: var(--link-font-color) var(--main-background-color); //1st track, 2nd thumb
+		scrollbar-color: var(--link-font-color) var(--main-background-color); //1st thumb, 2nd track
 		scrollbar-width: thin;
 
 		// Chrome scrollbar
@@ -144,11 +147,14 @@
 		// Scrollbar Track
 		&::-webkit-scrollbar-track {
 			background-color: var(--main-background-color);
+			border-radius: 1em;
+
 		}
 
 		// Scrollbar track piece
 		&::-webkit-scrollbar-track-piece {
 			background-clip: content-box;
+			border-radius: 1em;
 		}
 
 		// Handle

@@ -22,7 +22,10 @@
 	<meta name="msapplication-TileColor" content="#2d89ef">
 	<meta name="msapplication-TileImage" content="./mstile-144x144.png">
 	<meta name="theme-color" content="#1e1e1e">
-
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+		rel="stylesheet">
 	<!--This page JS File-->
 	<script src="./js/formElements.js"></script>
 
@@ -107,32 +110,41 @@
 		<section id="content">
 			<article id="introduction">
 				<h2>About this project</h2>
-				<p>This project use CSS language to make better and standarized (normalized) dark and light schemes across
-					browsers on every HTML forms elements.</p>
-				<p></p>This page
-				use <a href="https://prismjs.com" target="_blank" rel="noopener noreferrer"><img class="logo logo--text"
-						src="./img/logo-prismjs.svg" alt="prism.js logo" width="16" height="16"
-						title="Prism.js logo">prism.js</a> to
-				shows colored code like code editor and <a href="https://necolas.github.io/normalize.css/" target="_blank"
-					rel="noopener noreferrer" title="Go to normalize page on github.io"><img class="logo logo--text"
-						src="./img/logo-normalize.svg" alt="Normalize logo" title="Normalize.css logo" width="16"
-						height="16">normalize v 8.0.1</a>
-				to initialize styles in every browser. <i>I recomend to use <a
-						href="https://necolas.github.io/normalize.css/" target="_blank" rel="noopener noreferrer"
-						title="Go to normalize page on github.io">normalize</a> or another CSS
-					code to uniform rendered elements across browsers on all your projects.</i>
-				</p>
-				<p>The goal is colorize and make better default-project form elements (input, select, textarea, etc). The
-					file <a href="./css/form-schemes.min.css" download="form-schemes.min.css">form-schemes.min.css</a> which
-					stylize the form elements contains only a box model format for these specific elements and colors, is not
-					configured with position areas or accomodates on parent elements with flex, grid or position rules. Just
-					use before your own CSS or styles you want.</p>
-				<p>May is needed to clarify this project has some positioned elements, but is only for your undestanding, if
-					you
-					want to modify watch de unminified/unzipped version of files you can find in <a
-						href="https://github.com/chybeat/form-elements-schemes/tree/main/css" target="_blank"
-						rel="noopener noreferrer">github folder</a> to
-					understand what changed in default box model, light scheme color or dark scheme color.</p>
+				<div class="card">
+					<div class="card_title porpuse">
+						<h3>The porpuse</h3>
+						<img src="./img/goal.jpg" alt="porpouse image" width="360" height="203">
+					</div>
+					<p>
+						This project use CSS language to make better and standardized (normalized) dark and light schemes
+						across browsers to HTML form elements enhancing colors and box model in them (input, select,
+						textarea, etc).
+					</p>
+					<p> The
+						file <a href="./css/form-schemes.min.css" download="form-schemes.min.css">form-schemes.min.css</a>
+						stylize the form elements, contains only a color and box model properties, has not styles for position
+						areas on parent elements such flex, grid or position rules, just add it before your own CSS rules.</p>
+				</div>
+
+				<div class="card">
+					<div class="card_title page">
+						<h3>This page</h3>
+						<img src="./img/hello.jpg" alt="welcome image" width="360" height="203">
+					</div>
+
+					<p>This page use <a href="https://prismjs.com" target="_blank" rel="noopener noreferrer"><img
+								class="logo logo--text" src="./img/logo-prismjs.svg" alt="prism.js logo" width="16" height="16"
+								title="Prism.js logo">prism.js</a> to
+						shows colored code like code editor and <a href="https://necolas.github.io/normalize.css/"
+							target="_blank" rel="noopener noreferrer" title="Go to normalize page on github.io"><img
+								class="logo logo--text" src="./img/logo-normalize.svg" alt="Normalize logo"
+								title="Normalize.css logo" width="16" height="16">normalize v 8.0.1</a>
+						to initialize styles across browsers. <i>I recomend to use <a
+								href="https://necolas.github.io/normalize.css/" target="_blank" rel="noopener noreferrer"
+								title="Go to normalize page on github.io">normalize</a> or another CSS
+							rules to standarize rendered elements.</i>
+					</p>
+				</div>
 
 			</article>
 			<article id="how-to-use">
@@ -140,7 +152,9 @@
 				<h3>Download, then add to project</h3>
 				<p>Download the file <a href="./css/form-schemes.min.css"
 						download="form-schemes.min.css">form-schemes.min.css</a>,
-					then in <code>head</code> tag write a <code>&lt;link&gt;</code> tag like below:
+					then in <code class="inline-code-text">&lt;head&gt;</code> tag write a <code
+						class="inline-code-text">&lt;link&gt;</code> tag as shown
+					below:
 				</p>
 				<pre data-language="html"
 					data-code='<!DOCTYPE html>\n<html lang="en">\n\t<head>\n\t\t<link rel="stylesheet" type="text/css" href="/path/to/normalize.css">\n\t\t<link rel="stylesheet" type="text/css" href="/path/to/form-schemes.min.css">\n\t\t<link rel="stylesheet" type="text/css" href="/path/to/your-main-style.css">\n\t</head>'></pre>
@@ -199,7 +213,7 @@
 						</div>
 					</div>
 					<div class="sample-use-container">
-						<h3>Forced dark scheme</h3>
+						<h3>Combined scheme</h3>
 						<p><strong>Notice</strong> the first input class is
 							<strong>form-light-scheme</strong>, the
 							select class is
@@ -232,7 +246,7 @@
 					get more info <a href="#input-elements">here</a>.</p>
 			</article>
 			<article id="list-of-elements">
-				<h2>List of elements</h2>
+				<h2>HTML Form elements</h2>
 				<p>Next list shows elements changed in css files. Click on them to read about changes and see a sample of
 					final look</p>
 				<ul>
@@ -286,6 +300,9 @@
 				<a href="https://realfavicongenerator.net/" target="_blank"
 					rel="noopener noreferrer">https://realfavicongenerator.net/</a>
 			</p>
+			<p><strong>Images from</strong>
+				<a href="https://pexels.com" target="_blank" rel="noopener noreferrer">https://pexels.com</a>
+			</p>
 		</section>
 		<section id="license">
 			<p>
@@ -301,7 +318,7 @@
 			<p>
 				<a href="humans.txt" target="_blank" rel="noopener noreferrer" class="humans-link">
 					<span>About us</span>
-					<img src="img/logo-humanstxt-org.svg" alt="humans.txt link" width="232" height="64">
+					<img src="./img/logo-humanstxt-org.svg" alt="humans.txt link" width="232" height="64">
 				</a>
 			</p>
 			<p><span>Made with 💙</span> <span>© 2023</span></p>

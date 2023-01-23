@@ -2,7 +2,7 @@
 	transition-property: background-color, color;
 	transition-duration: 0.5s;
 	--header-height: 3em;
-	--float-shadow: 0 -1.75em 1em 2em var(--box-background-color)
+	--float-shadow: 0 -1.75em 1em 2em var(--box-shadow-color)
 }
 
 * {
@@ -18,6 +18,8 @@ html {
 	font-size: 62.5%;
 	scroll-behavior: smooth;
 	scroll-padding-top: calc((var(--header-height) + 2em) * 1.6);
+	font-family: 'Roboto', sans-serif;
+	font-weight: 500;
 }
 
 body {
@@ -32,11 +34,12 @@ h3,
 h4,
 strong {
 	color: var(--strong-font-color);
+	font-weight: 500;
 }
 
+h1,
 h2 {
-	text-align: center;
-	text-transform: uppercase;
+	font-weight: 700;
 }
 
 h3,
@@ -69,4 +72,13 @@ details {
 		color: var(--link-font-color);
 		cursor: pointer;
 	}
+}
+
+h2 {
+	text-align: center;
+	text-transform: uppercase;
+}
+
+i {
+	font-style: italic;
 }

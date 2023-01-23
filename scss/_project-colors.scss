@@ -18,6 +18,10 @@ $link-dark-font-color: #00A2FF;
 $link-dark-font-active-color: #0CD1A0;
 $strong-dark-font-color: #e0e0e0;
 
+//Other colors
+$box-shadow-dark-color: #000;
+$text-shadow-dark-color: #545454;
+
 
 //////////////////// 
 //////////////////// Ligth colors
@@ -32,6 +36,10 @@ $link-light-font-color: #1278B3;
 $link-light-font-active-color: #158569;
 $strong-light-font-color: #000;
 
+//Other colors
+$box-shadow-light-color: #818181;
+$text-shadow-light-color: #e1e1e1;
+
 //////////////////// 
 //////////////////// Common
 //////////////////// 
@@ -40,47 +48,55 @@ $border-lines-color: #515151;
 
 // CSS Variables
 :root {
-	color-scheme: light;
-	--main-background-color: #{$main-light-background-color};
+	--border-lines-color: #{$border-lines-color};
 	--box-background-color: #{$box-light-background-color};
+	--box-shadow-color: #{$box-shadow-light-color};
+	--link-font-active-color: #{$link-light-font-active-color};
+	--link-font-color: #{$link-light-font-color};
+	--main-background-color: #{$main-light-background-color};
 	--main-font-color: #{$main-light-font-color};
 	--strong-font-color: #{$strong-light-font-color};
-	--link-font-color: #{$link-light-font-color};
-	--link-font-active-color: #{$link-light-font-active-color};
-	--border-lines-color: #{$border-lines-color};
+	--text-shadow-color: #{$text-shadow-light-color};
+	color-scheme: light;
 }
 
 @media screen and (prefers-color-scheme: dark) {
 	:root {
-		color-scheme: dark;
-		--main-background-color: #{$main-dark-background-color};
-		--box-background-color: #{$box-dark-background-color};
-		--main-font-color: #{$main-dark-font-color};
-		--strong-font-color: #{$strong-dark-font-color};
-		--link-font-color: #{$link-dark-font-color};
-		--link-font-active-color: #{$link-dark-font-active-color};
 		--border-lines-color: #{$border-lines-color};
+		--box-background-color: #{$box-dark-background-color};
+		--link-font-active-color: #{$link-dark-font-active-color};
+		--link-font-color: #{$link-dark-font-color};
+		--main-background-color: #{$main-dark-background-color};
+		--main-font-color: #{$main-dark-font-color};
+		--box-shadow-color: #{$box-shadow-dark-color};
+		--text-shadow-color: #{$text-shadow-dark-color};
+		--strong-font-color: #{$strong-dark-font-color};
+		color-scheme: dark;
 	}
 }
 
 .main-light-scheme {
-	color-scheme: light;
-	--main-background-color: #{$main-light-background-color};
-	--box-background-color: #{$box-light-background-color};
-	--main-font-color: #{$main-light-font-color};
-	--strong-font-color: #{$strong-light-font-color};
-	--link-font-color: #{$link-light-font-color};
-	--link-font-active-color: #{$link-light-font-active-color};
 	--border-lines-color: #{$border-lines-color};
+	--box-background-color: #{$box-light-background-color};
+	--link-font-active-color: #{$link-light-font-active-color};
+	--link-font-color: #{$link-light-font-color};
+	--main-background-color: #{$main-light-background-color};
+	--main-font-color: #{$main-light-font-color};
+	--box-shadow-color: #{$box-shadow-light-color};
+	--text-shadow-color: #{$text-shadow-light-color};
+	--strong-font-color: #{$strong-light-font-color};
+	color-scheme: light;
 }
 
 .main-dark-scheme {
-	color-scheme: dark;
-	--main-background-color: #{$main-dark-background-color};
-	--box-background-color: #{$box-dark-background-color};
-	--main-font-color: #{$main-dark-font-color};
-	--strong-font-color: #{$strong-dark-font-color};
-	--link-font-color: #{$link-dark-font-color};
-	--link-font-active-color: #{$link-dark-font-active-color};
 	--border-lines-color: #{$border-lines-color};
+	--box-background-color: #{$box-dark-background-color};
+	--link-font-active-color: #{$link-dark-font-active-color};
+	--link-font-color: #{$link-dark-font-color};
+	--main-background-color: #{$main-dark-background-color};
+	--main-font-color: #{$main-dark-font-color};
+	--box-shadow-color: #{$box-shadow-dark-color};
+	--text-shadow-color: #{$text-shadow-dark-color};
+	--strong-font-color: #{$strong-dark-font-color};
+	color-scheme: dark;
 }
