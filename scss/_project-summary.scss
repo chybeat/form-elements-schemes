@@ -81,7 +81,7 @@
 		padding: 0.5em 0.4em;
 		position: absolute;
 		right: -2em;
-		top: calc(0em - var(--border-summary-width));
+		top: calc(0em - var(--border-summary-width) + 0.01em);
 		width: 2em;
 
 

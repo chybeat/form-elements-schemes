@@ -23,6 +23,11 @@
 	Contact: https://rootspyro.com/
 	From: Venezuela
 
+	(Windows) Brave tested by: Lila Alves
+	Contact: https://lilaalves.com/
+	From: Argentina
+
+
 /* SITE */
 	Last update:2023/01/02
 	Language: English
